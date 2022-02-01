@@ -25,24 +25,25 @@ public class Sc_Ship_Move : NetworkBehaviour
         if(IsLocalPlayer)
         {
             //moving
-            if (Input.GetKey("up"))
+            if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
             {
                 gameObject.transform.position += gameObject.transform.right * active_speed;
                 curr_passive_speed = passive_speed;
             }
-            else if (Input.GetKeyDown("down"))
+            else if (Input.GetKeyDown("down") || Input.GetKey(KeyCode.S))
             {
                 curr_passive_speed = 0;
             }
             //turning
-            if (Input.GetKey("left"))
+            if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
             {
                 gameObject.transform.eulerAngles += gameObject.transform.forward * degrees * Time.deltaTime;
             }
-            else if (Input.GetKey("right"))
+            else if (Input.GetKey("right") || Input.GetKey(KeyCode.D))
             {
                 gameObject.transform.eulerAngles += gameObject.transform.forward * -degrees * Time.deltaTime;
             }
+
             //apply passive speed
             gameObject.transform.position += gameObject.transform.right * curr_passive_speed;
         }
