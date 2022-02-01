@@ -43,9 +43,16 @@ public class Sc_Ship_Move : NetworkBehaviour
             {
                 gameObject.transform.eulerAngles += gameObject.transform.forward * -degrees * Time.deltaTime;
             }
+            else if((Input.GetKey("up") || Input.GetKey(KeyCode.W)) && Input.GetKey(KeyCode.LeftShift))
+            {
+                gameObject.transform.position += gameObject.transform.right * active_speed *2;
+                curr_passive_speed = passive_speed;
+            }
 
             //apply passive speed
             gameObject.transform.position += gameObject.transform.right * curr_passive_speed;
         }
+
+        
     }
 }
