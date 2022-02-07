@@ -34,7 +34,8 @@ public class SCR_TerrainGeneration : MonoBehaviour
     {
         mapGrid = new int[mapHeight, mapWidth];
 
-        int randomInt = Random.Range(1, 3); // used to decide the first terrainTile generated
+        // *** Code to Randomly select the first tile at [0, 0] (bottom left corner of the grid) ***
+        /*int randomInt = Random.Range(1, 3); // used to decide the first terrainTile generated
 
         switch (randomInt)
         {
@@ -51,6 +52,11 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 CreateTerrainTile(2, 0, 0);
                 break;
         }
+        */
+
+        // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
+        mapGrid[0, 0] = 0;
+        CreateTerrainTile(0, 0, 0); // grass at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
