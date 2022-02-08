@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class SCR_BackgroundTileMap : MonoBehaviour
 {
-    public GameObject backgroundTile;
+    public Tile backgroundTile;
 
     int backgroundWidth = 10;
     int backgroundHeight = 10;
@@ -16,26 +16,18 @@ public class SCR_BackgroundTileMap : MonoBehaviour
     {
         GenerateBackgroundTiles();
     }
-
-    // *** Runs through the grid and generates background tiles ***
     void GenerateBackgroundTiles()
     {
         backgroundTileGrid = new int[backgroundWidth, backgroundHeight];
 
-        for (int y = 0; y < backgroundTileGrid.GetLength(0); y++)
-        {
-            for (int x = 0; x < backgroundTileGrid.GetLength(1); x++)
-            {
-                CreateBackgroundTile(x, y);
-            }
-        }
+
     }
-
-    /*** Creates a background tile at specified [x, y] coordinates ***/
-    void CreateBackgroundTile(int x, int y)
+    /*** Creates a background tile using a given ID at specified [x, y] coordinates ***/
+    void CreateTerrainTile(int tileID, int x, int y)
     {
-        GameObject terrainTile = Instantiate(backgroundTile);
+        //GameObject tileObject = terrainTiles[tileID];
+        //GameObject terrainTile = Instantiate(tileObject);
 
-        terrainTile.transform.localPosition = new Vector3(x, y, 0);
+        //terrainTile.transform.localPosition = new Vector3(x, y, 0);
     }
 }
