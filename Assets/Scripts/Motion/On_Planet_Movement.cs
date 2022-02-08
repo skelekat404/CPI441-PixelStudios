@@ -13,8 +13,8 @@ public class On_Planet_Movement : MonoBehaviour
 
     //Sprint cooldown variables
     public float sprintSpeed = 2f;
-    public float sprintLength = 0.5f;
-    public float sprintCoolDown = 5f;
+    public float sprintLength = 0.1f;
+    public float sprintCoolDown = 3f;
 
     private float sprintCounter;
     private float sprintCoolCounter;
@@ -54,7 +54,7 @@ public class On_Planet_Movement : MonoBehaviour
                 if (sprintCoolCounter <= 0 && sprintCounter <= 0)
                 {
                     //Update this variable for faster/slower accelerate speed
-                    active_speed = 0.04f;
+                    active_speed = 0.009f;
                     gameObject.transform.position += gameObject.transform.right * active_speed;
                     curr_passive_speed = passive_speed;
 
