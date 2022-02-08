@@ -14,7 +14,7 @@ public class On_Planet_Movement : MonoBehaviour
     //Sprint cooldown variables
     public float sprintSpeed = 2f;
     public float sprintLength = 0.5f;
-    public float sprintCoolDown = 120f;
+    public float sprintCoolDown = 5f;
 
     private float sprintCounter;
     private float sprintCoolCounter;
@@ -63,19 +63,21 @@ public class On_Planet_Movement : MonoBehaviour
 
                 
             }
+
             if (sprintCounter > 0)
             {
                 sprintCounter -= Time.deltaTime;
                 if (sprintCounter <= 0)
                 {
                     //Reset speed back to default
-                    active_speed = 0.009f;
+                    active_speed = 0.005f;
                     sprintCoolCounter = sprintCoolDown;
                 }
             }
 
             if (sprintCoolCounter > 0)
             {
+            print(sprintCoolCounter -= Time.deltaTime);
                 sprintCoolCounter -= Time.deltaTime;
             }
 
