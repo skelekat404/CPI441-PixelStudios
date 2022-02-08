@@ -28,6 +28,6 @@ public class Sheep_AI : MonoBehaviour
 
     void SetNewNav()
     {
-        navigation = new Vector2(Random.Range(-maxDist, maxDist), Random.Range(-maxDist, maxDist));
+        navigation = new Vector2(Random.Range(0, maxDist), Random.Range(0, maxDist));
     }
 }
