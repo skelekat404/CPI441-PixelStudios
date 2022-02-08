@@ -5,9 +5,10 @@ using UnityEngine;
 public class SCR_BackgroundTileMap : MonoBehaviour
 {
     public GameObject backgroundTile;
-
-    int backgroundWidth = 10;
-    int backgroundHeight = 10;
+    
+    // *** Important to match these values with the width and height in TerrainGeneration script ***
+    int backgroundWidth = 30;
+    int backgroundHeight = 30;
 
     int[,] backgroundTileGrid;
 
@@ -32,8 +33,8 @@ public class SCR_BackgroundTileMap : MonoBehaviour
     /*** Creates a background tile at specified [x, y] coordinates ***/
     void CreateBackgroundTile(int x, int y)
     {
-        GameObject terrainTile = Instantiate(backgroundTile);
+        GameObject bgTile = Instantiate(backgroundTile);
 
-        terrainTile.transform.localPosition = new Vector3(x, y);
+        bgTile.transform.localPosition = new Vector3(x, y);
     }
 }
