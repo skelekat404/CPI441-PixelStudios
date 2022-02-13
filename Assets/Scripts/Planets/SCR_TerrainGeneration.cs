@@ -15,7 +15,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
     int[,] mapGrid;
 
-    void Start()
+    void Awake()
     {
         DefineTerrainTiles();
         GenerateTerrainTiles();

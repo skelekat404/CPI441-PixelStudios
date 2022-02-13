@@ -8,7 +8,7 @@ public class PlanetCollision : MonoBehaviour
 
     public GameObject planetOneText;
     private bool planetOneBool;
-    void Start()
+    void Awake()
     {
         planet = GetComponent<Rigidbody2D>();
 
@@ -16,15 +16,9 @@ public class PlanetCollision : MonoBehaviour
         planetOneBool = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Player"))
+        if (collision.transform.root.tag.Equals("Player"))
         {
             planetOneText.SetActive(true);
             planetOneBool = true;
@@ -35,7 +29,7 @@ public class PlanetCollision : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Player"))
+        if (collision.transform.root.tag.Equals("Player"))
         {
             planetOneText.SetActive(false);
             planetOneBool = false;

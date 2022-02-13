@@ -11,7 +11,7 @@ public class SCR_BackgroundTileMap : MonoBehaviour
 
     int[,] backgroundTileGrid;
 
-    void Start()
+    void Awake()
     {
         GenerateBackgroundTiles();
     }
