@@ -5,34 +5,67 @@ using MLAPI;
 
 public class Sc_Ship_Move : NetworkBehaviour
 {
-    public float active_speed;
-    public float passive_speed;
-    public float degrees;
+    private float active_speed;//was public 
+    private float passive_speed;//was public 
+    private float degrees;//was public 
     float curr_passive_speed;
     //Vector3 forward2D = new Vector3(1, 0, 0);
     // Start is called before the first frame update
 
     //Sprint cooldown variables
-    public float sprintSpeed = 2f;
-    public float sprintLength = 0.5f;
-    public float sprintCoolDown = 120f;
+    private float sprintSpeed;//was public 
+    private float sprintLength;//was public 
+    private float sprintCoolDown;//was public 
 
     private float sprintCounter;
     private float sprintCoolCounter;
 
-    void Start()
+    private float active_speed_high;
+    private float active_speed_low;
+    public bool onPlanet;
+
+    void Awake()
     {
-        //active_speed = 5;
-        //passive_speed = 1;
-        //curr_passive_speed = 0;
-        //degrees = 4;
+        sprintSpeed = 2f;
+        sprintLength = 0.5f;
+        sprintCoolDown = 120f;
+        active_speed = 0.009f;
+        active_speed_high = 0.04f;
+        active_speed_low = 0.009f;
+        passive_speed = 0.001f;
+        degrees = 400;
+        onPlanet = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(IsLocalPlayer)
+        
+        if (IsLocalPlayer)
         {
+            //update speeds
+            //when we have animated player and ship, this 'if' will also
+            //update the sprite of the player object
+            if (onPlanet)
+            {
+                sprintSpeed = 2f;
+                sprintLength = 0.1f;
+                sprintCoolDown = 3f;
+                active_speed_high = 0.009f;
+                active_speed_low = 0.005f;
+                passive_speed = 0f;
+            }
+            else
+            {
+                sprintSpeed = 2f;
+                sprintLength = 0.5f;
+                sprintCoolDown = 120f;
+                active_speed_high = 0.04f;
+                active_speed_low = 0.009f;
+                passive_speed = 0.001f;
+            }
+
+            //move
+        
             //moving
             if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
             {
@@ -43,6 +76,7 @@ public class Sc_Ship_Move : NetworkBehaviour
             {
                 curr_passive_speed = 0;
             }
+
             //turning
             if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
             {
@@ -57,7 +91,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 if(sprintCoolCounter <= 0 && sprintCounter <= 0)
                 {
                     //Update this variable for faster/slower accelerate speed
-                    active_speed = 0.04f;
+                    active_speed = active_speed_high;
                     gameObject.transform.position += gameObject.transform.right * active_speed;
                     curr_passive_speed = passive_speed;
 
@@ -72,7 +106,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 if(sprintCounter <= 0)
                 {
                     //Reset speed back to default
-                    active_speed = 0.009f;
+                    active_speed = active_speed_low;
                     sprintCoolCounter = sprintCoolDown;
                 }
             }
