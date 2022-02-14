@@ -10,8 +10,9 @@ public class SCR_TerrainGeneration : MonoBehaviour
     public GameObject rocks;
     public GameObject trees;
 
-    int mapWidth = 10;
-    int mapHeight = 10;
+    // *** Important to match these values with the width and height in BackgroundTileMap script ***
+    int mapWidth = 30;
+    int mapHeight = 30;
 
     int[,] mapGrid;
 
@@ -113,15 +114,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 0: // Grass
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating Grass
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 90) // 10% chance of generating Rocks
+                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating Rocks
                 {
                     neighborID = 1;
                 }
-                else if (randomInt >= 90 && randomInt < 100) // 10% chance of generating Trees
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating Trees
                 {
                     neighborID = 2;
                 }
@@ -134,18 +135,18 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 1: // Rocks
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 70) // 70% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 70 && randomInt < 99) // 29% chance of generating Rocks
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Rocks
                 {
                     neighborID = 1;
                 }
-                else if (randomInt >= 99 && randomInt < 100) // 1% chance of generating Trees
-                {
-                    neighborID = 2;
-                }
+                //else if (randomInt >= 99 && randomInt < 100) // 0% chance of generating Trees
+                //{
+                //    neighborID = 2;
+                //}
                 else
                 {
                     neighborID = 0;
@@ -155,15 +156,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 2: // Trees
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 70) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 70 && randomInt < 71) // 1% chance of generating Rocks
-                {
-                    neighborID = 1;
-                }
-                else if (randomInt >= 71 && randomInt < 100) // 29% chance of generating Trees
+                //else if (randomInt >= 70 && randomInt < 71) // 0% chance of generating Rocks
+                //{
+                //    neighborID = 1;
+                //}
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Trees
                 {
                     neighborID = 2;
                 }
