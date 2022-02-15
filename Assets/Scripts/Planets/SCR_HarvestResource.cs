@@ -9,14 +9,14 @@ public class SCR_HarvestResource : MonoBehaviour
     public int maxHits = 3;
 
     // *** Used to reference variables file with material counts ***
-    //public SCR_ImportantVariables importantVariables;
+    public SCR_ImportantVariables importantVariables;
 
     public int numWood = 0;
     public int numRock = 0;
 
-    void Start()
+    void Awake()
     {
-        
+        importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
     }
 
     // Update is called once per frame
@@ -53,15 +53,15 @@ public class SCR_HarvestResource : MonoBehaviour
 
             if (gameObject.tag == "Tree")
             {
-                numWood++;
+                importantVariables.numWood++;
                 Destroy(this.gameObject);
-                Debug.Log("Wood #: " + numWood);
+                Debug.Log("Wood #: " + importantVariables.numWood);
             }
             if (gameObject.tag == "Rock")
             {
-                numRock++;
+                importantVariables.numRock++;
                 Destroy(this.gameObject);
-                Debug.Log("Rock #: " + numRock);
+                Debug.Log("Rock #: " + importantVariables.numRock);
             }
         }
     }
