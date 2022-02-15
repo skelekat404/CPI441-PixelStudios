@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 8775824977201865718}
   - component: {fileID: 3293887334667539622}
   - component: {fileID: 3133835129949773033}
+  - component: {fileID: 8597754140115810691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -264,6 +265,20 @@ MonoBehaviour:
   PrefabHashGenerator: Player
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
+--- !u!114 &8597754140115810691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756148682720881078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2670c439a53bbe48a0c1763b7276dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numWood: 0
+  numRock: 0
 --- !u!1 &6864243390943674955
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,12 +379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48532e2059c323d40bdab6decee28188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active_speed: 0.009
-  passive_speed: 0.001
-  degrees: 400
-  sprintSpeed: 0
-  sprintLength: 0
-  sprintCoolDown: 0
   onPlanet: 0
 --- !u!114 &5205179226449854608
 MonoBehaviour:
