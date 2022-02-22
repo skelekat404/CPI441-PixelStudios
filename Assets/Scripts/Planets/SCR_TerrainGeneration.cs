@@ -118,17 +118,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 0: // Grass
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating Rocks
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating River (Vertical)
                 {
                     bgNeighborID = 1;
-                }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating Trees
-                {
-                    bgNeighborID = 2;
                 }
                 else
                 {
@@ -139,38 +135,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 1: // River Vertical
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 60) // 60% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Rocks
+                else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River (Vertical)
                 {
                     bgNeighborID = 1;
-                }
-                //else if (randomInt >= 99 && randomInt < 100) // 0% chance of generating Trees
-                //{
-                //    bgNeighborID = 2;
-                //}
-                else
-                {
-                    bgNeighborID = 0;
-                }
-                break;
-
-            case 2: // Trees
-                randomInt = Random.Range(1, 100);
-
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
-                {
-                    bgNeighborID = 0;
-                }
-                //else if (randomInt >= 70 && randomInt < 71) // 0% chance of generating Rocks
-                //{
-                //    bgNeighborID = 1;
-                //}
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Trees
-                {
-                    bgNeighborID = 2;
                 }
                 else
                 {
