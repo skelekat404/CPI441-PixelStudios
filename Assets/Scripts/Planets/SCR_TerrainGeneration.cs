@@ -26,6 +26,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
     void Awake()
     {
         DefineTerrainTiles();
+        GenerateBackgroundTiles();
         GenerateTerrainTiles();
     }
     /*** Organizes the different terrain tiles in a dictionary for easy referencing ***/
@@ -42,20 +43,73 @@ public class SCR_TerrainGeneration : MonoBehaviour
         terrainTiles.Add(2, trees);
     }
 
-    /*** Handles generating the map of terrain tiles ***/
-    void GenerateTerrainTiles()
+    /*** Handles generating the map of background tiles ***/
+    void GenerateBackgroundTiles()
     {
         // *** Background Tile Generation ***
         backgroundTileGrid = new int[mapHeight, mapWidth];
+        /*
+                for (int y = 0; y < backgroundTileGrid.GetLength(0); y++)
+                {
+                    for (int x = 0; x < backgroundTileGrid.GetLength(1); x++)
+                    {
+                        CreateBackgroundTile(0, x, y);
+                    }
+                }
+        */
 
-        for (int y = 0; y < backgroundTileGrid.GetLength(0); y++)
+
+        // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
+        backgroundTileGrid[0, 0] = 0;
+        CreateBackgroundTile(0, 0, 0); // grass at [0, 0]
+
+        // *** First Generate the terrain in the first row ***
+        int tileIDFirstRow = 0;
+        for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
+        {
+            tileIDFirstRow = GenerateBackgroundNeighborID(backgroundTileGrid[0, x - 1]); // generates a new tile based on the previous one in the row
+            backgroundTileGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
+            CreateBackgroundTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+        }
+
+        // *** Generate the rest of the terrain after the first row ***
+        int tileIDRest = 0;
+        for (int y = 1; y < backgroundTileGrid.GetLength(0); y++) // starts at the 2nd row
         {
             for (int x = 0; x < backgroundTileGrid.GetLength(1); x++)
             {
-                CreateBackgroundTile(0, x, y);
+                if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
+                {
+                    tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]);
+                    backgroundTileGrid[y, x] = tileIDRest;
+                    CreateBackgroundTile(tileIDRest, x, y);
+                }
+                else // if not, then the neighbor used to generate a new terrain tile is
+                     // either the title one row above, or one column to the left
+                {
+                    int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+
+                    switch (neighborChoice)
+                    {
+                        case 1:
+                            tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]);
+                            backgroundTileGrid[y, x] = tileIDRest;
+                            CreateBackgroundTile(tileIDRest, x, y);
+                            break;
+                        case 2:
+                            tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y, x - 1]);
+                            backgroundTileGrid[y, x] = tileIDRest;
+                            CreateBackgroundTile(tileIDRest, x, y);
+                            break;
+                    }
+                }
             }
         }
+    }
 
+    /*** Handles generating the map of terrain tiles ***/
+    void GenerateTerrainTiles()
+    {
         // *** Resource Tile Generation ***
         mapGrid = new int[mapHeight, mapWidth];
 
@@ -118,11 +172,11 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 0: // Grass
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating River (Vertical)
+                else if (randomInt >= 90 && randomInt < 100) // 10% chance of generating River (Vertical)
                 {
                     bgNeighborID = 1;
                 }
@@ -151,8 +205,6 @@ public class SCR_TerrainGeneration : MonoBehaviour
         }
         return bgNeighborID; // returns the ID for the generated neighbor based on the spawn percentages
     }
-
-
 
     /*** Generates and returns an ID for a neighboring terrain tile using defined probabilities for each type of terrain tile ***/
     int GenerateNeighborID(int tileID)
