@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SCR_TerrainGeneration : MonoBehaviour
 {
-    Dictionary<int, GameObject> terrainTiles;
-
+    // *** Background Tiles ***
+    Dictionary<int, GameObject> backgroundTiles;
     public GameObject grass;
+    public GameObject riverVertical;
+
+    // *** Terrain Tiles ***
+    Dictionary<int, GameObject> terrainTiles;
+    public GameObject transparentTile;
     public GameObject rocks;
     public GameObject trees;
 
@@ -14,6 +19,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
     int mapWidth = 30;
     int mapHeight = 30;
 
+    int[,] backgroundTileGrid;
     int[,] mapGrid;
 
     void Awake()
@@ -24,8 +30,12 @@ public class SCR_TerrainGeneration : MonoBehaviour
     /*** Organizes the different terrain tiles in a dictionary for easy referencing ***/
     void DefineTerrainTiles()
     {
+        backgroundTiles = new Dictionary<int, GameObject>();
+        backgroundTiles.Add(0, grass);
+        backgroundTiles.Add(1, riverVertical);
+
         terrainTiles = new Dictionary<int, GameObject>();
-        terrainTiles.Add(0, grass);
+        terrainTiles.Add(0, transparentTile);
         terrainTiles.Add(1, rocks);
         terrainTiles.Add(2, trees);
     }
@@ -33,6 +43,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
     /*** Handles generating the map of terrain tiles ***/
     void GenerateTerrainTiles()
     {
+        backgroundTileGrid = new int[mapHeight, mapWidth];
         mapGrid = new int[mapHeight, mapWidth];
 
         // *** Code to Randomly select the first tile at [0, 0] (bottom left corner of the grid) ***
@@ -54,6 +65,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 break;
         }
         */
+
+        // *** Background Tile Generation ***
+        for (int y = 0; y < backgroundTileGrid.GetLength(0); y++)
+        {
+            for (int x = 0; x < backgroundTileGrid.GetLength(1); x++)
+            {
+                CreateBackgroundTile(0, x, y);
+            }
+        }
 
         // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
@@ -175,6 +195,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 break;
         }
         return neighborID; // returns the ID for the generated neighbor based on the spawn percentages
+    }
+
+    /*** Creates a background tile using a given ID at specified [x, y] coordinates ***/
+    void CreateBackgroundTile(int tileID, int x, int y)
+    {
+        GameObject tileObject = backgroundTiles[tileID];
+        GameObject bgTile = Instantiate(tileObject);
+
+        bgTile.transform.localPosition = new Vector3(x, y, 1);
     }
 
     /*** Creates a terrain tile using a given ID at specified [x, y] coordinates ***/
