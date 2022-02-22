@@ -196,7 +196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &279621639
 Transform:
   m_ObjectHideFlags: 0
@@ -403,7 +403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3a10d001fc0c644b3fbd307ce5b382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grass: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
+  grass: {fileID: 8627743739104645710, guid: a32cdc1d78a662a4d996ad4643c32a23, type: 3}
+  riverVertical: {fileID: 5795426403859858759, guid: dcc66ec8d061ff946960a5f5a6f22943, type: 3}
+  transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
   rocks: {fileID: 5117887541073689712, guid: 756a1b896ef975343ac8bcb0096f993d, type: 3}
   trees: {fileID: 3148147916417423267, guid: 0841f4b761707744a8d06ccd8ba9b66d, type: 3}
 --- !u!4 &1202994073
