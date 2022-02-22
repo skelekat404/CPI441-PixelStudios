@@ -9,6 +9,10 @@ public class SCR_TerrainGeneration : MonoBehaviour
     public GameObject grass;
     public GameObject riverVertical;
     public GameObject riverHorizontal;
+    public GameObject riverLLCorner;
+    public GameObject riverLRCorner;
+    public GameObject riverTLCorner;
+    public GameObject riverTRCorner;
 
     // *** Terrain Tiles ***
     Dictionary<int, GameObject> terrainTiles;
@@ -36,6 +40,10 @@ public class SCR_TerrainGeneration : MonoBehaviour
         backgroundTiles.Add(0, grass);
         backgroundTiles.Add(1, riverVertical);
         backgroundTiles.Add(2, riverHorizontal);
+        backgroundTiles.Add(3, riverLLCorner);
+        backgroundTiles.Add(4, riverLRCorner);
+        backgroundTiles.Add(5, riverTLCorner);
+        backgroundTiles.Add(6, riverTRCorner);
 
         terrainTiles = new Dictionary<int, GameObject>();
         terrainTiles.Add(0, transparentTile);
@@ -57,7 +65,6 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     }
                 }
         */
-
 
         // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
@@ -85,10 +92,9 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     CreateBackgroundTile(tileIDRest, x, y);
                 }
                 else // if not, then the neighbor used to generate a new terrain tile is
-                     // either the title one row above, or one column to the left
+                     // either the title one row below, or one column to the left
                 {
                     int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
-
                     switch (neighborChoice)
                     {
                         case 1:
@@ -102,6 +108,21 @@ public class SCR_TerrainGeneration : MonoBehaviour
                             CreateBackgroundTile(tileIDRest, x, y);
                             break;
                     }
+
+
+ /*                   if (backgroundTileGrid[y - 1, x] == 1 || backgroundTileGrid[y - 1, x] == 3 || backgroundTileGrid[y - 1, x] == 4)
+                    {
+                        tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]);
+                        backgroundTileGrid[y, x] = tileIDRest;
+                        CreateBackgroundTile(tileIDRest, x, y);
+                    }
+                    else if (backgroundTileGrid[y, x - 1] == 2 || backgroundTileGrid[y, x - 1] == 3 || backgroundTileGrid[y, x - 1] == 5)
+                    {
+                        tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y, x - 1]);
+                        backgroundTileGrid[y, x] = tileIDRest;
+                        CreateBackgroundTile(tileIDRest, x, y);
+                    }
+ */
                 }
             }
         }
@@ -139,7 +160,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     CreateTerrainTile(tileIDRest, x, y);
                 }
                 else // if not, then the neighbor used to generate a new terrain tile is
-                     // either the title one row above, or one column to the left
+                     // either the title one row below, or one column to the left
                 {
                     int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
 
@@ -176,9 +197,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 90 && randomInt < 100) // 10% chance of generating River (Vertical)
+                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating River(Vertical)
                 {
                     bgNeighborID = 1;
+                }
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating River(Horizontal)
+                {
+                    bgNeighborID = 2;
                 }
                 else
                 {
@@ -186,16 +211,49 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // River Vertical
+            case 1: // River(Vertical)
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 60) // 60% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River (Vertical)
+                else if (randomInt >= 60 && randomInt < 80) // 40% chance of generating River(Vertical)
                 {
                     bgNeighborID = 1;
+                }
+                else if (randomInt >= 80 && randomInt < 90) // 10% chance of generating River(TL Corner)
+                {
+                    bgNeighborID = 5;
+                }
+                else if (randomInt >= 90 && randomInt < 100) // 10% chance of generating River(TR Corner)
+                {
+                    bgNeighborID = 6;
+                }
+                else
+                {
+                    bgNeighborID = 0;
+                }
+                break;
+
+            case 2: // River(Horizontal)
+                randomInt = Random.Range(1, 100);
+
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
+                {
+                    bgNeighborID = 0;
+                }
+                else if (randomInt >= 60 && randomInt < 80) // 40% chance of generating River(Horizontal)
+                {
+                    bgNeighborID = 2;
+                }
+                else if (randomInt >= 80 && randomInt < 90) // 10% chance of generating River(LR Corner)
+                {
+                    bgNeighborID = 4;
+                }
+                else if (randomInt >= 90 && randomInt < 100) // 10% chance of generating River(TR Corner)
+                {
+                    bgNeighborID = 6;
                 }
                 else
                 {
