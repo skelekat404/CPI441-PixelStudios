@@ -24,6 +24,8 @@ public class Sc_Ship_Move : NetworkBehaviour
     private float active_speed_low;
     public bool onPlanet;
 
+    private Animator animator;
+
     void Awake()
     {
         sprintSpeed = 2f;
@@ -35,6 +37,11 @@ public class Sc_Ship_Move : NetworkBehaviour
         passive_speed = 0.001f;
         degrees = 400;
         onPlanet = false;
+    }
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -91,6 +98,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 if(sprintCoolCounter <= 0 && sprintCounter <= 0)
                 {
                     //Update this variable for faster/slower accelerate speed
+                    animator.SetBool("Accelerate", true);
                     active_speed = active_speed_high;
                     gameObject.transform.position += gameObject.transform.right * active_speed;
                     curr_passive_speed = passive_speed;
@@ -106,6 +114,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 if(sprintCounter <= 0)
                 {
                     //Reset speed back to default
+                    animator.SetBool("Accelerate", false);
                     active_speed = active_speed_low;
                     sprintCoolCounter = sprintCoolDown;
                 }

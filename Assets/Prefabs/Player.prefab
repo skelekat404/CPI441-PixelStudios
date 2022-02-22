@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 8775824977201865718}
   - component: {fileID: 3293887334667539622}
   - component: {fileID: 3133835129949773033}
+  - component: {fileID: 8597754140115810691}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -264,6 +265,20 @@ MonoBehaviour:
   PrefabHashGenerator: Player
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
+--- !u!114 &8597754140115810691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756148682720881078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2670c439a53bbe48a0c1763b7276dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numWood: 0
+  numRock: 0
 --- !u!1 &6864243390943674955
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +293,7 @@ GameObject:
   - component: {fileID: 5205179226449854608}
   - component: {fileID: 179506014278655877}
   - component: {fileID: 8643225006670347306}
+  - component: {fileID: 2556944284171676152}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -341,7 +357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78e917a8416d90d4bb2262fd9eccc49d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -364,12 +380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48532e2059c323d40bdab6decee28188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active_speed: 0.009
-  passive_speed: 0.001
-  degrees: 400
-  sprintSpeed: 0
-  sprintLength: 0
-  sprintCoolDown: 0
   onPlanet: 0
 --- !u!114 &5205179226449854608
 MonoBehaviour:
@@ -457,7 +467,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 2.67, y: 2.67}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -469,6 +479,26 @@ PolygonCollider2D:
       - {x: -0.5, y: 0}
       - {x: 0, y: -0.25}
       - {x: 0.5, y: 0}
+--- !u!95 &2556944284171676152
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864243390943674955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87bea1116c0f3ee4c8428b6e0bab6e59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7015511136033028822
 GameObject:
   m_ObjectHideFlags: 0
