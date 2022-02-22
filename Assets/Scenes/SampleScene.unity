@@ -3233,7 +3233,7 @@ GameObject:
   - component: {fileID: 853921479}
   - component: {fileID: 853921478}
   m_Layer: 5
-  m_Name: ShopDesc
+  m_Name: EarthDesc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3279,11 +3279,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is the shop where you can exchange or buy materials
+  m_text: 'Earth is a planet that contains resources such as rocks, wood and water.
 
 
     Danger
-    Level: NONE'
+    Level: LOW'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
   m_sharedMaterial: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
@@ -3643,7 +3643,7 @@ GameObject:
   - component: {fileID: 943877097}
   - component: {fileID: 943877096}
   m_Layer: 5
-  m_Name: ShopVisit
+  m_Name: LandEarth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3689,7 +3689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Visit Shop
+  m_text: Land on Earth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
   m_sharedMaterial: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
@@ -5259,7 +5259,7 @@ GameObject:
   - component: {fileID: 1305313318}
   - component: {fileID: 1305313317}
   m_Layer: 5
-  m_Name: ShopTitle
+  m_Name: EarthTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5305,7 +5305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: Earth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
   m_sharedMaterial: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
@@ -7432,7 +7432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7079922, g: 0.8113208, b: 0.8052563, a: 1}
+  m_Color: {r: 0.13171947, g: 0.632411, b: 0.754717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
