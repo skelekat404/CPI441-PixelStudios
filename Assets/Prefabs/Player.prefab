@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2585906258762988850}
   - component: {fileID: 2585906258762988863}
   - component: {fileID: 772265208962571923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 3293887334667539622}
   - component: {fileID: 3133835129949773033}
   - component: {fileID: 8597754140115810691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 179506014278655877}
   - component: {fileID: 8643225006670347306}
   - component: {fileID: 2556944284171676152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 90959068677464382}
   - component: {fileID: 5880221214339172420}
   - component: {fileID: 5577446210908438286}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ship_Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
