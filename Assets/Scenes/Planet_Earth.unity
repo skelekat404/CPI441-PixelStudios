@@ -406,6 +406,10 @@ MonoBehaviour:
   grass: {fileID: 8627743739104645710, guid: a32cdc1d78a662a4d996ad4643c32a23, type: 3}
   riverVertical: {fileID: 3015419055427408156, guid: a1ce70aa3e5b592498ab764377ce6493, type: 3}
   riverHorizontal: {fileID: 3361381845737703529, guid: c33887fef9fa9944396af5b6888eb422, type: 3}
+  riverLLCorner: {fileID: 4441978778894765010, guid: 562d1518b710109498e75806baa7c1d8, type: 3}
+  riverLRCorner: {fileID: 4298043863345658620, guid: 1c26277c860e7744d8bf9dc2f05d1c44, type: 3}
+  riverTLCorner: {fileID: 2628308933441745229, guid: 159aabe52628bf441ac7fa1db26247e4, type: 3}
+  riverTRCorner: {fileID: 9215511228362147821, guid: 2ee0cc6e19692d343ba2d7a9526025e0, type: 3}
   transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
   rocks: {fileID: 5117887541073689712, guid: 756a1b896ef975343ac8bcb0096f993d, type: 3}
   trees: {fileID: 3148147916417423267, guid: 0841f4b761707744a8d06ccd8ba9b66d, type: 3}
