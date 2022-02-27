@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3299602350066343458}
   - component: {fileID: 1191593207168450316}
   - component: {fileID: 3911156772683197554}
+  - component: {fileID: -6444156857288476670}
   m_Layer: 0
   m_Name: PFB_Temp_Rock_Tile
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +162,19 @@ PolygonCollider2D:
       - {x: -0.011278195, y: -0.32706767}
       - {x: 0.02631579, y: -0.3082707}
       - {x: 0.041353386, y: -0.32706767}
+--- !u!114 &-6444156857288476670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793436852329163410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276789d7a64fddb4f98c7cf806536303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHits: 0
+  maxHits: 3
+  numWood: 0
+  numRock: 0

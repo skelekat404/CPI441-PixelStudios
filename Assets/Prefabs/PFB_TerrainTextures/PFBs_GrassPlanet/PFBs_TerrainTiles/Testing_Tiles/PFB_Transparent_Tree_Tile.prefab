@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8414021023410472526}
   - component: {fileID: 5248819992436450391}
   - component: {fileID: -4680535035980211031}
+  - component: {fileID: 1140971061935331732}
   m_Layer: 0
   m_Name: PFB_Transparent_Tree_Tile
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +103,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0390625, y: 1.0390625}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.0390625, y: 1.0390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -216,3 +217,19 @@ PolygonCollider2D:
       - {x: 0.0234375, y: -0.0859375}
       - {x: 0.01953125, y: -0.09375}
       - {x: 0.01953125, y: -0.08984375}
+--- !u!114 &1140971061935331732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646915987996653676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276789d7a64fddb4f98c7cf806536303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHits: 0
+  maxHits: 3
+  numWood: 0
+  numRock: 0
