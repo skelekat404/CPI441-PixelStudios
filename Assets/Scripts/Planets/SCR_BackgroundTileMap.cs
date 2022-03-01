@@ -35,6 +35,6 @@ public class SCR_BackgroundTileMap : MonoBehaviour
     {
         GameObject bgTile = Instantiate(backgroundTile);
 
-        bgTile.transform.localPosition = new Vector3(x, y);
+        bgTile.transform.localPosition = new Vector3(x, y, 1);
     }
 }
