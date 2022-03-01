@@ -21,7 +21,10 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
         {
             shipRef = GameObject.FindGameObjectWithTag("Player");
         }
-        gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);
+        if (shipRef != null) // potential error fix
+        {
+            gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);
+        }
     }
 
     
