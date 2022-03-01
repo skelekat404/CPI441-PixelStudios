@@ -216,7 +216,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // River(Vertical)
+            case 1: // River(Vertical) // START OF EDITS ***
                 randomInt = Random.Range(1, 100);
 
                 if (bottomOrLeft == 1) // checks if the row below was selected
@@ -229,20 +229,16 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     {
                         bgNeighborID = 1;
                     }
-                    else if (randomInt >= 60 && randomInt < 80) // 20% chance of generating River(TL Corner)
+                    else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River(TL Corner)
                     {
                         bgNeighborID = 5;
-                    }
-                    else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating River(TR Corner)
-                    {
-                        bgNeighborID = 6;
                     }
                     else
                     {
                         bgNeighborID = 0;
                     }
                 }
-                else if (bottomOrLeft == 2) // checks if the column to the left was selected
+                if (bottomOrLeft == 2) // checks if the column to the left was selected
                 {
                     bgNeighborID = 0;
                 }
@@ -255,6 +251,49 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 {
                     bgNeighborID = 0;
                 }
+                if (bottomOrLeft == 2) // checks if the column to the left was selected
+                {
+                    if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
+                    {
+                        bgNeighborID = 0;
+                    }
+                    else if (randomInt >= 20 && randomInt < 60) // 40% chance of generating River(Horizontal)
+                    {
+                        bgNeighborID = 2;
+                    }
+                    else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River(LR Corner)
+                    {
+                        bgNeighborID = 4;
+                    }
+                    else
+                    {
+                        bgNeighborID = 0;
+                    }
+                }
+                break;
+
+/*            case 3: // River(Lower Left Corner)
+                randomInt = Random.Range(1, 100);
+
+                if (bottomOrLeft == 1) // checks if the row below was selected
+                {
+                    if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
+                    {
+                        bgNeighborID = 0;
+                    }
+                    else if (randomInt >= 20 && randomInt < 60) // 40% chance of generating River(Vertical)
+                    {
+                        bgNeighborID = 1;
+                    }
+                    else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River(TL Corner)
+                    {
+                        bgNeighborID = 5;
+                    }
+                    else
+                    {
+                        bgNeighborID = 0;
+                    }
+                }
                 else if (bottomOrLeft == 2) // checks if the column to the left was selected
                 {
                     if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
@@ -265,13 +304,9 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     {
                         bgNeighborID = 2;
                     }
-                    else if (randomInt >= 60 && randomInt < 80) // 20% chance of generating River(LR Corner)
+                    else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River(LR Corner)
                     {
                         bgNeighborID = 4;
-                    }
-                    else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating River(TR Corner)
-                    {
-                        bgNeighborID = 6;
                     }
                     else
                     {
@@ -279,40 +314,22 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     }
                 }
                 break;
-
-            case 3: // River(Lower Left Corner)
-                randomInt = Random.Range(1, 100);
-
-                if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
-                {
-                    bgNeighborID = 0;
-                }
-                else if (randomInt >= 20 && randomInt < 60) // 40% chance of generating River(Vertical)
-                {
-                    bgNeighborID = 1;
-                }
-                else if (randomInt >= 60 && randomInt < 100) // 40% chance of generating River(Horizontal)
-                {
-                    bgNeighborID = 2;
-                }
-                else
-                {
-                    bgNeighborID = 0;
-                }
-                break;
-
+*/
             case 4: // River(Lower Right Corner)
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
+                if (bottomOrLeft == 1) // checks if the row below was selected
                 {
-                    bgNeighborID = 0;
+                    if (randomInt >= 0 && randomInt < 100) // 100% chance of generating River(Vertical)
+                    {
+                        bgNeighborID = 1;
+                    }
+                    else
+                    {
+                        bgNeighborID = 0;
+                    }
                 }
-                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River(Vertical)
-                {
-                    bgNeighborID = 1;
-                }
-                else
+                if (bottomOrLeft == 2) // checks if the column to the left was selected
                 {
                     bgNeighborID = 0;
                 }
@@ -321,30 +338,20 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 5: // River(Top Left Corner)
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
+                if (bottomOrLeft == 1) // checks if the row below was selected
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River(Horizontal)
+                if (bottomOrLeft == 2) // checks if the column to the left was selected
                 {
-                    bgNeighborID = 2;
-                }
-                else
-                {
-                    bgNeighborID = 0;
-                }
-                break;
-
-            case 6: // River(Top Left Corner)
-                randomInt = Random.Range(1, 100);
-
-                if (randomInt >= 0 && randomInt < 100) // 100% chance of generating Grass
-                {
-                    bgNeighborID = 0;
-                }
-                else
-                {
-                    bgNeighborID = 0;
+                    if (randomInt >= 0 && randomInt < 100) // 100% chance of generating River(Horizontal)
+                    {
+                        bgNeighborID = 2;
+                    }
+                    else
+                    {
+                        bgNeighborID = 0;
+                    }
                 }
                 break;
         }
