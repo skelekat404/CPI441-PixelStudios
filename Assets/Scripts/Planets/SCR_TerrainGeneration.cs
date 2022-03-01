@@ -118,9 +118,12 @@ public class SCR_TerrainGeneration : MonoBehaviour
         int tileIDFirstRow = 0;
         for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
-            tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
-            mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
-            CreateTerrainTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a grass tile
+            {
+                tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
+                mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
+                CreateTerrainTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+            }
         }
 
         // *** Generate the rest of the terrain after the first row ***
@@ -129,29 +132,32 @@ public class SCR_TerrainGeneration : MonoBehaviour
         {
             for (int x = 0; x < mapGrid.GetLength(1); x++)
             {
-                if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
+                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a grass tile
                 {
-                    tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]);
-                    mapGrid[y, x] = tileIDRest;
-                    CreateTerrainTile(tileIDRest, x, y);
-                }
-                else // if not, then the neighbor used to generate a new terrain tile is
-                     // either the title one row below, or one column to the left
-                {
-                    int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
-
-                    switch (neighborChoice)
+                    if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
                     {
-                        case 1:
-                            tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]); // selects the tile one row below
-                            mapGrid[y, x] = tileIDRest;
-                            CreateTerrainTile(tileIDRest, x, y);
-                            break;
-                        case 2:
-                            tileIDRest = GenerateNeighborID(mapGrid[y, x - 1]); // selects the tile one column to the left
-                            mapGrid[y, x] = tileIDRest;
-                            CreateTerrainTile(tileIDRest, x, y);
-                            break;
+                        tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]);
+                        mapGrid[y, x] = tileIDRest;
+                        CreateTerrainTile(tileIDRest, x, y);
+                    }
+                    else // if not, then the neighbor used to generate a new terrain tile is
+                         // either the title one row below, or one column to the left
+                    {
+                        int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+
+                        switch (neighborChoice)
+                        {
+                            case 1:
+                                tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]); // selects the tile one row below
+                                mapGrid[y, x] = tileIDRest;
+                                CreateTerrainTile(tileIDRest, x, y);
+                                break;
+                            case 2:
+                                tileIDRest = GenerateNeighborID(mapGrid[y, x - 1]); // selects the tile one column to the left
+                                mapGrid[y, x] = tileIDRest;
+                                CreateTerrainTile(tileIDRest, x, y);
+                                break;
+                        }
                     }
                 }
             }
