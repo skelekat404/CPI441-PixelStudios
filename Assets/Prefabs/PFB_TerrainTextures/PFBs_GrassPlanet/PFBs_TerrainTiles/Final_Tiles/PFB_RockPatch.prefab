@@ -161,6 +161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHits: 0
   maxHits: 3
+  m_InventoryChannel: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
+  m_LootableItem: {fileID: 11400000, guid: 2ef0cc017a04e6b4dae7fbe070478a3c, type: 2}
   importantVariables: {fileID: 0}
   numWood: 0
   numRock: 0
