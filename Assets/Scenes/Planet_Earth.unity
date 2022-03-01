@@ -404,12 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grass: {fileID: 8627743739104645710, guid: a32cdc1d78a662a4d996ad4643c32a23, type: 3}
-  riverVertical: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
-  riverHorizontal: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
-  riverLLCorner: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
-  riverLRCorner: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
-  riverTLCorner: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
-  riverTRCorner: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
+  riverWhole: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
   transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
   rocks: {fileID: 5117887541073689712, guid: 756a1b896ef975343ac8bcb0096f993d, type: 3}
   trees: {fileID: 3148147916417423267, guid: 0841f4b761707744a8d06ccd8ba9b66d, type: 3}
