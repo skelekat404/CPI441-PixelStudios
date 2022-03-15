@@ -24,6 +24,14 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
         if (shipRef != null) // potential error fix
         {
             gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);
+            if(shipRef.GetComponent<Sc_Ship_Move>().onPlanet)
+            {
+                GetComponent<Camera>().orthographicSize = 4;
+            }
+            else
+            {
+                GetComponent<Camera>().orthographicSize = 20;
+            }
         }
     }
 

@@ -9362,7 +9362,7 @@ GameObject:
   - component: {fileID: 2038982710}
   m_Layer: 5
   m_Name: PlanetEarth_Text
-  m_TagString: Untagged
+  m_TagString: earthBandaid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
