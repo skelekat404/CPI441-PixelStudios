@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: StoneResouce
+  m_Name: StoneResource
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList:
@@ -18,6 +18,7 @@ MonoBehaviour:
   Name: Stone
   Sprite: {fileID: 21300000, guid: 22dcfabc2b2959a46a7fb72f86d37377, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
+  SaleValue: 2
   references:
     version: 2
     RefIds:

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: Sneakers
+  m_Name: HelmetItem
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
-  Name: Sneakers
-  Sprite: {fileID: 21300000, guid: 161fc1c11b84c43e782fe366ffcdb4bc, type: 3}
-  ItemType: {fileID: 11400000, guid: a9b78a61036ffd94bb0b743d7e2c3d32, type: 2}
+  Name: Helmet
+  Sprite: {fileID: 21300000, guid: bb184a8803dbb465295c178b713e2351, type: 3}
+  ItemType: {fileID: 11400000, guid: 7659034690e8b104ca9672dbdbdc5329, type: 2}
   references:
     version: 2
     RefIds:

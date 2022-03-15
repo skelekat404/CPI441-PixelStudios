@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07acf2ed2ea01ce4b8bc3404e5084c89, type: 3}
-  m_Name: Jetpack
+  m_Name: ShopSO_Helmet
   m_EditorClassIdentifier: 
-  title: Jetpack
-  description: A jetpack, who doesn't want one?
+  title: Hemlet
+  description: Rusty, uncomfortable, functional.
   base_price: 10
+  m_LootableItem: {fileID: 11400000, guid: 448c1f036c57d8c4ca0d4ee6b559b0ca, type: 2}
