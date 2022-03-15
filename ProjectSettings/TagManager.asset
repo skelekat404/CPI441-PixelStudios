@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - mult
   - earthBandaid
+  - orangeBandaid
   layers:
   - Default
   - TransparentFX
