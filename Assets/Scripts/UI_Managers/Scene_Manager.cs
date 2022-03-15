@@ -65,13 +65,17 @@ public class Scene_Manager : MonoBehaviour
             yield return null;
         }
 
+        //only reset the player position if you're coming from space
+        //if (!player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+        //{
         //reset player position
         Transform[] parts = player_ref.GetComponentsInChildren<Transform>();
         foreach (Transform t in parts)
         {
             t.position = Vector3.zero;
+            t.rotation = Quaternion.identity;
         }
-
+        //}
         //finish
         OnFinishedLoadingScene(in_name);
     }
