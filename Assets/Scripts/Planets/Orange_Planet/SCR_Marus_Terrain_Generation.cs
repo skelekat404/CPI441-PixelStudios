@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_TerrainGeneration : MonoBehaviour
+public class SCR_Marus_Terrain_Generation : MonoBehaviour
 {
-    // *** Background Tiles ***
+// *** Background Tiles ***
     Dictionary<int, GameObject> backgroundTiles;
-    public GameObject grass;
-    public GameObject riverWhole;
+    public GameObject charcoalFloor;
+    public GameObject lavaWhole;
 
     // *** Terrain Tiles ***
     Dictionary<int, GameObject> terrainTiles;
     public GameObject transparentTile;
-    public GameObject rocks;
-    public GameObject trees;
+    public GameObject tempRocks;
+    public GameObject lavaRocks;
 
     // *** Map Size ***
     int mapWidth = 30;
@@ -32,13 +32,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
     void DefineTerrainTiles()
     {
         backgroundTiles = new Dictionary<int, GameObject>();
-        backgroundTiles.Add(0, grass);
-        backgroundTiles.Add(1, riverWhole);
+        backgroundTiles.Add(0, charcoalFloor);
+        backgroundTiles.Add(1, lavaWhole);
 
         terrainTiles = new Dictionary<int, GameObject>();
         terrainTiles.Add(0, transparentTile);
-        terrainTiles.Add(1, rocks);
-        terrainTiles.Add(2, trees);
+        terrainTiles.Add(1, tempRocks);
+        terrainTiles.Add(2, lavaRocks);
     }
 
     /*** Handles generating the map of background tiles ***/
@@ -173,14 +173,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         switch (tileID)
         {
-            case 0: // Grass
+            case 0: // charcoalFloor
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating charcoalFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating River
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating lavaWhole
                 {
                     bgNeighborID = 1;
                 }
@@ -190,14 +190,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // River // START OF EDITS ***
+            case 1: // lavaWhole
                 randomInt = Random.Range(1, 100);
                 
-                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating charcoalFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River
+                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating lavaWhole
                 {
                     bgNeighborID = 1;
                 }
@@ -218,18 +218,18 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         switch (tileID)
         {
-            case 0: // Grass
+            case 0: // transparent
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating Rocks
+                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating tempRock
                 {
                     neighborID = 1;
                 }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating Trees
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating lavaRock
                 {
                     neighborID = 2;
                 }
@@ -239,14 +239,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // Rocks
+            case 1: // tempRock
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Rocks
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating tempRock
                 {
                     neighborID = 1;
                 }
@@ -256,14 +256,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 2: // Trees
+            case 2: // lavaRock
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Trees
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating lavaRock
                 {
                     neighborID = 2;
                 }
