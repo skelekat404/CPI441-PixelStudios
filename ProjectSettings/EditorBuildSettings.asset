@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShopTestplanet.unity
     guid: 3a594606c6b99eb41822a299f5e3cf35
-  - enabled: 1
-    path: Assets/Scenes/Planet_OrangeMarus.unity
-    guid: 55d101a1381bce548bdc8626b496242e
   m_configObjects: {}
