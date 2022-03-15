@@ -86,6 +86,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                      // either the title one row below, or one column to the left
                 {
                     int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+
                     switch (neighborChoice)
                     {
                         case 1:
@@ -192,11 +193,11 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 1: // River // START OF EDITS ***
                 randomInt = Random.Range(1, 100);
                 
-                if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 20 && randomInt < 100) // 80% chance of generating River
+                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River
                 {
                     bgNeighborID = 1;
                 }
