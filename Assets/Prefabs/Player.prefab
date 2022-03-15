@@ -66,7 +66,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 179506014278655877}
   - component: {fileID: 8643225006670347306}
   - component: {fileID: 2556944284171676152}
+  - component: {fileID: 3487314927838862238}
   m_Layer: 7
   m_Name: Ship
   m_TagString: Untagged
@@ -500,6 +501,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3487314927838862238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864243390943674955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5a42f2c861bac40855b61dcef62929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7015511136033028822
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +525,7 @@ GameObject:
   - component: {fileID: 90959068677464382}
   - component: {fileID: 5880221214339172420}
   - component: {fileID: 5577446210908438286}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Ship_Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7656e5445869d9842ae4d62614cae485, type: 3}
-  m_Name: ItemType_Pants
+  m_Script: {fileID: 11500000, guid: 07acf2ed2ea01ce4b8bc3404e5084c89, type: 3}
+  m_Name: ShopSO_Beans
   m_EditorClassIdentifier: 
+  title: Beans
+  description: Black or pinto?
+  base_price: 5
+  m_LootableItem: {fileID: 11400000, guid: ca938f3b780a15e489e8978c1aa628a0, type: 2}
