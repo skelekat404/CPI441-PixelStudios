@@ -22,6 +22,8 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
     int[,] backgroundTileGrid;
     int[,] mapGrid;
 
+    int coordinateOffest = 100; // used so the tilemaps of each planet don't overlap each other with the new scene management/network stuff
+
     void Awake()
     {
         DefineTerrainTiles();
@@ -59,7 +61,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
 
         // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
-        CreateBackgroundTile(0, 0, 0); // charcoalFloor at [0, 0]
+        CreateBackgroundTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // charcoalFloor at [0, 0]
 
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
@@ -67,7 +69,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
         {
             tileIDFirstRow = GenerateBackgroundNeighborID(backgroundTileGrid[0, x - 1]); // generates a new tile based on the previous one in the row
             backgroundTileGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
-            CreateBackgroundTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+            CreateBackgroundTile(tileIDFirstRow, (x + coordinateOffest), (0 + coordinateOffest)); // creates the tile for the given ID at the specified [x, y] position
         }
 
         // *** Generate the rest of the terrain after the first row ***
@@ -80,7 +82,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                 {
                     tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]);
                     backgroundTileGrid[y, x] = tileIDRest;
-                    CreateBackgroundTile(tileIDRest, x, y);
+                    CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                 }
                 else // if not, then the neighbor used to generate a new terrain tile is
                      // either the title one row below, or one column to the left
@@ -92,12 +94,12 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                         case 1:
                             tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]); // selects the tile one row below
                             backgroundTileGrid[y, x] = tileIDRest;
-                            CreateBackgroundTile(tileIDRest, x, y);
+                            CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                             break;
                         case 2:
                             tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y, x - 1]); // selects the tile one column to the left
                             backgroundTileGrid[y, x] = tileIDRest;
-                            CreateBackgroundTile(tileIDRest, x, y);
+                            CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                             break;
                     }
                 }
@@ -113,7 +115,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
 
         // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
-        CreateTerrainTile(0, 0, 0); // charcoalFloor at [0, 0]
+        CreateTerrainTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // charcoalFloor at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
@@ -123,7 +125,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
             {
                 tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
                 mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
-                CreateTerrainTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+                CreateTerrainTile(tileIDFirstRow, (x + coordinateOffest), (0 + coordinateOffest)); // creates the tile for the given ID at the specified [x, y] position
             }
         }
 
@@ -139,7 +141,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                     {
                         tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]);
                         mapGrid[y, x] = tileIDRest;
-                        CreateTerrainTile(tileIDRest, x, y);
+                        CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                     }
                     else // if not, then the neighbor used to generate a new terrain tile is
                          // either the title one row below, or one column to the left
@@ -151,12 +153,12 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                             case 1:
                                 tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]); // selects the tile one row below
                                 mapGrid[y, x] = tileIDRest;
-                                CreateTerrainTile(tileIDRest, x, y);
+                                CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                                 break;
                             case 2:
                                 tileIDRest = GenerateNeighborID(mapGrid[y, x - 1]); // selects the tile one column to the left
                                 mapGrid[y, x] = tileIDRest;
-                                CreateTerrainTile(tileIDRest, x, y);
+                                CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                                 break;
                         }
                     }
