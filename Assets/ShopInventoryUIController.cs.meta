@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 0bfa3ea05a9b37348b07deb32b3b881e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - InventoryUIChannel: {instanceID: 0}
+  - SlotControllerPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
