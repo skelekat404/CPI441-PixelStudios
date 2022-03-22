@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_TerrainGeneration : MonoBehaviour
+public class SCR_Vamia_Terrain_Generation : MonoBehaviour
 {
     // *** Background Tiles ***
     Dictionary<int, GameObject> backgroundTiles;
-    public GameObject grass;
-    public GameObject riverWhole;
+    public GameObject lavanderFloor;
+    public GameObject cloudWhole;
 
     // *** Terrain Tiles ***
     Dictionary<int, GameObject> terrainTiles;
     public GameObject transparentTile;
-    public GameObject rocks;
-    public GameObject trees;
+    public GameObject tempRocks;
+    public GameObject purpleStones;
 
     // *** Map Size ***
     int mapWidth = 30;
@@ -21,6 +21,8 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
     int[,] backgroundTileGrid;
     int[,] mapGrid;
+
+    int coordinateOffest = 200; // used so the tilemaps of each planet don't overlap each other with the new scene management/network stuff
 
     void Awake()
     {
@@ -32,13 +34,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
     void DefineTerrainTiles()
     {
         backgroundTiles = new Dictionary<int, GameObject>();
-        backgroundTiles.Add(0, grass);
-        backgroundTiles.Add(1, riverWhole);
+        backgroundTiles.Add(0, lavanderFloor);
+        backgroundTiles.Add(1, cloudWhole);
 
         terrainTiles = new Dictionary<int, GameObject>();
         terrainTiles.Add(0, transparentTile);
-        terrainTiles.Add(1, rocks);
-        terrainTiles.Add(2, trees);
+        terrainTiles.Add(1, tempRocks);
+        terrainTiles.Add(2, purpleStones);
     }
 
     /*** Handles generating the map of background tiles ***/
@@ -59,7 +61,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
-        CreateBackgroundTile(0, 0, 0); // lavanderFloor at [0, 0]
+        CreateBackgroundTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // lavanderFloor at [0, 0]
 
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
@@ -67,7 +69,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
         {
             tileIDFirstRow = GenerateBackgroundNeighborID(backgroundTileGrid[0, x - 1]); // generates a new tile based on the previous one in the row
             backgroundTileGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
-            CreateBackgroundTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+            CreateBackgroundTile(tileIDFirstRow, (x + coordinateOffest), (0 + coordinateOffest)); // creates the tile for the given ID at the specified [x, y] position
         }
 
         // *** Generate the rest of the terrain after the first row ***
@@ -80,7 +82,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 {
                     tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]);
                     backgroundTileGrid[y, x] = tileIDRest;
-                    CreateBackgroundTile(tileIDRest, x, y);
+                    CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                 }
                 else // if not, then the neighbor used to generate a new terrain tile is
                      // either the title one row below, or one column to the left
@@ -92,12 +94,12 @@ public class SCR_TerrainGeneration : MonoBehaviour
                         case 1:
                             tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y - 1, x]); // selects the tile one row below
                             backgroundTileGrid[y, x] = tileIDRest;
-                            CreateBackgroundTile(tileIDRest, x, y);
+                            CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                             break;
                         case 2:
                             tileIDRest = GenerateBackgroundNeighborID(backgroundTileGrid[y, x - 1]); // selects the tile one column to the left
                             backgroundTileGrid[y, x] = tileIDRest;
-                            CreateBackgroundTile(tileIDRest, x, y);
+                            CreateBackgroundTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                             break;
                     }
                 }
@@ -113,7 +115,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
-        CreateTerrainTile(0, 0, 0); // lavanderFloor at [0, 0]
+        CreateTerrainTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // lavanderFloor at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
@@ -123,7 +125,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
             {
                 tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
                 mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
-                CreateTerrainTile(tileIDFirstRow, x, 0); // creates the tile for the given ID at the specified [x, y] position
+                CreateTerrainTile(tileIDFirstRow, (x + coordinateOffest), (0 + coordinateOffest)); // creates the tile for the given ID at the specified [x, y] position
             }
         }
 
@@ -139,7 +141,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                     {
                         tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]);
                         mapGrid[y, x] = tileIDRest;
-                        CreateTerrainTile(tileIDRest, x, y);
+                        CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                     }
                     else // if not, then the neighbor used to generate a new terrain tile is
                          // either the title one row below, or one column to the left
@@ -151,12 +153,12 @@ public class SCR_TerrainGeneration : MonoBehaviour
                             case 1:
                                 tileIDRest = GenerateNeighborID(mapGrid[y - 1, x]); // selects the tile one row below
                                 mapGrid[y, x] = tileIDRest;
-                                CreateTerrainTile(tileIDRest, x, y);
+                                CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                                 break;
                             case 2:
                                 tileIDRest = GenerateNeighborID(mapGrid[y, x - 1]); // selects the tile one column to the left
                                 mapGrid[y, x] = tileIDRest;
-                                CreateTerrainTile(tileIDRest, x, y);
+                                CreateTerrainTile(tileIDRest, (x + coordinateOffest), (y + coordinateOffest));
                                 break;
                         }
                     }
@@ -173,14 +175,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         switch (tileID)
         {
-            case 0: // Grass
+            case 0: // lavanderFloor
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating lavanderFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating River
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating cloudWhole
                 {
                     bgNeighborID = 1;
                 }
@@ -190,14 +192,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // River // START OF EDITS ***
+            case 1: // cloudWhole
                 randomInt = Random.Range(1, 100);
-                
-                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
+
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating lavanderFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River
+                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating cloudWhole
                 {
                     bgNeighborID = 1;
                 }
@@ -218,18 +220,18 @@ public class SCR_TerrainGeneration : MonoBehaviour
 
         switch (tileID)
         {
-            case 0: // Grass
+            case 0: // transparent
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 90) // 90% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating Rocks
+                else if (randomInt >= 90 && randomInt < 95) // 5% chance of generating tempRock
                 {
                     neighborID = 1;
                 }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating Trees
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating lavaRock
                 {
                     neighborID = 2;
                 }
@@ -239,14 +241,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 1: // Rocks
+            case 1: // tempRock
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Rocks
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating tempRock
                 {
                     neighborID = 1;
                 }
@@ -256,14 +258,14 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
                 break;
 
-            case 2: // Trees
+            case 2: // lavaRock
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 80) // 80% chance of generating transparent
                 {
                     neighborID = 0;
                 }
-                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating Trees
+                else if (randomInt >= 80 && randomInt < 100) // 20% chance of generating lavaRock
                 {
                     neighborID = 2;
                 }
