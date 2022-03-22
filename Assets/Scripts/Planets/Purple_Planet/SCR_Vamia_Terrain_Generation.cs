@@ -87,7 +87,7 @@ public class SCR_Vamia_Terrain_Generation : MonoBehaviour
                 else // if not, then the neighbor used to generate a new terrain tile is
                      // either the title one row below, or one column to the left
                 {
-                    int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+                    int neighborChoice = Random.Range(1, 3); // 50/50 chance for either tile to be chosen (inclusive, exclusive]
 
                     switch (neighborChoice)
                     {
@@ -146,7 +146,7 @@ public class SCR_Vamia_Terrain_Generation : MonoBehaviour
                     else // if not, then the neighbor used to generate a new terrain tile is
                          // either the title one row below, or one column to the left
                     {
-                        int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+                        int neighborChoice = Random.Range(1, 3); // 50/50 chance for either tile to be chosen
 
                         switch (neighborChoice)
                         {
