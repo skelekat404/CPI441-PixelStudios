@@ -59,9 +59,9 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                 }
         */
 
-        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
-        CreateBackgroundTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // charcoalFloor at [0, 0]
+        CreateBackgroundTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // lavanderFloor at [0, 0]
 
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
@@ -113,15 +113,15 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
         // *** Resource Tile Generation ***
         mapGrid = new int[mapHeight, mapWidth];
 
-        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
-        CreateTerrainTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // charcoalFloor at [0, 0]
+        CreateTerrainTile(0, (0 + coordinateOffest), (0 + coordinateOffest)); // lavanderFloor at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
         for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
-            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a charcoalFloor tile
+            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a lavanderFloor tile
             {
                 tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
                 mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
@@ -135,7 +135,7 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
         {
             for (int x = 0; x < mapGrid.GetLength(1); x++)
             {
-                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a charcoalFloor tile
+                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a lavanderFloor tile
                 {
                     if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
                     {
@@ -175,14 +175,14 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
 
         switch (tileID)
         {
-            case 0: // charcoalFloor
+            case 0: // lavanderFloor
                 randomInt = Random.Range(1, 100);
 
-                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating charcoalFloor
+                if (randomInt >= 0 && randomInt < 95) // 95% chance of generating lavanderFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating lavaWhole
+                else if (randomInt >= 95 && randomInt < 100) // 5% chance of generating cloudWhole
                 {
                     bgNeighborID = 1;
                 }
@@ -192,14 +192,14 @@ public class SCR_Marus_Terrain_Generation : MonoBehaviour
                 }
                 break;
 
-            case 1: // lavaWhole
+            case 1: // cloudWhole
                 randomInt = Random.Range(1, 100);
                 
-                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating charcoalFloor
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating lavanderFloor
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating lavaWhole
+                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating cloudWhole
                 {
                     bgNeighborID = 1;
                 }
