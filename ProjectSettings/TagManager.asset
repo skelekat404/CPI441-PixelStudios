@@ -8,6 +8,9 @@ TagManager:
   - Rock
   - Tree
   - mult
+  - earthBandaid
+  - orangeBandaid
+  - shop
   layers:
   - Default
   - TransparentFX

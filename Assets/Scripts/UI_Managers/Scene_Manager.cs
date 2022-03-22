@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using MLAPI;
 
-public class Scene_Manager : MonoBehaviour
+public class Scene_Manager : NetworkBehaviour
 {
     private GameObject[] player_refs;
     private GameObject player_ref;
 
     private GameObject multMenu;
     private GameObject miniMenu;
+
+    private Transform[] parts;
 
     private AsyncOperation sceneAsync;
     private bool localOnPlanet = false;
@@ -35,43 +37,42 @@ public class Scene_Manager : MonoBehaviour
             planetToLoad = player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_planet_collide();
         else
             planetToLoad = "SampleScene";
-        //Debug.Log(planetToLoad);
-
-        //store last player position
-        //if (player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet == false)
-        //{
-            //Debug.Log("Reached");
-            //player_ref.transform.Find("Ship").GetComponent<player_last_collision>().set_last_player_pos(player_ref.transform.Find("Ship").transform);
-        //}
-        //Debug.Log("onPlanet: " + player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet);
-        //Debug.Log(player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_player_pos().position);
-
+        
+        //load scene
         StartCoroutine(loadScene(planetToLoad));
     }
 
     IEnumerator loadScene(string in_name)
     {
-        //load scene async
-        AsyncOperation scene = SceneManager.LoadSceneAsync(in_name, LoadSceneMode.Additive);
-        //scene.allowSceneActivation = false;
-        sceneAsync = scene;
+        //if the scene is not loaded already
+        if(!SceneManager.GetSceneByName(in_name).isLoaded)
+        {
+            //load scene async
+            AsyncOperation scene = SceneManager.LoadSceneAsync(in_name, LoadSceneMode.Additive);
+            //scene.allowSceneActivation = false;
+            sceneAsync = scene;
 
+            //wait until scene is completely finished loading
+            while (scene.progress < 0.999f)
+            {
+                Debug.Log("Loading scene " + " [][] Progress: " + scene.progress);
+                yield return null;
+            }
+        }
+        
         
 
-        //wait until scene is completely finished loading
-        while(scene.progress < 0.999f)
-        {
-            Debug.Log("Loading scene " + " [][] Progress: " + scene.progress);
-            yield return null;
-        }
-
+        //only reset the player position if you're coming from space
+        //if (!player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+        //{
         //reset player position
-        Transform[] parts = player_ref.GetComponentsInChildren<Transform>();
-        foreach (Transform t in parts)
-        {
-            t.position = Vector3.zero;
-        }
-
+        parts = player_ref.GetComponentsInChildren<Transform>();//was local
+        //foreach (Transform t in parts)
+        //{
+        //    t.position = Vector3.zero;
+        //    t.rotation = Quaternion.identity;
+        //}
+        //}
         //finish
         OnFinishedLoadingScene(in_name);
     }
@@ -98,21 +99,42 @@ public class Scene_Manager : MonoBehaviour
             Debug.Log("scene is valid, loading...");
             SceneManager.MoveGameObjectToScene(player_ref, sceneToLoad);
             //
+            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
 
-            string scene_unload = "";
-
+            //
+            //WILL NOT BE UNLOADING A SCENE
+            //string scene_unload = "";
+            //*****************************
             if (player_ref.scene.name.ToLower().Contains("planet"))
             {
-                scene_unload = "SampleScene";
+                //change player position to on planet position
+                foreach (Transform t in parts)
+                {
+                    t.position = Vector3.zero;
+                    t.rotation = Quaternion.identity;
+                }
+
+                //WILL NOT BE UNLOADING A SCENE
+                //scene_unload = "SampleScene";
+                //*****************************
                 player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet = true;
                 localOnPlanet = true;
                 //move pause_menu since it has the scene manager in it
-                SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
+                //SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
                 //GameObject.FindGameObjectWithTag("GameController")
             }
             else
             {
-                scene_unload = player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_planet_collide();
+                //change player position to outer space
+                foreach (Transform t in parts)
+                {
+                    t.position = new Vector3(0, -1000, 0);
+                    t.rotation = Quaternion.identity;
+                }
+
+                //WILL NOT BE UNLOADING A SCENE
+                //scene_unload = player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_planet_collide();
+                //*****************************
                 player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet = false;
                 localOnPlanet = false;
                 
@@ -122,9 +144,13 @@ public class Scene_Manager : MonoBehaviour
             //Debug.Log("SCENE TO UNLOAD: " + scene_unload);
 
             SceneManager.SetActiveScene(sceneToLoad);
-            
+
             //make this check through collision******************************************
-            SceneManager.UnloadSceneAsync(scene_unload);
+
+            //WILL NOT BE UNLOADING A SCENE
+            //SceneManager.UnloadSceneAsync(scene_unload);
+            //*****************************
+
             Debug.Log("Scene loaded.");
 
             //manage ui

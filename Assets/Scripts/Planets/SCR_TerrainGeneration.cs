@@ -57,9 +57,9 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
         */
 
-        // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
-        CreateBackgroundTile(0, 0, 0); // grass at [0, 0]
+        CreateBackgroundTile(0, 0, 0); // charcoalFloor at [0, 0]
 
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
@@ -86,6 +86,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
                      // either the title one row below, or one column to the left
                 {
                     int neighborChoice = Random.Range(1, 2); // 50/50 chance for either tile to be chosen
+
                     switch (neighborChoice)
                     {
                         case 1:
@@ -110,15 +111,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
         // *** Resource Tile Generation ***
         mapGrid = new int[mapHeight, mapWidth];
 
-        // *** Manually setting the first tile as grass, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
-        CreateTerrainTile(0, 0, 0); // grass at [0, 0]
+        CreateTerrainTile(0, 0, 0); // charcoalFloor at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
         for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
-            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a grass tile
+            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a charcoalFloor tile
             {
                 tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
                 mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
@@ -132,7 +133,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
         {
             for (int x = 0; x < mapGrid.GetLength(1); x++)
             {
-                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a grass tile
+                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a charcoalFloor tile
                 {
                     if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
                     {
@@ -192,11 +193,11 @@ public class SCR_TerrainGeneration : MonoBehaviour
             case 1: // River // START OF EDITS ***
                 randomInt = Random.Range(1, 100);
                 
-                if (randomInt >= 0 && randomInt < 20) // 20% chance of generating Grass
+                if (randomInt >= 0 && randomInt < 40) // 40% chance of generating Grass
                 {
                     bgNeighborID = 0;
                 }
-                else if (randomInt >= 20 && randomInt < 100) // 80% chance of generating River
+                else if (randomInt >= 40 && randomInt < 100) // 60% chance of generating River
                 {
                     bgNeighborID = 1;
                 }
