@@ -38,6 +38,8 @@ public class Sc_Ship_Move : NetworkBehaviour
 
     void Awake()
     {
+        //transform.position = new Vector3(0, -1000, 0);//player start position
+
         sprintSpeed = 2f;
         sprintLength = 0.5f;
         sprintCoolDown = 120f;
@@ -56,11 +58,11 @@ public class Sc_Ship_Move : NetworkBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        transform.parent.position = new Vector3(0, -1000, 0);//player start position
     }
 
     void Update()
     {
-        
         if (IsLocalPlayer)
         {
             //update speeds
@@ -68,7 +70,10 @@ public class Sc_Ship_Move : NetworkBehaviour
             //update the sprite of the player object
             if (onPlanet)
             {
-                gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                //gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                gameObject.transform.parent.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                
+
                 animator.SetBool("on_planet", true);
                 sprintSpeed = 2f;
                 sprintLength = 0.1f;
@@ -79,7 +84,9 @@ public class Sc_Ship_Move : NetworkBehaviour
             }
             else
             {
-                gameObject.transform.localScale = Vector3.one * 2;
+                //gameObject.transform.localScale = Vector3.one * 2;
+                gameObject.transform.parent.localScale = Vector3.one * 2;
+
                 animator.SetBool("on_planet", false);
                 sprintSpeed = 2f;
                 sprintLength = 0.5f;

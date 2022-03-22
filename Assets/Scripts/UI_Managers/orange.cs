@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class orange_bandaid : MonoBehaviour
+public class orange : MonoBehaviour
 {
     private GameObject _target;
 

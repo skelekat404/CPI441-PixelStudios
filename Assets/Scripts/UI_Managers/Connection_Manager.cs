@@ -15,6 +15,12 @@ public class Connection_Manager : MonoBehaviour
     public GameObject playerRef;
     public string ipAddress = "127.0.0.1";
     UNetTransport transport;
+
+    public void Awake()
+    {
+        
+    }
+
     public void Pause_Game()
     {
         pauseMenuPanel.SetActive(true);
@@ -41,7 +47,8 @@ public class Connection_Manager : MonoBehaviour
     {
         //approve
         NetworkManager.Singleton.ConnectionApprovalCallback += Approval_Check;
-        NetworkManager.Singleton.StartHost(Vector3.zero, Quaternion.identity);//Vector3.zero
+        //spawn player host
+        NetworkManager.Singleton.StartHost(new Vector3(0, -1000, 0), Quaternion.identity);//Vector3.zero
 
         //destroy default camera
 

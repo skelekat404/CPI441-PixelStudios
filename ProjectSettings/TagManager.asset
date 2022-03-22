@@ -10,6 +10,7 @@ TagManager:
   - mult
   - earthBandaid
   - orangeBandaid
+  - shop
   layers:
   - Default
   - TransparentFX
