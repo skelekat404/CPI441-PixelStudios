@@ -57,9 +57,9 @@ public class SCR_TerrainGeneration : MonoBehaviour
                 }
         */
 
-        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         backgroundTileGrid[0, 0] = 0;
-        CreateBackgroundTile(0, 0, 0); // charcoalFloor at [0, 0]
+        CreateBackgroundTile(0, 0, 0); // lavanderFloor at [0, 0]
 
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
@@ -111,15 +111,15 @@ public class SCR_TerrainGeneration : MonoBehaviour
         // *** Resource Tile Generation ***
         mapGrid = new int[mapHeight, mapWidth];
 
-        // *** Manually setting the first tile as charcoalFloor, position [0, 0] (bottom left corner of the grid) ***
+        // *** Manually setting the first tile as lavanderFloor, position [0, 0] (bottom left corner of the grid) ***
         mapGrid[0, 0] = 0;
-        CreateTerrainTile(0, 0, 0); // charcoalFloor at [0, 0]
+        CreateTerrainTile(0, 0, 0); // lavanderFloor at [0, 0]
 
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
         for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
-            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a charcoalFloor tile
+            if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a lavanderFloor tile
             {
                 tileIDFirstRow = GenerateNeighborID(mapGrid[0, x - 1]); // generates a new tile based on the previous one in the row
                 mapGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
@@ -133,7 +133,7 @@ public class SCR_TerrainGeneration : MonoBehaviour
         {
             for (int x = 0; x < mapGrid.GetLength(1); x++)
             {
-                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a charcoalFloor tile
+                if (backgroundTileGrid[y, x] == 0) // checks if the background tile is a lavanderFloor tile
                 {
                     if (x == 0) // checks if the loop reaches the first item of a row (start of a new row)
                     {

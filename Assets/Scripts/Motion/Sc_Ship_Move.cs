@@ -42,7 +42,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
         sprintSpeed = 2f;
         sprintLength = 0.5f;
-        sprintCoolDown = 120f;
+        sprintCoolDown = 4f;
         active_speed = 0.009f;
         active_speed_high = 0.04f;
         active_speed_low = 0.009f;
@@ -90,7 +90,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 animator.SetBool("on_planet", false);
                 sprintSpeed = 2f;
                 sprintLength = 0.5f;
-                sprintCoolDown = 120f;
+                sprintCoolDown = 5f;
                 active_speed_high = 0.04f;
                 active_speed_low = 0.009f;
                 passive_speed = 0.001f;
@@ -196,7 +196,7 @@ public class Sc_Ship_Move : NetworkBehaviour
             else
             {
 
-
+                print("ship move");
                 //moving
                 if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
                 {
@@ -219,6 +219,9 @@ public class Sc_Ship_Move : NetworkBehaviour
                 }
                 else if ((Input.GetKey("up") || Input.GetKey(KeyCode.W)) && Input.GetKey(KeyCode.LeftShift))
                 {
+                    print("test");
+                    print("sprintCoolCounter = " + sprintCoolCounter);
+                    print("sprintCounter = " + sprintCounter);
                     if (sprintCoolCounter <= 0 && sprintCounter <= 0)
                     {
                         //Update this variable for faster/slower accelerate speed
@@ -228,6 +231,8 @@ public class Sc_Ship_Move : NetworkBehaviour
                         curr_passive_speed = passive_speed;
 
                         sprintCounter = sprintLength;
+
+                        print("Accelerate");
                     }
 
                 }
@@ -237,6 +242,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                     sprintCounter -= Time.deltaTime;
                     if (sprintCounter <= 0)
                     {
+                        print("boolean reset");
                         //Reset speed back to default
                         animator.SetBool("Accelerate", false);
                         active_speed = active_speed_low;
@@ -246,6 +252,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
                 if (sprintCoolCounter > 0)
                 {
+                    print("time reset");
                     sprintCoolCounter -= Time.deltaTime;
                 }
 
