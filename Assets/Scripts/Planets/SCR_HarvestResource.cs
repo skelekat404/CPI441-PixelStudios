@@ -36,6 +36,7 @@ public class SCR_HarvestResource : MonoBehaviour
         if(collision.gameObject.name.Equals("Ship"))
         {
             canHarvest = true;
+
             Debug.Log("Can harvest");
         }
     }
