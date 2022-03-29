@@ -71,7 +71,7 @@ public class Sc_Ship_Move : NetworkBehaviour
             if (onPlanet)
             {
                 //gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-                gameObject.transform.parent.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                //gameObject.transform.parent.localScale = new Vector3(0.25f, 0.25f, 0.25f);
                 
 
                 animator.SetBool("on_planet", true);
@@ -85,14 +85,14 @@ public class Sc_Ship_Move : NetworkBehaviour
             else
             {
                 //gameObject.transform.localScale = Vector3.one * 2;
-                gameObject.transform.parent.localScale = Vector3.one * 2;
+                //gameObject.transform.parent.localScale = Vector3.one * 2;
 
                 animator.SetBool("on_planet", false);
                 sprintSpeed = 2f;
                 sprintLength = 0.5f;
                 sprintCoolDown = 5f;
-                active_speed_high = 0.04f;
-                active_speed_low = 0.009f;
+                active_speed_high = 0.12f;
+                active_speed_low = 0.12f;
                 passive_speed = 0.001f;
             }
             //planet moving
