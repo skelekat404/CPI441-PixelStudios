@@ -298,8 +298,8 @@ MonoBehaviour:
   lavanderFloor: {fileID: 6859285561620680057, guid: f483760e1577ef844a7029eeebe52910, type: 3}
   cloudWhole: {fileID: 1763124913615960985, guid: a796d1fc11833d24f91859176300be75, type: 3}
   transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
-  tempRocks: {fileID: 5117887541073689712, guid: 756a1b896ef975343ac8bcb0096f993d, type: 3}
-  purpleStones: {fileID: 2033004034925781074, guid: aa6fce5cd36030b45a69a1c9d555c806, type: 3}
+  tempRocks: {fileID: 3080589419386046556, guid: 8cf44d61751272348be76e150ecc375a, type: 3}
+  purpleStones: {fileID: 2349610809053192263, guid: e0d870a485bb5be49974bb41964d81cf, type: 3}
 --- !u!1 &2075521706
 GameObject:
   m_ObjectHideFlags: 0

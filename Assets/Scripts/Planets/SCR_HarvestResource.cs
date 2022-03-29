@@ -18,9 +18,6 @@ public class SCR_HarvestResource : MonoBehaviour
     // *** Used to reference variables file with material counts ***
     public SCR_ImportantVariables importantVariables;
 
-    public int numWood = 0;
-    public int numRock = 0;
-
     void Awake()
     {
         importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
@@ -58,6 +55,9 @@ public class SCR_HarvestResource : MonoBehaviour
         {
             //Destroy(this.gameObject);
 
+            // *** Materials ***
+
+            // Earth
             if (gameObject.tag == "Tree")
             {
                 importantVariables.numWood++;
@@ -71,6 +71,38 @@ public class SCR_HarvestResource : MonoBehaviour
                 Destroy(this.gameObject);
                 Debug.Log("Rock #: " + importantVariables.numRock);
                 m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+
+            // Marus
+            if (gameObject.tag == "Coal")
+            {
+                importantVariables.numCoal++;
+                Destroy(this.gameObject);
+                Debug.Log("Coal #: " + importantVariables.numCoal);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+            if (gameObject.tag == "LavaCrystal")
+            {
+                importantVariables.numLavaCrystal++;
+                Destroy(this.gameObject);
+                Debug.Log("Lava Crystal #: " + importantVariables.numLavaCrystal);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+
+            // Vamia
+            if (gameObject.tag == "PurpleCrystal")
+            {
+                importantVariables.numPurpleCrystal++;
+                Destroy(this.gameObject);
+                Debug.Log("Purple Crystal #: " + importantVariables.numPurpleCrystal);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+            if (gameObject.tag == "PurpleEssence")
+            {
+                importantVariables.numPurpleEssence++;
+                Destroy(this.gameObject);
+                Debug.Log("Purple Essence #: " + importantVariables.numPurpleEssence);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
         }
     }
