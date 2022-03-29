@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet_OrangeMarus.unity
     guid: 55d101a1381bce548bdc8626b496242e
+  - enabled: 1
+    path: Assets/Scenes/Planet_PurpleVamia.unity
+    guid: b517772ce8f2ea7478512672cfeff5c7
   m_configObjects: {}

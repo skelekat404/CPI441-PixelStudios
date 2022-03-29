@@ -6,11 +6,15 @@ using MLAPI;
 
 public class Scene_Manager : NetworkBehaviour
 {
+    //public delegate void sweeper();
+    //public static event sweeper sceneChanged;
+
     private GameObject[] player_refs;
     private GameObject player_ref;
 
     private GameObject multMenu;
     private GameObject miniMenu;
+    private GameObject pauseMenu;
 
     private Transform[] parts;
 
@@ -90,16 +94,59 @@ public class Scene_Manager : NetworkBehaviour
 
         //get the last collided planet from the player_last_collision script which is updated in the PlanetCollision script
 
-        
+        bool unload_boi = false;
         Scene sceneToLoad = SceneManager.GetSceneByName(load_name);
         //error check + move player to scene
         Debug.Log(sceneToLoad.IsValid());
         if(sceneToLoad.IsValid())
         {
+            Scene scene_unload = gameObject.scene;
+
+            //if (GameObject.FindGameObjectsWithTag("Player").Length == 2)
+            //{
+            //    Debug.Log("\nWE SEE THAT THERE IS ONLY ONE PLAYER HERE BROTHER\n");
+                //SceneManager.UnloadSceneAsync(scene_unload);
+                unload_boi = true;
+            //}
+
+
+            
             Debug.Log("scene is valid, loading...");
-            SceneManager.MoveGameObjectToScene(player_ref, sceneToLoad);
+
+            //i dont trust unity
+            player_refs = GameObject.FindGameObjectsWithTag("Player");
+            for (int i = 0; i < player_refs.Length; i++)
+            {
+                SceneManager.MoveGameObjectToScene(player_refs[i], sceneToLoad);
+                //    if (player_refs[i].GetComponent<NetworkBehaviour>().IsLocalPlayer)
+                //    {
+                //player_ref = player_refs[i];
+                //    }
+            }
+            //***
+
+            //SceneManager.MoveGameObjectToScene(player_ref, sceneToLoad);
             //
-            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
+            if(!player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)//trying this
+            {
+                SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
+
+            }
+
+            //look for player instances
+            Debug.Log("\n***************\n");
+            Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
+            Debug.Log("\n***************\n");
+
+            if (unload_boi)
+            {
+                Debug.Log("Scene unloading...\n");
+                SceneManager.UnloadSceneAsync(scene_unload);
+            }
+
+            //***call event
+            //sceneChanged();
+            //***call event
 
             //
             //WILL NOT BE UNLOADING A SCENE
@@ -107,12 +154,34 @@ public class Scene_Manager : NetworkBehaviour
             //*****************************
             if (player_ref.scene.name.ToLower().Contains("planet"))
             {
-                //change player position to on planet position
-                foreach (Transform t in parts)
+                if(player_ref.scene.name.ToLower().Contains("earth"))
                 {
-                    t.position = Vector3.zero;
-                    t.rotation = Quaternion.identity;
+                    //change player position to on planet position
+                    foreach (Transform t in parts)
+                    {
+                        t.position = new Vector3(15, 15, 0);
+                        t.rotation = Quaternion.identity;
+                    }
                 }
+                else if(player_ref.scene.name.ToLower().Contains("orange"))
+                {
+                    //change player position to on planet position
+                    foreach (Transform t in parts)
+                    {
+                        t.position = new Vector3(115, 115, 0);
+                        t.rotation = Quaternion.identity;
+                    }
+                }
+                else if (player_ref.scene.name.ToLower().Contains("vamia"))
+                {
+                    //change player position to on planet position
+                    foreach (Transform t in parts)
+                    {
+                        t.position = new Vector3(215, 215, 0);
+                        t.rotation = Quaternion.identity;
+                    }
+                }
+
 
                 //WILL NOT BE UNLOADING A SCENE
                 //scene_unload = "SampleScene";
@@ -137,7 +206,17 @@ public class Scene_Manager : NetworkBehaviour
                 //*****************************
                 player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet = false;
                 localOnPlanet = false;
-                
+
+                //close pause menu
+                pauseMenu = GameObject.FindGameObjectWithTag("pause");
+                if(pauseMenu != null)
+                {
+                    pauseMenu.SetActive(false);
+                }
+
+                //deactivate leave button
+                //GameObject leaveButton = GameObject.FindGameObjectWithTag("leaveButton");
+                //leaveButton.SetActive(false);
 
             }
             //Debug.Log("SCENE TO LOAD: " + sceneToLoad);
@@ -181,6 +260,9 @@ public class Scene_Manager : NetworkBehaviour
                 //player_ref.transform.rotation = player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_player_pos().rotation;
                 //***
             //}
-        }
-    }
-}
+        }//if scene to load is valid
+    }//enable scene
+
+
+
+}//class scene manager
