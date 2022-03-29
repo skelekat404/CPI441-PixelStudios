@@ -5,6 +5,7 @@ using MLAPI;
 using MLAPI.Spawning;
 using MLAPI.Transports.UNET;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Connection_Manager : MonoBehaviour
 {
@@ -18,12 +19,12 @@ public class Connection_Manager : MonoBehaviour
 
     public void Awake()
     {
-        
     }
 
     public void Pause_Game()
     {
         pauseMenuPanel.SetActive(true);
+
         multiplayerMenuPanel.SetActive(false);
         minimapPanel.SetActive(false);
     }

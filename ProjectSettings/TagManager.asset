@@ -11,6 +11,8 @@ TagManager:
   - earthBandaid
   - orangeBandaid
   - shop
+  - pause
+  - leaveButton
   layers:
   - Default
   - TransparentFX
