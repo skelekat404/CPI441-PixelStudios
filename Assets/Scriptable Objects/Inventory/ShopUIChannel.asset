@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089161d63fa9a20418dbbe83f822f5fa, type: 3}
-  m_Name: ShopInventoryUIChannel
+  m_Script: {fileID: 11500000, guid: ab3c282490e95d24aa2b8d0fddcb66ea, type: 3}
+  m_Name: ShopUIChannel
   m_EditorClassIdentifier: 

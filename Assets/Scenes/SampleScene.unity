@@ -3045,12 +3045,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1778750357672901288, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
+      propertyPath: itemToGet
+      value: 
+      objectReference: {fileID: 11400000, guid: ca938f3b780a15e489e8978c1aa628a0, type: 2}
+    - target: {fileID: 1778750357672901288, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
       propertyPath: InventoryChannel
       value: 
       objectReference: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
+    - target: {fileID: 1778750357672901298, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1778750358077182218, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
       propertyPath: m_Name
       value: InventoryFull
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778750358077182218, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1778750358077182219, guid: 9984610a408a9e3499fae5ca24d3ae5f, type: 3}
       propertyPath: m_RootOrder
