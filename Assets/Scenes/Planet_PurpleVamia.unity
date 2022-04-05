@@ -251,6 +251,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &770074601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770074603}
+  - component: {fileID: 770074602}
+  m_Layer: 0
+  m_Name: hud_cleaner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &770074602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770074601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd996564a1f80d4b896aafe54bb5848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &770074603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770074601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327896704
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +344,71 @@ MonoBehaviour:
   transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
   tempRocks: {fileID: 3080589419386046556, guid: 8cf44d61751272348be76e150ecc375a, type: 3}
   purpleStones: {fileID: 2349610809053192263, guid: e0d870a485bb5be49974bb41964d81cf, type: 3}
+--- !u!1001 &1339361809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391746, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391747, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: _cleaner
+      value: 
+      objectReference: {fileID: 770074601}
+    - target: {fileID: 4167195321492391747, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: scene_name
+      value: Planet_PurpleVamia
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167195321492391748, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
+      propertyPath: m_Name
+      value: Activator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 090b7ac29e21e7b4b8e4508a83d73f04, type: 3}
 --- !u!1 &2075521706
 GameObject:
   m_ObjectHideFlags: 0
