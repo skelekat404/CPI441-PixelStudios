@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8004039809129492540}
   - component: {fileID: -7376340319274089400}
   - component: {fileID: 5398059576957969632}
+  - component: {fileID: 3892131603122685297}
   m_Layer: 0
   m_Name: PFB_Lava_Crystal
   m_TagString: LavaCrystal
@@ -135,3 +136,29 @@ MonoBehaviour:
   m_InventoryChannel: {fileID: 0}
   m_LootableItem: {fileID: 0}
   importantVariables: {fileID: 0}
+--- !u!61 &3892131603122685297
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949634006534912371}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.47761193, y: 0.47761193}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
