@@ -298,8 +298,8 @@ MonoBehaviour:
   charcoalFloor: {fileID: 1928164424811547307, guid: fddacf85a0ed41542a699e232d83db26, type: 3}
   lavaWhole: {fileID: 8416244723857829480, guid: 415f9ec67ced4bf4bada2bbe929e2b20, type: 3}
   transparentTile: {fileID: 4901858439240550964, guid: 5bfa17cebbad49245bb01b8462c00718, type: 3}
-  tempRocks: {fileID: 5117887541073689712, guid: 756a1b896ef975343ac8bcb0096f993d, type: 3}
-  lavaRocks: {fileID: 863234210267657400, guid: 98c14a1f9c7294a4f8780c608b3be217, type: 3}
+  tempRocks: {fileID: 1936648992983582929, guid: 4bd9276124e067745878c13c00ffdda9, type: 3}
+  lavaRocks: {fileID: 5949634006534912371, guid: 045910cba02ad1a4289fe28fa1844683, type: 3}
 --- !u!1 &1914062174
 GameObject:
   m_ObjectHideFlags: 0
