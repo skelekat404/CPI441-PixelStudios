@@ -44,4 +44,9 @@ public class InventoryHolder : MonoBehaviour
 
         slotToUse?.StoreItem(item, quantity);
     }
+
+    private void OnInventoryClear()
+    {
+        m_Inventory.Clear();
+    }
 }

@@ -10,13 +10,11 @@ public class ShopUIDisplayController : MonoBehaviour
     private InventoryUIController m_PlayerInventoryUIController;
     [SerializeField]
     private InventoryUIController m_SaleInventoryUIController;
-    
-    private InventoryHolder m_SaleInventoryHolder = null;
+
+    public InventoryHolder m_SaleInventoryHolder;
 
     private void Awake()
     {
-        m_SaleInventoryHolder = GetComponent<InventoryHolder>();
-        
         m_ShopUIChannel.OnShopToggle += OnToggleShopUI;
         gameObject.SetActive(false);
     }
@@ -30,12 +28,14 @@ public class ShopUIDisplayController : MonoBehaviour
     {
         if (playerInventoryHolder.Inventory != null)
         {
+            Debug.Log("the inventory is not null. setting active and populating UI for both.");
             gameObject.SetActive(true);
             m_PlayerInventoryUIController.PopulateInventoryUI(playerInventoryHolder.Inventory);
             m_SaleInventoryUIController.PopulateInventoryUI(m_SaleInventoryHolder.Inventory);
         }
         else
         {
+            Debug.Log("the inventory is null. deactivating and clearing.");
             gameObject.SetActive(false);
             m_PlayerInventoryUIController.ClearInventoryUI();
             m_SaleInventoryUIController.ClearInventoryUI();

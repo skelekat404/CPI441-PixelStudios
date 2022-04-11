@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace InventorySystem
 {
@@ -6,12 +8,18 @@ namespace InventorySystem
     {
     }
 
+    [DataContract]//added for serialization
     public class InventorySlot
     {
         public delegate void ItemChangeCallback(InventorySlot slot);
         public ItemChangeCallback OnItemChange;
+        
 
+        [JsonProperty("ItemName")]//added for serialization
+        private string ItemName => m_Item != null ? m_Item.name : "";
         private InventoryItem m_Item;
+        
+        [JsonProperty("Quantity")]//added for serialization
         private uint m_Quantity;
         private uint m_MaxQuantity = uint.MaxValue;
         private List<InventoryItemType> m_AllowedItemTypes = new List<InventoryItemType>();

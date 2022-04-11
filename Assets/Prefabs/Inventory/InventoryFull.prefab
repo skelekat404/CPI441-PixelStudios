@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1778750357672901295}
   - component: {fileID: 1778750357672901294}
   - component: {fileID: 1778750357672901288}
+  - component: {fileID: 6357288795185526943}
   m_Layer: 5
   m_Name: PlayerInventoryHolder
   m_TagString: Untagged
@@ -208,6 +209,20 @@ MonoBehaviour:
   InventoryUIChannel: {fileID: 11400000, guid: a3d4cd68f6ed8ce42bd60d61b2e764e9, type: 2}
   inventoryHolder: {fileID: 1778750357672901299}
   itemToGet: {fileID: 0}
+--- !u!114 &6357288795185526943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778750357672901298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b98548396f41da47a3f33f776fc1908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlotItemTypes:
+  - {fileID: 0}
 --- !u!1 &1778750357915282335
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,19 +939,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5438915705913092106, guid: 6e88a4bb13b53404493ee2eb18ba7f21, type: 3}
   m_PrefabInstance: {fileID: 1778750358529278794}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7321780961111096029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6040889516896725824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4fadcb67b9acfa4ebbdb8c8364c9cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlotControllerPrefab: {fileID: 8565591403812589970, guid: 831f81871c82c554d84ae31bda0d618f, type: 3}
 --- !u!114 &2521155052968801831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,6 +952,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryUIChannel: {fileID: 11400000, guid: a3d4cd68f6ed8ce42bd60d61b2e764e9, type: 2}
+--- !u!114 &7321780961111096029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6040889516896725824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fadcb67b9acfa4ebbdb8c8364c9cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SlotControllerPrefab: {fileID: 8565591403812589970, guid: 831f81871c82c554d84ae31bda0d618f, type: 3}
+  m_SaleInventoryHolder: {fileID: 0}
 --- !u!224 &6040889516896725825 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5438915705913092107, guid: 6e88a4bb13b53404493ee2eb18ba7f21, type: 3}

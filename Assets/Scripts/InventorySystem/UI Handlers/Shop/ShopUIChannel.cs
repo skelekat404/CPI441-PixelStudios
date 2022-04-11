@@ -16,6 +16,14 @@ public class ShopUIChannel : ScriptableObject
 
     public void OnToggleShopUI(InventoryHolder playerInventoryHolder)
     {
-        OnShopToggle?.Invoke(playerInventoryHolder);
+        if(playerInventoryHolder != null)
+        {
+            playerInventoryHolder.Inventory.Clear();
+            OnShopToggle?.Invoke(playerInventoryHolder);
+        }
+        else
+        {
+            Debug.Log("it is [" + playerInventoryHolder.Inventory + "] with holder [" + playerInventoryHolder);
+        }
     }
 }

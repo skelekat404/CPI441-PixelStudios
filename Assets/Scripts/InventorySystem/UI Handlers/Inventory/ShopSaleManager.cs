@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem;
 
-public class SCR_ShopSaleManager : MonoBehaviour
+public class ShopSaleManager : MonoBehaviour
 {
+    [SerializeField]
+    private InventorySlotUIController shopUISlotController;
+    
     public InventoryChannel shopInventoryChannel;
-    public InventoryHolder shopInventoryHolder;
-    public InventorySlot slot;
     private int saleTotal = 0;
+    private InventorySlot slot;
 
     public Action<InventorySystem.InventorySlot> itemAdded;
     
@@ -22,14 +24,18 @@ public class SCR_ShopSaleManager : MonoBehaviour
 
     }
     
-    public void sumValues()
+    public void sumValues(InventoryHolder shopInventoryHolder)
     {
+        /*
         shopInventoryHolder.Inventory.ForEach(slot =>
         {
             saleTotal += slot.Item.SaleValue++;
-        });
-
-        Debug.Log(saleTotal);
+        });*/
+        /*Array.ForEach(GetComponentsInChildren<InventorySlotUIController>(shopUISlotController), slot =>
+            if (slot != null && slot.Item != null)
+            {
+                saleTotal
+            }*/
     }
     
     void Update()

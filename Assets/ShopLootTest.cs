@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopToggleInventory : MonoBehaviour
+public class ShopLootTest : MonoBehaviour
 {
     public bool inventoryToggle = false;
     [SerializeField]
@@ -11,6 +11,8 @@ public class ShopToggleInventory : MonoBehaviour
     private ShopUIChannel ShopUIChannel;
     [SerializeField]
     private InventoryHolder inventoryHolder;
+    [SerializeField]
+    private InventorySystem.InventoryItem itemToGet;
     
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,11 @@ public class ShopToggleInventory : MonoBehaviour
 
     void Update()
     {
-        inventoryToggle = !inventoryToggle;
+       // inventoryToggle = !inventoryToggle;
         
         if(Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("key pressed");
-            ShopUIChannel.OnToggleShopUI(inventoryHolder);
+            InventoryChannel?.RaiseLootItem(itemToGet);
         }
     }
 }
