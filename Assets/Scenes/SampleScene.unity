@@ -829,6 +829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop_SpaceShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7566364413063084494, guid: 56ed23e8f6b4f4f4284dd2ed67432aa2, type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: 8603860260547353515, guid: 56ed23e8f6b4f4f4284dd2ed67432aa2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1646,6 +1650,7 @@ GameObject:
   - component: {fileID: 283675474}
   - component: {fileID: 283675473}
   - component: {fileID: 283675471}
+  - component: {fileID: 283675475}
   m_Layer: 0
   m_Name: Camera_Minimap
   m_TagString: Untagged
@@ -1660,7 +1665,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283675470}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c36092eb4fdbffa46b1722740e511332, type: 3}
   m_Name: 
@@ -1726,6 +1731,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283675475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283675470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211080d287cf65441bfd79d56ad0b4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera_position_z: -10
+  shipRef: {fileID: 0}
+  playerRef: {fileID: 0}
 --- !u!1 &340276512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4870,6 +4890,9 @@ MonoBehaviour:
     NetworkTransport: {fileID: 886016252}
     RegisteredScenes:
     - SampleScene
+    - Planet_PurpleVamia
+    - Planet_OrangeMarus
+    - Planet_Earth
     AllowRuntimeSceneChanges: 0
     NetworkPrefabs:
     - Prefab: {fileID: 2756148682720881078, guid: 1dce8eafec382404ab7b7f0895ccd82d, type: 3}
@@ -5680,7 +5703,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1778434564}
+        m_TargetAssemblyTypeName: Connection_Manager, Assembly-CSharp
+        m_MethodName: IPAddress_Changed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -5698,10 +5733,22 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_OnDeselect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1778434564}
+        m_TargetAssemblyTypeName: Connection_Manager, Assembly-CSharp
+        m_MethodName: IPAddress_Changed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -5714,7 +5761,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1778434564}
         m_TargetAssemblyTypeName: Connection_Manager, Assembly-CSharp
         m_MethodName: IPAddress_Changed
-        m_Mode: 5
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5722,7 +5769,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5736,7 +5783,7 @@ MonoBehaviour:
   m_RichText: 1
   m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
-  m_ResetOnDeActivation: 1
+  m_ResetOnDeActivation: 0
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0

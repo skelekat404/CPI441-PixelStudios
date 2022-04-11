@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MLAPI;
 
-public class Sc_Camera_Follow_Ship : MonoBehaviour
+public class follow_ship_minimap : MonoBehaviour
 {
     public int camera_position_z;
     public GameObject shipRef;
     public GameObject playerRef;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         
     }
@@ -23,7 +22,7 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
         }
         else // potential error fix
         {
-            gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);//shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z
+            gameObject.transform.position = new Vector3(0, -1000, -10);//shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z
             if (gameObject.tag == "MainCamera")
             {
                 if (shipRef.GetComponent<Sc_Ship_Move>().onPlanet)
@@ -37,6 +36,4 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
             }
         }
     }
-
-    
 }
