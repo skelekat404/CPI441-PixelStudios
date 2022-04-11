@@ -26,6 +26,7 @@ public class ShopUIDisplayController : MonoBehaviour
 
     private void OnToggleShopUI(InventoryHolder playerInventoryHolder)
     {
+        Debug.Log(playerInventoryHolder.Inventory);
         if (playerInventoryHolder.Inventory != null)
         {
             Debug.Log("the inventory is not null. setting active and populating UI for both.");
@@ -39,6 +40,21 @@ public class ShopUIDisplayController : MonoBehaviour
             gameObject.SetActive(false);
             m_PlayerInventoryUIController.ClearInventoryUI();
             m_SaleInventoryUIController.ClearInventoryUI();
+        }
+    }
+
+    public void OnToggleSaleUI(InventoryHolder saleInventoryHolder)
+    {
+        Debug.Log("sale inv is : " + saleInventoryHolder.Inventory);
+        if(saleInventoryHolder.Inventory != null)
+        {
+            Debug.Log("sale is not null");
+            gameObject.SetActive(true);
+            m_SaleInventoryUIController.PopulateInventoryUI(saleInventoryHolder.Inventory);
+        }
+        else
+        {
+            Debug.Log("sale is null??");
         }
     }
 }

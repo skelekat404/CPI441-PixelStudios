@@ -23,8 +23,11 @@ public class InventorySaveLoad : MonoBehaviour
     public void OnInventoryExport()
     {
         string jsonData = m_InventoryHolder.Inventory.SerializeInventoryAsJSON();
+        Debug.Log("data serialized");
         string fullPath = Application.dataPath + saveName;
+        Debug.Log("file name assigned");
         File.WriteAllText(fullPath, jsonData);
+        Debug.Log(m_InventoryHolder + " data serialized to file: " + fullPath);
     }
 
     public void OnInventoryImport()
@@ -34,11 +37,12 @@ public class InventorySaveLoad : MonoBehaviour
         //if file exists
         if(File.Exists(fullPath))
         {
-            Debug.Log("we're in the if statement");
+            //Debug.Log("we're in the if statement");
             string jsonData = File.ReadAllText(fullPath);
             Debug.Log("we set jsondata up");
-            Debug.Log("we're calling inventorychannel.clear next. right now inventory channel is " + inventoryChannel);
+            //Debug.Log("clearing inventory, prepping for import. right now inventory channel is " + inventoryChannel);
             inventoryChannel.RaiseInventoryClear();
+            Debug.Log("inventory cleared");
 
             foreach(var item in m_InventoryHolder.Inventory.GetSlotsFromJSON(jsonData))
             {
@@ -55,6 +59,7 @@ public class InventorySaveLoad : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("successfully imported " + fullPath);
         }
     }
 }

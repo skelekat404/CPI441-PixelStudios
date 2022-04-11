@@ -19,7 +19,7 @@ public class InventoryUIController : MonoBehaviour
     public void PopulateInventoryUI(InventorySystem.Inventory inventory)
     {
         inventory = m_SaleInventoryHolder.Inventory;
-        m_DisplayedInventory = inventory; //TODO : FIGURE OUT WHY THIS BROKE. WAS ORIGINALLY inventoryHolder.Inventory;
+        m_DisplayedInventory = inventory; //TODO : FIGURE OUT WHY THIS BROKE. WAS ORIGINALLY inventoryHolder.Inventory -- WORKS NOW;
         m_DisplayedInventory.OnSlotAdded += CreateSlotController;
         m_DisplayedInventory.OnSlotRemoved += DestroyInventorySlot;
         m_DisplayedInventory.ForEach(CreateSlotController);
@@ -36,6 +36,7 @@ public class InventoryUIController : MonoBehaviour
     public void ClearSpecificInventoryUI(InventoryHolder inventoryHolder)
     {
         Array.ForEach(GetComponentsInChildren<InventorySlotUIController>(), slot => Destroy(slot.gameObject));
+        Debug.Log("relevant inventory is: " + m_DisplayedInventory);
         m_DisplayedInventory.OnSlotRemoved -= DestroyInventorySlot;
         m_DisplayedInventory.OnSlotAdded -= CreateSlotController;
         m_DisplayedInventory = null;

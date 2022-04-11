@@ -7,35 +7,22 @@ using InventorySystem;
 public class ShopSaleManager : MonoBehaviour
 {
     [SerializeField]
-    private InventorySlotUIController shopUISlotController;
-    
     public InventoryChannel shopInventoryChannel;
+    public InventoryHolder m_SaleInventoryHolder;
+    //private InventorySystem.Inventory m_SaleInventory;
+    private readonly List<InventorySlot> m_Slots = new List<InventorySlot>();
+
     private int saleTotal = 0;
-    private InventorySlot slot;
-
-    public Action<InventorySystem.InventorySlot> itemAdded;
-    
-    public void Start()
-    {
-    }
-
-    private void OnItemsUpdated(InventorySystem.InventorySlot slot)
-    {
-
-    }
     
     public void sumValues(InventoryHolder shopInventoryHolder)
     {
-        /*
-        shopInventoryHolder.Inventory.ForEach(slot =>
-        {
-            saleTotal += slot.Item.SaleValue++;
-        });*/
-        /*Array.ForEach(GetComponentsInChildren<InventorySlotUIController>(shopUISlotController), slot =>
-            if (slot != null && slot.Item != null)
-            {
-                saleTotal
-            }*/
+   /*     int saleTotal = 0;
+    shopInventoryHolder.Inventory.ForEach(slot =>
+    if (slot != null && slot.Item != null)
+    {
+        saleTotal += slot.Item.SaleValue * slot.Quantity;
+        }
+)*/
     }
     
     void Update()

@@ -27,7 +27,7 @@ public class WalletUIController : MonoBehaviour
 
     private void OnInventoryToggle(InventoryHolder inventoryHolder)
     {
-        InventorySystem.Inventory equippedItemInventory = inventoryHolder.GetComponent<EquippedItemsHolder>().EquippedItemsInventory;
+        InventorySystem.Inventory equippedItemInventory = inventoryHolder.GetComponent<InventoryHolder>().Inventory;
 
         if (m_DisplayedWallet == null)
         {
