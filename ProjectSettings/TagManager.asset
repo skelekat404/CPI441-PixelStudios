@@ -13,6 +13,11 @@ TagManager:
   - shop
   - pause
   - leaveButton
+  - Coal
+  - LavaCrystal
+  - PurpleCrystal
+  - PurpleEssence
+  - purpleBandaid
   layers:
   - Default
   - TransparentFX

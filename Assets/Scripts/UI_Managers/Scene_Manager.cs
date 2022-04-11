@@ -161,7 +161,7 @@ public class Scene_Manager : NetworkBehaviour
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
-                        t.position = new Vector3(15, 15, 0);
+                        t.position = new Vector3(0, 0, 0);
                         t.rotation = Quaternion.identity;
                     }
                 }
@@ -171,7 +171,7 @@ public class Scene_Manager : NetworkBehaviour
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
-                        t.position = new Vector3(115, 115, 0);
+                        t.position = new Vector3(100, 100, 0);
                         t.rotation = Quaternion.identity;
                     }
                 }
@@ -181,7 +181,7 @@ public class Scene_Manager : NetworkBehaviour
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
-                        t.position = new Vector3(215, 215, 0);
+                        t.position = new Vector3(200, 200, 0);
                         t.rotation = Quaternion.identity;
                     }
                 }
