@@ -1981,9 +1981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211080d287cf65441bfd79d56ad0b4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera_position_z: -10
-  shipRef: {fileID: 0}
-  playerRef: {fileID: 0}
 --- !u!1 &340276512
 GameObject:
   m_ObjectHideFlags: 0
