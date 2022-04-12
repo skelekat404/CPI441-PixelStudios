@@ -19,7 +19,7 @@ public class Scene_Manager : NetworkBehaviour
     private Transform[] parts;
 
     private AsyncOperation sceneAsync;
-    private string prevPlanet;
+    private string prevPlanet = "";
     private bool localOnPlanet = false;
 
     //public void Awake()
@@ -223,7 +223,16 @@ public class Scene_Manager : NetworkBehaviour
                         t.rotation = Quaternion.identity;
                     }
                 }
-
+                else if (player_ref.scene.name.ToLower().Contains("shop"))
+                {
+                    prevPlanet = "Shop_SpaceShip";
+                    //change player position to on planet position
+                    //foreach (Transform t in parts)
+                    //{
+                    //    t.position = new Vector3(200, 200, 0);
+                    //    t.rotation = Quaternion.identity;
+                    //}
+                }
 
                 //WILL NOT BE UNLOADING A SCENE
                 //scene_unload = "SampleScene";
@@ -281,7 +290,7 @@ public class Scene_Manager : NetworkBehaviour
                         }
                     }
                 }
-                else if(prevPlanet.Equals("Shop_SpcaeShip"))
+                else if(prevPlanet.Equals("Shop_SpaceShip"))
                 {
                     for (int i = 0; i < planets.Length; i++)
                     {
@@ -299,7 +308,7 @@ public class Scene_Manager : NetworkBehaviour
                     t.position = new Vector3(xCoord, yCoord, 0);
                     t.rotation = Quaternion.identity;
                 }
-
+                //Debug.Log("HELLO :^)");
                 //WILL NOT BE UNLOADING A SCENE
                 //scene_unload = player_ref.transform.Find("Ship").GetComponent<player_last_collision>().get_last_planet_collide();
                 //*****************************
