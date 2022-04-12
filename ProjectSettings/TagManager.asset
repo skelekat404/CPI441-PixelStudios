@@ -19,6 +19,7 @@ TagManager:
   - PurpleEssence
   - purpleBandaid
   - mini
+  - Sheep
   layers:
   - Default
   - TransparentFX
