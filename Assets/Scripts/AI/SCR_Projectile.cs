@@ -1,23 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MLAPI;
 
 public class SCR_Projectile : MonoBehaviour
 {
+    // Projectile Stuff
     public float projectileSpeed = 7f;
-    Rigidbody rigidbody;
+    Rigidbody2D rigidbody;
+    Vector2 projectileDirection;
 
-    //Player
+    // Player Stuff
+    private GameObject[] player_refs;
+    private GameObject player_ref;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody2D>();
+
+        player_refs = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < player_refs.Length; i++)
+        {
+            if (player_refs[i].GetComponent<NetworkBehaviour>().IsLocalPlayer)
+            {
+                player_ref = player_refs[i];
+            }
+        }
+
+        projectileDirection = (player_ref.transform.position - transform.position).normalized * projectileSpeed;
+        rigidbody.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
+
+        Destroy(gameObject, 4f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.name.Equals("Ship"))
+        {
+            Debug.Log("Projectile Hit!");
+            Destroy(gameObject);
+        }
     }
 }
