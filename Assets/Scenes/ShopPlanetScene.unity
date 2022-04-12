@@ -3669,7 +3669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &920232105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5106,7 +5106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1187445518
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7286,9 +7286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4e12d30da39514ba33862b1e5e1172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displaySaleManager: {fileID: 0}
+  displaySaleManager: {fileID: 1893137225}
   displayedSaleValue: 0
-  sale_value_ui: {fileID: 0}
+  sale_value_ui: {fileID: 806976593}
 --- !u!114 &1893137223
 MonoBehaviour:
   m_ObjectHideFlags: 0
