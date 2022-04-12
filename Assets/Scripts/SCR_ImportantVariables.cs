@@ -31,6 +31,25 @@ public class SCR_ImportantVariables : MonoBehaviour
 
     public float playerHealth = 100f;
 
+    // *** Speed Upgrade Items getters and setters ***
+    public void setWarpDrive(bool warpDrive)
+    {
+        hasWarpDrive = warpDrive;
+    }
+    public bool getWarpDrive()
+    {
+        return hasWarpDrive;
+    }
+    public void setRocketBoots(bool rocketBoots)
+    {
+        hasRocketBoots = rocketBoots;
+    }
+    public bool getRocketBoots()
+    {
+        return hasRocketBoots;
+    }
+
+    // *** Planet Items getters and setters ***
     public void setScuba(bool scuba)
     {
         hasScuba = scuba;
@@ -38,5 +57,23 @@ public class SCR_ImportantVariables : MonoBehaviour
     public bool getScuba()
     {
         return hasScuba;
+    }
+
+    public void setLavaWalk(bool lavaWalk)
+    {
+        hasLavaWalk = lavaWalk;
+    }
+    public bool getLavaWalk()
+    {
+        return hasLavaWalk;
+    }
+
+    public void setJetpack(bool jetpack)
+    {
+        hasJetpack = jetpack;
+    }
+    public bool getJetpack()
+    {
+        return hasJetpack;
     }
 }
