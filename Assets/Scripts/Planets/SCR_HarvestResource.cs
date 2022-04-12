@@ -62,11 +62,12 @@ public class SCR_HarvestResource : MonoBehaviour
             Debug.Log("Can NOT harvest");
         }
     }
+
     private void HarvestMaterial()
     {
         
         hitSoundPlayer.Play();
-        deathSound.Play();
+        
         currentHits++;
         health -= 0.33f;
         healthBar.SetSize(health);
@@ -106,11 +107,12 @@ public class SCR_HarvestResource : MonoBehaviour
             // Sheep Killing
             if (gameObject.tag == "Sheep")
             {
+                deathSound.Play();
                 importantVariables.numWool++;
                 Destroy(this.gameObject);
                 Debug.Log("Wool #: " + importantVariables.numWool);
                 //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
-                deathSound.Play();  
+                 
             }
 
             // *** Marus ***

@@ -930,7 +930,7 @@ PrefabInstance:
     - target: {fileID: 8984836638483104225, guid: d8a79fc27badfa241b8565053097c17b, type: 3}
       propertyPath: shipPopText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2050040838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8a79fc27badfa241b8565053097c17b, type: 3}
 --- !u!1 &1155332958
