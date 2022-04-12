@@ -23,9 +23,10 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
         }
         else // potential error fix
         {
-            gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);//shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z
+            //shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z
             if (gameObject.tag == "MainCamera")
             {
+                gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);
                 if (shipRef.GetComponent<Sc_Ship_Move>().onPlanet)
                 {
                     GetComponent<Camera>().orthographicSize = 4;
@@ -35,6 +36,18 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
                     GetComponent<Camera>().orthographicSize = 20;
                 }
             }
+            //else
+            //{
+            //    if(shipRef.GetComponent<Sc_Ship_Move>().onPlanet)
+            //    {
+            //        gameObject.transform.position = new Vector3(0, 0, camera_position_z);
+            //    }
+            //    else
+            //    {
+            //        gameObject.transform.position = new Vector3(0, -1000, camera_position_z);
+            //    }
+                
+            //}
         }
     }
 
