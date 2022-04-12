@@ -111,8 +111,40 @@ public class SCR_HarvestResource : MonoBehaviour
                 importantVariables.numWool++;
                 Destroy(this.gameObject);
                 Debug.Log("Wool #: " + importantVariables.numWool);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
                  
+            }
+
+            //Marus AI Killing
+            if (gameObject.tag == "MarusAI")
+            {
+                deathSound.Play();
+                //importantVariables.numCoal++;
+                importantVariables.numLavaCrystal++;
+                importantVariables.numLavaCrystal++;
+                Destroy(this.gameObject);
+                //Debug.Log("Coal #: " + importantVariables.numCoal);
+                Debug.Log("Lava Crystal #: " + importantVariables.numLavaCrystal);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+
+            }
+
+            //Vamia AI Killing
+            if (gameObject.tag == "VamiaAI")
+            {
+                deathSound.Play();
+                //importantVariables.numPurpleCrystal++;
+                importantVariables.numPurpleEssence++;
+                importantVariables.numPurpleEssence++;
+                importantVariables.numPurpleEssence++;
+                Destroy(this.gameObject);
+                //Debug.Log("Purple Crystal #: " + importantVariables.numPurpleCrystal);
+                Debug.Log("Purple Essence #: " + importantVariables.numPurpleEssence);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+
             }
 
             // *** Marus ***

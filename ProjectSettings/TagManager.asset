@@ -20,6 +20,8 @@ TagManager:
   - purpleBandaid
   - mini
   - Sheep
+  - VamiaAI
+  - MarusAI
   layers:
   - Default
   - TransparentFX
