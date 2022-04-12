@@ -27,5 +27,16 @@ public class SCR_ImportantVariables : MonoBehaviour
     public bool hasScuba = false;
     public bool hasLavaWalk = false;
     public bool hasJetpack = false;
-    public int numHealthPotions = 0;
+    //public int numHealthPotions = 0;
+
+    public float playerHealth = 100f;
+
+    public void setScuba(bool scuba)
+    {
+        hasScuba = scuba;
+    }
+    public bool getScuba()
+    {
+        return hasScuba;
+    }
 }
