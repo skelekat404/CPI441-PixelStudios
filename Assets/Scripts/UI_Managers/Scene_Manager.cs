@@ -19,8 +19,9 @@ public class Scene_Manager : NetworkBehaviour
     private Transform[] parts;
 
     private AsyncOperation sceneAsync;
+    private string prevPlanet;
     private bool localOnPlanet = false;
-    
+
     public void startLoadScene()
     {
         Debug.Log("Started Load Scene...");
@@ -156,6 +157,7 @@ public class Scene_Manager : NetworkBehaviour
             {
                 if(player_ref.scene.name.ToLower().Contains("earth"))
                 {
+                    prevPlanet = "earth";
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
@@ -165,6 +167,7 @@ public class Scene_Manager : NetworkBehaviour
                 }
                 else if(player_ref.scene.name.ToLower().Contains("orange"))
                 {
+                    prevPlanet = "orange";
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
@@ -174,6 +177,7 @@ public class Scene_Manager : NetworkBehaviour
                 }
                 else if (player_ref.scene.name.ToLower().Contains("vamia"))
                 {
+                    prevPlanet = "vamia";
                     //change player position to on planet position
                     foreach (Transform t in parts)
                     {
@@ -194,10 +198,67 @@ public class Scene_Manager : NetworkBehaviour
             }
             else
             {
+                //find x y position of previous planet to spawn player
+
+                float xCoord = 0;
+                float yCoord = -1000;
+                GameObject[] planets = GameObject.FindGameObjectsWithTag("Planet");
+
+                if (prevPlanet.Equals(""))
+                {
+                    //do nothing
+                }
+                else if(prevPlanet.Equals("earth"))
+                {
+
+                    for(int i = 0; i < planets.Length; i++)
+                    {
+                        if(planets[i].name.Equals("Planet_Earth"))
+                        {
+                            xCoord = planets[i].transform.position.x;
+                            yCoord = planets[i].transform.position.y;
+                        }
+                    }
+
+                }
+                else if (prevPlanet.Equals("orange"))
+                {
+                    for (int i = 0; i < planets.Length; i++)
+                    {
+                        if (planets[i].name.Equals("Planet_Orange"))
+                        {
+                            xCoord = planets[i].transform.position.x;
+                            yCoord = planets[i].transform.position.y;
+                        }
+                    }
+                }
+                else if (prevPlanet.Equals("vamia"))
+                {
+                    for (int i = 0; i < planets.Length; i++)
+                    {
+                        if (planets[i].name.Equals("Planet_Purple"))
+                        {
+                            xCoord = planets[i].transform.position.x;
+                            yCoord = planets[i].transform.position.y;
+                        }
+                    }
+                }
+                else if(prevPlanet.Equals("Shop_SpcaeShip"))
+                {
+                    for (int i = 0; i < planets.Length; i++)
+                    {
+                        if (planets[i].name.Equals("Shop_SpaceShip"))
+                        {
+                            xCoord = planets[i].transform.position.x;
+                            yCoord = planets[i].transform.position.y;
+                        }
+                    }
+                }
+
                 //change player position to outer space
                 foreach (Transform t in parts)
                 {
-                    t.position = new Vector3(0, -1000, 0);
+                    t.position = new Vector3(xCoord, yCoord, 0);
                     t.rotation = Quaternion.identity;
                 }
 
@@ -263,6 +324,19 @@ public class Scene_Manager : NetworkBehaviour
         }//if scene to load is valid
     }//enable scene
 
-
+    private void Update()
+    {
+        //escape button functions as a 'leave planet' button
+        if(player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+        {
+            if(player_ref.GetComponent<NetworkBehaviour>().IsLocalPlayer)
+            {
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    startLoadScene();
+                }
+            }
+        }
+    }
 
 }//class scene manager

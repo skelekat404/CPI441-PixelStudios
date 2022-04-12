@@ -14,6 +14,7 @@ public class Connection_Manager : MonoBehaviour
     public GameObject multiplayerMenuPanel;
     public GameObject minimapPanel;
     public GameObject playerRef;
+    //public GameObject in_field;
     public string ipAddress = "127.0.0.1";
     UNetTransport transport;
 
@@ -74,7 +75,9 @@ public class Connection_Manager : MonoBehaviour
 
         //join
         transport = NetworkManager.Singleton.GetComponent<UNetTransport>();
-        transport.ConnectAddress = "127.0.0.1";//ipAddress
+        
+        //Debug.Log("ip adress: " + ipAddress);
+        transport.ConnectAddress = ipAddress;//ipAddress //"127.0.0.1"
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.Text.Encoding.ASCII.GetBytes("words123");
         NetworkManager.Singleton.StartClient();
 
@@ -87,5 +90,7 @@ public class Connection_Manager : MonoBehaviour
     public void IPAddress_Changed(string newAddress)
     {
         this.ipAddress = newAddress;
+        Debug.Log("connect address changed to: " + ipAddress);
+
     }
 }
