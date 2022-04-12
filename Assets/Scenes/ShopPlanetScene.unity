@@ -4727,13 +4727,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187445517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc9d2a56a32cb74f86365f56053dc44, type: 3}
+  m_Script: {fileID: 11500000, guid: bc02b8773f81c1841835d710ce87a736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryToggle: 0
-  InventoryChannel: {fileID: 11400000, guid: bcbdd2de586018945988905cdfc4830e, type: 2}
+  InventoryChannel: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
   ShopUIChannel: {fileID: 11400000, guid: b2f800ac8e5e29b47a4a8eed4838b154, type: 2}
-  inventoryHolder: {fileID: 1989341083}
+  inventoryHolder: {fileID: 809340119}
   itemToGet: {fileID: 11400000, guid: ca938f3b780a15e489e8978c1aa628a0, type: 2}
 --- !u!114 &1187445520
 MonoBehaviour:
@@ -4760,13 +4760,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1187445517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc9d2a56a32cb74f86365f56053dc44, type: 3}
+  m_Script: {fileID: 11500000, guid: bc02b8773f81c1841835d710ce87a736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryToggle: 0
-  InventoryChannel: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
+  InventoryChannel: {fileID: 11400000, guid: bcbdd2de586018945988905cdfc4830e, type: 2}
   ShopUIChannel: {fileID: 11400000, guid: b2f800ac8e5e29b47a4a8eed4838b154, type: 2}
-  inventoryHolder: {fileID: 809340119}
+  inventoryHolder: {fileID: 1989341083}
   itemToGet: {fileID: 11400000, guid: 448c1f036c57d8c4ca0d4ee6b559b0ca, type: 2}
 --- !u!1 &1233076927 stripped
 GameObject:
