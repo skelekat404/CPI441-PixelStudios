@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet_PurpleVamia.unity
     guid: b517772ce8f2ea7478512672cfeff5c7
+  - enabled: 1
+    path: Assets/Scenes/ShopPlanetScene.unity
+    guid: 5bf257d2f3cc86240b7c56acd5d14ec6
   m_configObjects: {}

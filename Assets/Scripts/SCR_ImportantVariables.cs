@@ -9,6 +9,7 @@ public class SCR_ImportantVariables : MonoBehaviour
     // Earth
     public int numWood = 0;
     public int numRock = 0;
+    public int numWool = 0;
 
     // Marus
     public int numCoal = 0;
