@@ -15,9 +15,11 @@ MonoBehaviour:
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
+  m_Uid: 0
   Name: Helmet
   Sprite: {fileID: 21300000, guid: bb184a8803dbb465295c178b713e2351, type: 3}
   ItemType: {fileID: 11400000, guid: 7659034690e8b104ca9672dbdbdc5329, type: 2}
+  SaleValue: 2
   references:
     version: 2
     RefIds:

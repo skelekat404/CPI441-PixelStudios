@@ -9,24 +9,55 @@ public class ShopSaleManager : MonoBehaviour
     [SerializeField]
     public InventoryChannel shopInventoryChannel;
     public InventoryHolder m_SaleInventoryHolder;
-    //private InventorySystem.Inventory m_SaleInventory;
-    private readonly List<InventorySlot> m_Slots = new List<InventorySlot>();
 
-    private int saleTotal = 0;
-    
+    public delegate void ValueUpdateCallback(int valueTotal); //declare!
+    public ValueUpdateCallback OnValueUpdate; //create event variable
+
+    public int saleTotal = 0;
+
     public void sumValues(InventoryHolder shopInventoryHolder)
     {
-   /*     int saleTotal = 0;
-    shopInventoryHolder.Inventory.ForEach(slot =>
-    if (slot != null && slot.Item != null)
-    {
-        saleTotal += slot.Item.SaleValue * slot.Quantity;
-        }
-)*/
+        saleTotal = 0; // reset the value to get accurate count
+        shopInventoryHolder = m_SaleInventoryHolder;
+        shopInventoryHolder.Inventory.ForEach(slot =>
+        {
+            if (slot != null)
+            {
+                if(slot.Item != null)
+                {
+                    Debug.Log("there's an item in a slot, it is: " + slot.Item.ToString() + "with a quantity: " + slot.Quantity + " and value: " + slot.Item.SaleValue);
+                    saleTotal += (slot.Item.SaleValue * (int)slot.Quantity);
+                    if(OnValueUpdate != null)
+                    {
+                        Debug.Log("update event not null");
+                        RaiseValueUpdate(saleTotal);
+                        Debug.Log("event called");
+                    }
+                }
+                else
+                {
+                    //Debug.Log("null slot: " + slot);
+                }
+            }
+            else
+            {
+               Debug.Log("null slots exist");
+            }  
+        });
+        //return saleTotal;
     }
-    
-    void Update()
+
+    public void clearSlotsAfterSale(InventoryHolder shopInventoryHolder)
     {
-        
+        shopInventoryHolder = m_SaleInventoryHolder;
+        shopInventoryHolder.Inventory.ForEach(slot =>
+        {
+            slot.Clear();
+        });
+    }
+
+    public void RaiseValueUpdate(int updatedSaleValue)
+    {
+        OnValueUpdate?.Invoke(updatedSaleValue);
     }
 }

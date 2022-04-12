@@ -6,33 +6,42 @@ using TMPro;
 
 public class SaleValueDisplayController : MonoBehaviour
 {
-    public int sale_value;
+    public ShopSaleManager displaySaleManager;
+    public int displayedSaleValue = 0;
     public TMP_Text sale_value_ui;
-    public Button[] purchase_buttons;
 
     // *** Identifies which inventory purchased items go to ***
 
     //TODO
     //add inventory channel for shopkeeper inventory, to hold sold items
 
-
-    void Start()
+    public void Awake()
     {
-        sale_value_ui.text = "The value of these items is: " + sale_value.ToString();
-     }
-
-
-    public void add_value()
+        displaySaleManager.OnValueUpdate += ValueUpdated; //subscribing to update event
+    }
+    private void OnDestroy()
     {
-        sale_value++;
-        sale_value_ui.text = "The value of these items is: " + sale_value.ToString();
+        displaySaleManager.OnValueUpdate -= ValueUpdated;
     }
 
-        void Update()
+    public void ValueUpdated(int updatedSaleValue)
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(updatedSaleValue != null)
         {
-            sale_value_ui.text = "The value of these items is: 2";
+            Debug.Log("updated not null is: " + updatedSaleValue);
+            displayedSaleValue = updatedSaleValue;
+            Debug.Log("displayed value is: " + displayedSaleValue);
         }
+        else
+        {
+            displayedSaleValue = updatedSaleValue;
+            Debug.Log("theres a null, returning");
+            return;
+        }
+        GameObject saleValueDisplay = GameObject.Find("SaleValueDisplay");
+        Debug.Log("sale inventory set to : " + saleValueDisplay);
+        displaySaleManager = saleValueDisplay.GetComponent<ShopSaleManager>();
+        displaySaleManager.saleTotal = displayedSaleValue;
+        sale_value_ui.text = "The value of these items is: " + displayedSaleValue.ToString();
     }
 }
