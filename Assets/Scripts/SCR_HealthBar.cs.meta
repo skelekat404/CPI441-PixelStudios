@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/SCR_HealthBar.cs.meta
+guid: de28635001326794eaf77a3c06305e1a
+========
+guid: 8bc9d2a56a32cb74f86365f56053dc44
+>>>>>>>> nick-branch:Assets/ShopLootTest.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

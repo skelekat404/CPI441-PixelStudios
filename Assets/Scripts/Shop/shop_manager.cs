@@ -6,6 +6,7 @@ using TMPro;
 
 public class shop_manager : MonoBehaviour
 {
+    public WalletMoneyManager walletMoneyManager;
     public int money;
     public TMP_Text money_ui;
     public shop_item_object[] shop_item_s_objects;
@@ -23,6 +24,7 @@ public class shop_manager : MonoBehaviour
 
     void Start()
     {
+        money = walletMoneyManager.totalMoney;
         for (int i = 0; i < shop_item_s_objects.Length; i++)
         {
             shop_panels_GO[i].SetActive(true);
