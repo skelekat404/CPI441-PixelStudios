@@ -5,6 +5,7 @@ using MLAPI;
 using MLAPI.Spawning;
 using MLAPI.Transports.UNET;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Connection_Manager : MonoBehaviour
 {
@@ -13,11 +14,18 @@ public class Connection_Manager : MonoBehaviour
     public GameObject multiplayerMenuPanel;
     public GameObject minimapPanel;
     public GameObject playerRef;
+    //public GameObject in_field;
     public string ipAddress = "127.0.0.1";
     UNetTransport transport;
+
+    public void Awake()
+    {
+    }
+
     public void Pause_Game()
     {
         pauseMenuPanel.SetActive(true);
+
         multiplayerMenuPanel.SetActive(false);
         minimapPanel.SetActive(false);
     }
@@ -41,7 +49,8 @@ public class Connection_Manager : MonoBehaviour
     {
         //approve
         NetworkManager.Singleton.ConnectionApprovalCallback += Approval_Check;
-        NetworkManager.Singleton.StartHost(Vector3.zero, Quaternion.identity);//Vector3.zero
+        //spawn player host
+        NetworkManager.Singleton.StartHost(new Vector3(0, -1000, 0), Quaternion.identity);//Vector3.zero
 
         //destroy default camera
 
@@ -66,7 +75,9 @@ public class Connection_Manager : MonoBehaviour
 
         //join
         transport = NetworkManager.Singleton.GetComponent<UNetTransport>();
-        transport.ConnectAddress = "127.0.0.1";//ipAddress
+        
+        //Debug.Log("ip adress: " + ipAddress);
+        transport.ConnectAddress = ipAddress;//ipAddress //"127.0.0.1"
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.Text.Encoding.ASCII.GetBytes("words123");
         NetworkManager.Singleton.StartClient();
 
@@ -79,5 +90,7 @@ public class Connection_Manager : MonoBehaviour
     public void IPAddress_Changed(string newAddress)
     {
         this.ipAddress = newAddress;
+        Debug.Log("connect address changed to: " + ipAddress);
+
     }
 }

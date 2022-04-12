@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +76,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb4aa1a01228b84bb275c110373eb1c
+      internalID: -122448797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d62a3fed0ab6d408f641ad56ede0ed
+      internalID: -121776678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ade6c1c32d6cb4fb3ddc2d8665b882
+      internalID: 520603909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de882e9b7dc498b48bd7ef198e8ef2ee
+      internalID: -407108466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_4
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934cf7108def14c4398c2899b137a00a
+      internalID: -1390779879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_5
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6329d7cd2302c784d851e9c7bfa66005
+      internalID: -1110601434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_6
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf882342306a28f43acef16eb9e52cd2
+      internalID: -1948686405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_frontrun_spritesheet-01_7
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 0
+        width: 224.5
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c28bae023951ca45903e7a63b5f28dd
+      internalID: 158862176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +281,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Astronaut_frontrun_spritesheet-01_0: -122448797
+      Astronaut_frontrun_spritesheet-01_4: -1390779879
+      Astronaut_frontrun_spritesheet-01_3: -407108466
+      Astronaut_frontrun_spritesheet-01_5: -1110601434
+      Astronaut_frontrun_spritesheet-01_2: 520603909
+      Astronaut_frontrun_spritesheet-01_6: -1948686405
+      Astronaut_frontrun_spritesheet-01_7: 158862176
+      Astronaut_frontrun_spritesheet-01_1: -121776678
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
