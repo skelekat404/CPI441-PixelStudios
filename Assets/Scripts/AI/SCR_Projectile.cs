@@ -15,12 +15,16 @@ public class SCR_Projectile : MonoBehaviour
     private GameObject player_ref;
     private GameObject playerChild;
 
+    public float healthPlayer;
+
     //private GameObject projectileTarget;
 
-
+    public SCR_ImportantVariables importantVariables;
     // Start is called before the first frame update
     void Start()
     {
+        //healthPlayer = importantVariables.getPlayerHealth();
+
         projectileRB = GetComponent<Rigidbody2D>();
 
         player_refs = GameObject.FindGameObjectsWithTag("Player");
@@ -38,7 +42,7 @@ public class SCR_Projectile : MonoBehaviour
         projectileRB.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
         
 
-        Destroy(gameObject, 7f);
+        Destroy(gameObject, 4f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,7 +50,9 @@ public class SCR_Projectile : MonoBehaviour
         if (collision.gameObject.name.Equals("Ship"))
         {
             Debug.Log("Projectile Hit!");
+            importantVariables.playerHealth -= 10f;
             Destroy(gameObject);
+            Debug.Log("Current Health" + importantVariables.getPlayerHealth());
         }
     }
 }

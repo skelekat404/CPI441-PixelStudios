@@ -30,7 +30,6 @@ public class SCR_ImportantVariables : MonoBehaviour
     //public int numHealthPotions = 0;
 
     public float playerHealth = 100f;
-
     // *** Speed Upgrade Items getters and setters ***
     public void setWarpDrive(bool warpDrive)
     {
