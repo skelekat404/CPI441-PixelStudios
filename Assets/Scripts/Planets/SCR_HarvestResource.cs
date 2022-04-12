@@ -22,6 +22,11 @@ public class SCR_HarvestResource : MonoBehaviour
     public SCR_HealthBar healthBar;
     public float health = 1f;
 
+    public AudioSource hitSoundPlayer;
+    public AudioSource deathSound;
+
+    public bool audioTest = false;
+
     void Awake()
     {
         importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
@@ -34,8 +39,10 @@ public class SCR_HarvestResource : MonoBehaviour
     {
         if (canHarvest && Input.GetKeyDown(KeyCode.F))
         {
+
             HarvestMaterial();
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,6 +55,7 @@ public class SCR_HarvestResource : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        
         if (collision.gameObject.name.Equals("Ship"))
         {
             canHarvest = false;
@@ -56,8 +64,10 @@ public class SCR_HarvestResource : MonoBehaviour
     }
     private void HarvestMaterial()
     {
+        
+        hitSoundPlayer.Play();
+        deathSound.Play();
         currentHits++;
-
         health -= 0.33f;
         healthBar.SetSize(health);
 
@@ -66,14 +76,15 @@ public class SCR_HarvestResource : MonoBehaviour
             healthBar.SetColor(Color.yellow);
         }
         if (health <= 0.34f)
-        {
-            healthBar.SetColor(Color.red);
+        {        
+            healthBar.SetColor(Color.red);            
         }
 
         if (currentHits >= maxHits)
         {
+            
             //Destroy(this.gameObject);
-
+            
             // *** Materials ***
 
             // *** Earth ***
@@ -99,6 +110,7 @@ public class SCR_HarvestResource : MonoBehaviour
                 Destroy(this.gameObject);
                 Debug.Log("Wool #: " + importantVariables.numWool);
                 //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                deathSound.Play();  
             }
 
             // *** Marus ***
@@ -133,5 +145,7 @@ public class SCR_HarvestResource : MonoBehaviour
                 m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
         }
+
+     
     }
 }
