@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class SCR_HealthBar : MonoBehaviour
 {
+    private Transform bar;
+
     // Start is called before the first frame update
     void Start()
     {
-        Transform bar = transform.Find("HealthBar_Bar");
-        bar.localScale = new Vector3(.4f, 1f);
+        bar = transform.Find("Bar");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetSize(float sizeNormalized)
     {
-        
+        bar.localScale = new Vector3(sizeNormalized, 1f);
+    }
+    public void SetColor(Color barColor)
+    {
+        bar.Find("Bar_Sprite").GetComponent<SpriteRenderer>().color = barColor;
     }
 }
