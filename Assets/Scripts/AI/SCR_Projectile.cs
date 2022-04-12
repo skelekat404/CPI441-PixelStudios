@@ -6,8 +6,8 @@ using MLAPI;
 public class SCR_Projectile : MonoBehaviour
 {
     // Projectile Stuff
-    public float projectileSpeed = 5f;
-    Rigidbody2D rigidbody;
+    public float projectileSpeed = 7f;
+    Rigidbody2D projectileRB;
     Vector2 projectileDirection;
 
     // Player Stuff
@@ -21,7 +21,7 @@ public class SCR_Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        projectileRB = GetComponent<Rigidbody2D>();
 
         player_refs = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < player_refs.Length; i++)
@@ -32,10 +32,10 @@ public class SCR_Projectile : MonoBehaviour
             }
         }
 
-        playerChild = player_ref.transform.GetChild(0).gameObject;
+        playerChild = player_ref.transform.GetChild(0).gameObject; // gets the ship object which is a child of the player
 
         projectileDirection = (playerChild.transform.position - transform.position).normalized * projectileSpeed;
-        rigidbody.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
+        projectileRB.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
         
 
         Destroy(gameObject, 4f);
