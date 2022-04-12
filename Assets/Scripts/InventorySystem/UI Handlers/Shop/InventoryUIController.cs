@@ -10,10 +10,16 @@ public class InventoryUIController : MonoBehaviour
     private InventorySystem.Inventory m_DisplayedInventory;
     public InventorySystem.Inventory DisplayedInventory => m_DisplayedInventory;
     public InventoryHolder m_SaleInventoryHolder;
+    //used for populating shop inventory using player inventory data
+    //private FindDontDestroyOnLoad ddolFinder;
+    //private GameObject[] rootsFromDontDestroyOnLoad;
 
     private void Start()
     {
         //Debug.Log("the holder on " + GetComponent<InventoryHolder>().ToString() + "is " + m_SaleInventoryHolder);
+        //rootsFromDontDestroyOnLoad = DontDestroyOnLoadAccessor.Instance.GetAllRootsOfDontDestroyOnLoad();
+        //Debug.Log("stuff in ddolgetter: " + rootsFromDontDestroyOnLoad);
+        
     }
     
     public void PopulateInventoryUI(InventorySystem.Inventory inventory)
