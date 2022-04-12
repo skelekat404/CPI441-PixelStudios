@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using InventorySystem;
+using Firebase;
+using Firebase.Auth;
+using Firebase.Database;
 
 [RequireComponent(typeof(InventoryHolder))] // needed for serialization
 public class InventorySaveLoad : MonoBehaviour
@@ -23,7 +26,7 @@ public class InventorySaveLoad : MonoBehaviour
     public void OnInventoryExport()
     {
         string jsonData = m_InventoryHolder.Inventory.SerializeInventoryAsJSON();
-        Debug.Log("data serialized");
+        Debug.LogError("jsondata string is " + jsonData);
         string fullPath = Application.dataPath + saveName;
         Debug.Log("file name assigned");
         File.WriteAllText(fullPath, jsonData);
@@ -43,6 +46,7 @@ public class InventorySaveLoad : MonoBehaviour
             //Debug.Log("clearing inventory, prepping for import. right now inventory channel is " + inventoryChannel);
             inventoryChannel.RaiseInventoryClear();
             Debug.Log("inventory cleared");
+            
 
             foreach(var item in m_InventoryHolder.Inventory.GetSlotsFromJSON(jsonData))
             {
