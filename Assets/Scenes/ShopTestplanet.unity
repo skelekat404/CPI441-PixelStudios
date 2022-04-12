@@ -4203,21 +4203,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1989341082}
-        m_TargetAssemblyTypeName: InventoryUIController, UIAssembly
-        m_MethodName: ClearInventoryUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1187445520}
-        m_TargetAssemblyTypeName: ShopUIDisplayController, UIAssembly
-        m_MethodName: OnToggleSaleUI
+      - m_Target: {fileID: 1893137225}
+        m_TargetAssemblyTypeName: ShopSaleManager, UIAssembly
+        m_MethodName: clearSlotsAfterSale
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1989341083}
@@ -4586,7 +4574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e334a56a945b77408edd7a7a84a888d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walletMoneyManager: {fileID: 0}
+  walletMoneyManager: {fileID: 1564404589}
   money: 0
   money_ui: {fileID: 1311295770}
   shop_item_s_objects:
