@@ -76,7 +76,7 @@ public class SCR_HarvestResource : MonoBehaviour
 
             // *** Materials ***
 
-            // Earth
+            // *** Earth ***
             if (gameObject.tag == "Tree")
             {
                 importantVariables.numWood++;
@@ -92,7 +92,16 @@ public class SCR_HarvestResource : MonoBehaviour
                 m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
 
-            // Marus
+            // Sheep Killing
+            if (gameObject.tag == "Sheep")
+            {
+                importantVariables.numWool++;
+                Destroy(this.gameObject);
+                Debug.Log("Wool #: " + importantVariables.numWool);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+
+            // *** Marus ***
             if (gameObject.tag == "Coal")
             {
                 importantVariables.numCoal++;
@@ -108,7 +117,7 @@ public class SCR_HarvestResource : MonoBehaviour
                 //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
 
-            // Vamia
+            // *** Vamia ***
             if (gameObject.tag == "PurpleCrystal")
             {
                 importantVariables.numPurpleCrystal++;
