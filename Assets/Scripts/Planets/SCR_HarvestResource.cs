@@ -18,9 +18,15 @@ public class SCR_HarvestResource : MonoBehaviour
     // *** Used to reference variables file with material counts ***
     public SCR_ImportantVariables importantVariables;
 
+    // *** Used to access HealthBar script ***
+    public SCR_HealthBar healthBar;
+    public float health = 1f;
+
     void Awake()
     {
         importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
+
+        healthBar = gameObject.GetComponentInChildren<SCR_HealthBar>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,18 @@ public class SCR_HarvestResource : MonoBehaviour
     private void HarvestMaterial()
     {
         currentHits++;
+
+        health -= 0.33f;
+        healthBar.SetSize(health);
+
+        if (health <= 0.67f)
+        {
+            healthBar.SetColor(Color.yellow);
+        }
+        if (health <= 0.34f)
+        {
+            healthBar.SetColor(Color.red);
+        }
 
         if (currentHits >= maxHits)
         {
