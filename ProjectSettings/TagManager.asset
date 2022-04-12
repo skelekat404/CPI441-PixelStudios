@@ -8,6 +8,17 @@ TagManager:
   - Rock
   - Tree
   - mult
+  - earthBandaid
+  - orangeBandaid
+  - shop
+  - pause
+  - leaveButton
+  - Coal
+  - LavaCrystal
+  - PurpleCrystal
+  - PurpleEssence
+  - purpleBandaid
+  - mini
   layers:
   - Default
   - TransparentFX

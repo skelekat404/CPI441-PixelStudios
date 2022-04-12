@@ -10,7 +10,10 @@ public class UI_PopUp : MonoBehaviour
     {
         if(popup != null)
         {
-            popup.SetActive(true);
+            bool active = popup.activeSelf;
+
+            popup.SetActive(!active);
+
             print("active");
         }
     }
