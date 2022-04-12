@@ -214,7 +214,7 @@ public class Sc_Ship_Move : NetworkBehaviour
             else
             {
 
-                print("ship move");
+                //print("ship move");
                 //moving
                 if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
                 {
@@ -237,9 +237,9 @@ public class Sc_Ship_Move : NetworkBehaviour
                 }
                 else if ((Input.GetKey("up") || Input.GetKey(KeyCode.W)) && Input.GetKey(KeyCode.LeftShift))
                 {
-                    print("test");
-                    print("sprintCoolCounter = " + sprintCoolCounter);
-                    print("sprintCounter = " + sprintCounter);
+                    //print("test");
+                    //print("sprintCoolCounter = " + sprintCoolCounter);
+                    //print("sprintCounter = " + sprintCounter);
                     if (sprintCoolCounter <= 0 && sprintCounter <= 0)
                     {
                         //Update this variable for faster/slower accelerate speed
@@ -250,7 +250,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
                         sprintCounter = sprintLength;
 
-                        print("Accelerate");
+                        //print("Accelerate");
                     }
 
                 }
@@ -260,7 +260,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                     sprintCounter -= Time.deltaTime;
                     if (sprintCounter <= 0)
                     {
-                        print("boolean reset");
+                        //print("boolean reset");
                         //Reset speed back to default
                         animator.SetBool("Accelerate", false);
                         active_speed = active_speed_low;
@@ -270,7 +270,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
                 if (sprintCoolCounter > 0)
                 {
-                    print("time reset");
+                    //print("time reset");
                     sprintCoolCounter -= Time.deltaTime;
                 }
 

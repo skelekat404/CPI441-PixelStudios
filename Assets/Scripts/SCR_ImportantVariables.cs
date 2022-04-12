@@ -29,7 +29,16 @@ public class SCR_ImportantVariables : MonoBehaviour
     public bool hasJetpack = false;
     //public int numHealthPotions = 0;
 
-    public float playerHealth = 100f;
+    public float playerHealth = 1f;
+
+    public void setPlayerHealth(float health)
+    {
+        playerHealth = health;
+    }
+    public float getPlayerHealth()
+    {
+        return playerHealth;
+    }
     // *** Speed Upgrade Items getters and setters ***
     public void setWarpDrive(bool warpDrive)
     {
