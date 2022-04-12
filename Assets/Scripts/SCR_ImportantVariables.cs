@@ -20,4 +20,12 @@ public class SCR_ImportantVariables : MonoBehaviour
     public int numPurpleEssence = 0;
 
     public int numMoney = 0;
+
+    //shop items that can be purchased
+    public bool hasWarpDrive = false;
+    public bool hasRocketBoots = false;
+    public bool hasScuba = false;
+    public bool hasLavaWalk = false;
+    public bool hasJetpack = false;
+    public int numHealthPotions = 0;
 }

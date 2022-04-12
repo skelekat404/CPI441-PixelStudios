@@ -78,8 +78,18 @@ public class Sc_Ship_Move : NetworkBehaviour
                 sprintSpeed = 2f;
                 sprintLength = 0.1f;
                 sprintCoolDown = 3f;
-                active_speed_high = 0.009f;
-                active_speed_low = 0.005f;
+                
+                if(GetComponentInParent<SCR_ImportantVariables>().hasRocketBoots)
+                {
+                    active_speed_high = 0.018f;
+                    active_speed_low = 0.010f;
+                }
+                else
+                {
+                    active_speed_high = 0.009f;
+                    active_speed_low = 0.005f;
+                }
+                
                 passive_speed = 0f;
             }
             else
@@ -91,9 +101,17 @@ public class Sc_Ship_Move : NetworkBehaviour
                 sprintSpeed = 2f;
                 sprintLength = 0.5f;
                 sprintCoolDown = 5f;
-                active_speed_high = 0.12f;
-                active_speed_low = 0.12f;
-                passive_speed = 0.001f;
+                if (GetComponentInParent<SCR_ImportantVariables>().hasWarpDrive)
+                {
+                    active_speed_high = 0.040f;
+                    active_speed_low = 0.024f;
+                }
+                else
+                {
+                    active_speed_high = 0.012f;
+                    active_speed_low = 0.012f;
+                }
+                passive_speed = 0.001f;//0.12f
             }
             //planet moving
             if (onPlanet)
