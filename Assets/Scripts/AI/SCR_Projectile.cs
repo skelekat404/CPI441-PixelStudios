@@ -24,6 +24,9 @@ public class SCR_Projectile : MonoBehaviour
 
     float healthPlayer;
 
+    public int money;
+    public int moneyLost;
+
     public Scene_Manager sceneManager;
 
     // Start is called before the first frame update
@@ -31,11 +34,11 @@ public class SCR_Projectile : MonoBehaviour
     {
         importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
 
-        sceneManager = GameObject.FindGameObjectWithTag("Player").GetComponent<Scene_Manager>();
+        sceneManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<Scene_Manager>();
     }
     void Start()
     {
-
+        money = importantVariables.getPlayerMoney();
 
         healthPlayer = importantVariables.getPlayerHealth();
 
@@ -69,6 +72,15 @@ public class SCR_Projectile : MonoBehaviour
                 {
                     if (player_ref.GetComponent<NetworkBehaviour>().IsLocalPlayer)
                     {
+                        healthPlayer = 1f;
+                        importantVariables.setPlayerHealth(healthPlayer);
+
+                        healthBar.SetSize(healthPlayer);
+                        healthBar.SetColor(Color.green);
+
+                        moneyLost = (money / 4);
+                        money -= moneyLost;
+                        importantVariables.setPlayerMoney(money);
 
                         sceneManager.startLoadScene();
 

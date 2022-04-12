@@ -31,6 +31,14 @@ public class SCR_ImportantVariables : MonoBehaviour
 
     public float playerHealth = 1f;
 
+    public void setPlayerMoney(int money)
+    {
+        numMoney = money;
+    }
+    public int getPlayerMoney()
+    {
+        return numMoney;
+    }
     public void setPlayerHealth(float health)
     {
         playerHealth = health;
