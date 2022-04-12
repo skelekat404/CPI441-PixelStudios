@@ -25,7 +25,6 @@ public class Connection_Manager : MonoBehaviour
     public void Pause_Game()
     {
         pauseMenuPanel.SetActive(true);
-
         multiplayerMenuPanel.SetActive(false);
         minimapPanel.SetActive(false);
     }

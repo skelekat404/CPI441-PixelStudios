@@ -22,6 +22,19 @@ public class Scene_Manager : NetworkBehaviour
     private string prevPlanet;
     private bool localOnPlanet = false;
 
+    //public void Awake()
+    //{
+    //    //look for local player
+    //    player_refs = GameObject.FindGameObjectsWithTag("Player");
+    //    for (int i = 0; i < player_refs.Length; i++)
+    //    {
+    //        if (player_refs[i].GetComponent<NetworkBehaviour>().IsLocalPlayer)
+    //        {
+    //            player_ref = player_refs[i];
+    //        }
+    //    }
+    //}
+
     public void startLoadScene()
     {
         Debug.Log("Started Load Scene...");
@@ -96,19 +109,41 @@ public class Scene_Manager : NetworkBehaviour
         //get the last collided planet from the player_last_collision script which is updated in the PlanetCollision script
 
         bool unload_boi = false;
+        bool testEarthUnload = false;
         Scene sceneToLoad = SceneManager.GetSceneByName(load_name);
         //error check + move player to scene
         Debug.Log(sceneToLoad.IsValid());
         if(sceneToLoad.IsValid())
         {
             Scene scene_unload = gameObject.scene;
-
-            //if (GameObject.FindGameObjectsWithTag("Player").Length == 2)
+            //int num = 0;
+            //for (int i = 0; i < player_refs.Length; i++)
             //{
-            //    Debug.Log("\nWE SEE THAT THERE IS ONLY ONE PLAYER HERE BROTHER\n");
-                //SceneManager.UnloadSceneAsync(scene_unload);
-                unload_boi = true;
+                
+            //    //if there is a player on earth
+            //    if(player_refs[i].transform.position.x <= 30 && player_refs[i].transform.position.x >= 0 && player_refs[i].transform.position.y <= 30 && player_refs[i].transform.position.y >= 0)
+            //    {
+            //        num++;
+            //        //testEarthUnload = false;
+            //    }
             //}
+            //if(num > 0)
+            //{
+            //    testEarthUnload = false;
+            //}
+            //else
+            //{
+            //    testEarthUnload = true;
+            //}
+            if(player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+            {
+                unload_boi = true;
+            }
+            else
+            {
+                unload_boi = false;
+            }
+            
 
 
             
@@ -128,18 +163,21 @@ public class Scene_Manager : NetworkBehaviour
 
             //SceneManager.MoveGameObjectToScene(player_ref, sceneToLoad);
             //
-            if(!player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)//trying this
-            {
-                SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
 
-            }
+            //IF TWO SCENE MANAGERS GET CREATED SOMEHOW, UNCOMMENT THIS IF
+            //ELSE, KEEP IT COMMENTED TO ALLOW THE GAMECONTROLLER TO BE MOVED BETWEEN SCENES
+            //if(!player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)//trying this
+            //{
+            SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("GameController"), sceneToLoad);
+
+            //}
 
             //look for player instances
-            Debug.Log("\n***************\n");
-            Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
-            Debug.Log("\n***************\n");
+            //Debug.Log("\n***************\n");
+            //Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
+            //Debug.Log("\n***************\n");
 
-            if (unload_boi)
+            if (unload_boi)//&& testEarthUnload
             {
                 Debug.Log("Scene unloading...\n");
                 SceneManager.UnloadSceneAsync(scene_unload);
@@ -306,8 +344,7 @@ public class Scene_Manager : NetworkBehaviour
             //}
             if(GameObject.Find("Camera"))
                 GameObject.Find("Camera").SetActive(false);
-            //miniMenu = GameObject.FindGameObjectWithTag("mini");
-
+            
             //if (!miniMenu.activeInHierarchy)
             //{
             //    Debug.Log("reached mini");
@@ -327,16 +364,27 @@ public class Scene_Manager : NetworkBehaviour
     private void Update()
     {
         //escape button functions as a 'leave planet' button
-        if(player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+        //miniMenu = GameObject.FindGameObjectWithTag("mini");
+        if(player_ref != null)
         {
-            if(player_ref.GetComponent<NetworkBehaviour>().IsLocalPlayer)
+            if (player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
             {
-                if(Input.GetKeyDown(KeyCode.Escape))
+                if (player_ref.GetComponent<NetworkBehaviour>().IsLocalPlayer)
                 {
-                    startLoadScene();
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        startLoadScene();
+                    }
+                    //miniMenu = GameObject.FindGameObjectWithTag("mini");
+                    //if (player_ref.GetComponentInChildren<Sc_Ship_Move>().onPlanet)
+                    //{
+                    // miniMenu.SetActive(false);
+                    //}
+
                 }
             }
         }
+
     }
 
 }//class scene manager

@@ -18,6 +18,7 @@ TagManager:
   - PurpleCrystal
   - PurpleEssence
   - purpleBandaid
+  - mini
   layers:
   - Default
   - TransparentFX

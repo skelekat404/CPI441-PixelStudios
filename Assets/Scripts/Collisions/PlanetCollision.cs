@@ -27,7 +27,7 @@ public class PlanetCollision : NetworkBehaviour
             //string boi = gameObject.GetComponent<scene_name>().scene_name_ref;
             //Debug.Log(boi);
             collision.gameObject.GetComponent<player_last_collision>().set_last_planet_collide(gameObject.GetComponent<scene_name>().scene_name_ref);
-            
+            Debug.Log("Player colliding with planet :^)");
             //***
             planetOneText.SetActive(true);
             planetOneBool = true;
