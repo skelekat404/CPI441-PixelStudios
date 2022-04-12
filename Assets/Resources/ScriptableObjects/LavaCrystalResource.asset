@@ -15,8 +15,9 @@ MonoBehaviour:
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
-  Name: L. Crystal
-  Sprite: {fileID: 0}
+  m_Uid: 0
+  Name: Lava Cr.
+  Sprite: {fileID: 21300000, guid: 08d7d2cc93fdf58499eacfdf5543948f, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
   SaleValue: 4
   references:

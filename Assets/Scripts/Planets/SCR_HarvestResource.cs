@@ -107,14 +107,14 @@ public class SCR_HarvestResource : MonoBehaviour
                 importantVariables.numCoal++;
                 Destroy(this.gameObject);
                 Debug.Log("Coal #: " + importantVariables.numCoal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
             if (gameObject.tag == "LavaCrystal")
             {
                 importantVariables.numLavaCrystal++;
                 Destroy(this.gameObject);
                 Debug.Log("Lava Crystal #: " + importantVariables.numLavaCrystal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
 
             // *** Vamia ***
@@ -123,14 +123,14 @@ public class SCR_HarvestResource : MonoBehaviour
                 importantVariables.numPurpleCrystal++;
                 Destroy(this.gameObject);
                 Debug.Log("Purple Crystal #: " + importantVariables.numPurpleCrystal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
             if (gameObject.tag == "PurpleEssence")
             {
                 importantVariables.numPurpleEssence++;
                 Destroy(this.gameObject);
                 Debug.Log("Purple Essence #: " + importantVariables.numPurpleEssence);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
         }
     }

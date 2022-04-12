@@ -134,8 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHits: 0
   maxHits: 3
-  m_InventoryChannel: {fileID: 0}
-  m_LootableItem: {fileID: 0}
+  m_InventoryChannel: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
+  m_LootableItem: {fileID: 11400000, guid: 211da74da6cd82a498f253628b990cf7, type: 2}
   importantVariables: {fileID: 0}
   healthBar: {fileID: 0}
   health: 1
