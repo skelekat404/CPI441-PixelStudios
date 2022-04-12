@@ -19,6 +19,8 @@ public class SCR_TerrainGeneration : MonoBehaviour
     int mapWidth = 30;
     int mapHeight = 30;
 
+    int shipZoneSize = 3;
+
     int[,] backgroundTileGrid;
     int[,] mapGrid;
 
@@ -61,9 +63,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
         backgroundTileGrid[0, 0] = 0;
         CreateBackgroundTile(0, 0, 0); // lavanderFloor at [0, 0]
 
+        // Extra space for spaceship
+        backgroundTileGrid[1, 0] = 0;
+        CreateBackgroundTile(0, 1, 0); // lavanderFloor at [1, 0]
+
         // *** First Generate the background in the first row ***
         int tileIDFirstRow = 0;
-        for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
+        for (int x = 2; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
             tileIDFirstRow = GenerateBackgroundNeighborID(backgroundTileGrid[0, x - 1]); // generates a new tile based on the previous one in the row
             backgroundTileGrid[0, x] = tileIDFirstRow; // adds the ID of the generated tile to the map grid
@@ -115,9 +121,13 @@ public class SCR_TerrainGeneration : MonoBehaviour
         mapGrid[0, 0] = 0;
         CreateTerrainTile(0, 0, 0); // lavanderFloor at [0, 0]
 
+        // Extra space for spaceship
+        mapGrid[1, 0] = 0;
+        CreateTerrainTile(0, 1, 0); // lavanderFloor at [1, 0]
+
         // *** First Generate the terrain in the first row ***
         int tileIDFirstRow = 0;
-        for (int x = 1; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
+        for (int x = 2; x < mapWidth; x++) // starts at the second element in the first row since the first is already set
         {
             if (backgroundTileGrid[0, x] == 0) // checks if the background tile is a lavanderFloor tile
             {

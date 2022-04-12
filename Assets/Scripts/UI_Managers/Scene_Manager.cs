@@ -326,6 +326,9 @@ public class Scene_Manager : NetworkBehaviour
                 //GameObject leaveButton = GameObject.FindGameObjectWithTag("leaveButton");
                 //leaveButton.SetActive(false);
 
+                //fix audio
+                GameObject.Find("BG_Music").GetComponent<AudioSource>().Play();
+
             }
             //Debug.Log("SCENE TO LOAD: " + sceneToLoad);
             //Debug.Log("SCENE TO UNLOAD: " + scene_unload);

@@ -78,8 +78,18 @@ public class Sc_Ship_Move : NetworkBehaviour
                 sprintSpeed = 2f;
                 sprintLength = 0.1f;
                 sprintCoolDown = 3f;
-                active_speed_high = 0.009f;
-                active_speed_low = 0.005f;
+                
+                if(GetComponentInParent<SCR_ImportantVariables>().hasRocketBoots)
+                {
+                    active_speed_high = 0.018f;
+                    active_speed_low = 0.010f;
+                }
+                else
+                {
+                    active_speed_high = 0.009f;
+                    active_speed_low = 0.005f;
+                }
+                
                 passive_speed = 0f;
             }
             else
@@ -91,9 +101,17 @@ public class Sc_Ship_Move : NetworkBehaviour
                 sprintSpeed = 2f;
                 sprintLength = 0.5f;
                 sprintCoolDown = 5f;
-                active_speed_high = 0.12f;
-                active_speed_low = 0.12f;
-                passive_speed = 0.001f;
+                if (GetComponentInParent<SCR_ImportantVariables>().hasWarpDrive)
+                {
+                    active_speed_high = 0.040f;
+                    active_speed_low = 0.024f;
+                }
+                else
+                {
+                    active_speed_high = 0.012f;
+                    active_speed_low = 0.012f;
+                }
+                passive_speed = 0.001f;//0.12f
             }
             //planet moving
             if (onPlanet)
@@ -196,7 +214,7 @@ public class Sc_Ship_Move : NetworkBehaviour
             else
             {
 
-                print("ship move");
+                //print("ship move");
                 //moving
                 if (Input.GetKey("up") || Input.GetKey(KeyCode.W))
                 {
@@ -219,9 +237,9 @@ public class Sc_Ship_Move : NetworkBehaviour
                 }
                 else if ((Input.GetKey("up") || Input.GetKey(KeyCode.W)) && Input.GetKey(KeyCode.LeftShift))
                 {
-                    print("test");
-                    print("sprintCoolCounter = " + sprintCoolCounter);
-                    print("sprintCounter = " + sprintCounter);
+                    //print("test");
+                    //print("sprintCoolCounter = " + sprintCoolCounter);
+                    //print("sprintCounter = " + sprintCounter);
                     if (sprintCoolCounter <= 0 && sprintCounter <= 0)
                     {
                         //Update this variable for faster/slower accelerate speed
@@ -232,7 +250,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
                         sprintCounter = sprintLength;
 
-                        print("Accelerate");
+                        //print("Accelerate");
                     }
 
                 }
@@ -242,7 +260,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                     sprintCounter -= Time.deltaTime;
                     if (sprintCounter <= 0)
                     {
-                        print("boolean reset");
+                        //print("boolean reset");
                         //Reset speed back to default
                         animator.SetBool("Accelerate", false);
                         active_speed = active_speed_low;
@@ -252,7 +270,7 @@ public class Sc_Ship_Move : NetworkBehaviour
 
                 if (sprintCoolCounter > 0)
                 {
-                    print("time reset");
+                    //print("time reset");
                     sprintCoolCounter -= Time.deltaTime;
                 }
 
