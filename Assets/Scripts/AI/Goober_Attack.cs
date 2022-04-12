@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using MLAPI;
 
-public class SCR_Projectile : MonoBehaviour
+public class Goober_Attack : MonoBehaviour
 {
-    // Projectile Stuff
-    public float projectileSpeed = 7f;
+    public float projectileSpeed = 10f;
     Rigidbody2D projectileRB;
     Vector2 projectileDirection;
 
@@ -36,9 +35,9 @@ public class SCR_Projectile : MonoBehaviour
 
         projectileDirection = (playerChild.transform.position - transform.position).normalized * projectileSpeed;
         projectileRB.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
-        
 
-        Destroy(gameObject, 7f);
+
+        Destroy(gameObject, 4f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

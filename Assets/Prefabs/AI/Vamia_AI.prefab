@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &605471250047600013
+--- !u!1 &8190346099285787785
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 605471250047600051}
-  - component: {fileID: 605471250047600050}
-  - component: {fileID: 975839695869167572}
-  - component: {fileID: 5828403628622607405}
-  - component: {fileID: 3713624064387371199}
+  - component: {fileID: 1378776500852452068}
+  - component: {fileID: 9132019090118335510}
+  - component: {fileID: 1515101923248557282}
+  - component: {fileID: 1609448068278794851}
   m_Layer: 0
-  m_Name: PFB_Temp_Projectile
+  m_Name: Vamia_AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &605471250047600051
+--- !u!4 &1378776500852452068
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605471250047600013}
+  m_GameObject: {fileID: 8190346099285787785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &605471250047600050
+--- !u!212 &9132019090118335510
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605471250047600013}
+  m_GameObject: {fileID: 8190346099285787785}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,45 +75,40 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14f25eb81657811469a782e854f3a543, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37d61592748798e4783ba5d3cccad80a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 25.6, y: 25.6}
+  m_Size: {x: 2.67, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &975839695869167572
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &1515101923248557282
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605471250047600013}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &5828403628622607405
+  m_GameObject: {fileID: 8190346099285787785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2957e70a1e35bb140903ef491fdc23b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 5786798462212700605, guid: 6298c6a0e7e4afa4b8e561f189e14242, type: 3}
+  fireRate: 1.2
+  fireDelay: 0
+  canFireProjectile: 0
+--- !u!58 &1609448068278794851
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605471250047600013}
+  m_GameObject: {fileID: 8190346099285787785}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -123,17 +117,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &3713624064387371199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605471250047600013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c14525c86ed9fd840a40105a5577c1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 1.5
+  m_Radius: 100
