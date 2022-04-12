@@ -76,7 +76,7 @@ public class SCR_HarvestResource : MonoBehaviour
 
             // *** Materials ***
 
-            // Earth
+            // *** Earth ***
             if (gameObject.tag == "Tree")
             {
                 importantVariables.numWood++;
@@ -92,36 +92,45 @@ public class SCR_HarvestResource : MonoBehaviour
                 m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
 
-            // Marus
+            // Sheep Killing
+            if (gameObject.tag == "Sheep")
+            {
+                importantVariables.numWool++;
+                Destroy(this.gameObject);
+                Debug.Log("Wool #: " + importantVariables.numWool);
+                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+            }
+
+            // *** Marus ***
             if (gameObject.tag == "Coal")
             {
                 importantVariables.numCoal++;
                 Destroy(this.gameObject);
                 Debug.Log("Coal #: " + importantVariables.numCoal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
             if (gameObject.tag == "LavaCrystal")
             {
                 importantVariables.numLavaCrystal++;
                 Destroy(this.gameObject);
                 Debug.Log("Lava Crystal #: " + importantVariables.numLavaCrystal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
 
-            // Vamia
+            // *** Vamia ***
             if (gameObject.tag == "PurpleCrystal")
             {
                 importantVariables.numPurpleCrystal++;
                 Destroy(this.gameObject);
                 Debug.Log("Purple Crystal #: " + importantVariables.numPurpleCrystal);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
             if (gameObject.tag == "PurpleEssence")
             {
                 importantVariables.numPurpleEssence++;
                 Destroy(this.gameObject);
                 Debug.Log("Purple Essence #: " + importantVariables.numPurpleEssence);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
         }
     }
