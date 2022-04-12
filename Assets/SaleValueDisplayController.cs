@@ -7,7 +7,9 @@ using TMPro;
 public class SaleValueDisplayController : MonoBehaviour
 {
     public ShopSaleManager displaySaleManager;
-    public int displayedSaleValue = 0;
+    [SerializeField]
+    public int displayedSaleValue;
+    
     public TMP_Text sale_value_ui;
 
     // *** Identifies which inventory purchased items go to ***

@@ -6,70 +6,53 @@ using UnityEngine;
 
 public class Goober_AI : MonoBehaviour
 {
+    public GameObject projectile;
+
+    public float fireRate = 0.5f;
+    public float fireDelay;
+    public bool canFireProjectile;
+
     // Start is called before the first frame update
-    public bool should_rotate;
-    public float check_radius;
-    public float speed;
-    public float attack_range;
-    public LayerMask what_is_player;
-    public Vector3 direction;
-
-    private Transform target;
-    private Rigidbody2D rigid_body;
-    private Vector2 move;
-    private bool is_in_attack_range;
-    private bool is_in_chase_range;
-    private Animator ani;
-
-
-    
-
     void Start()
     {
-        rigid_body = GetComponent<Rigidbody2D>();
-        ani = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform;
-
+        //fireRate = 2f;
+        fireDelay = Time.time;
     }
 
-   
     // Update is called once per frame
     void Update()
     {
-        ani.SetBool("isRunning", is_in_chase_range);
-
-        is_in_chase_range = Physics2D.OverlapCircle(transform.position, check_radius, what_is_player);
-        is_in_attack_range = Physics2D.OverlapCircle(transform.position, attack_range, what_is_player);
-
-        direction = target.position - transform.position;
-        float ang = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        direction.Normalize();
-        move = direction;
-        if(should_rotate)
+        if (canFireProjectile)
         {
-            ani.SetFloat("X", direction.x);
-            ani.SetFloat("Y", direction.y);
+            FireProjectile();
         }
-       
-    }
 
-    private void FixedUpdate()
+    }
+    void FireProjectile()
     {
-        if(is_in_chase_range && !is_in_attack_range)
+        if (Time.time > fireDelay)
         {
-            MoveEnemy(move);
-        }
-        if(is_in_attack_range)
-        {
-            rigid_body.velocity = Vector2.zero;
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            fireDelay = Time.time + fireRate;
         }
     }
 
-
-    private void MoveEnemy(Vector2 direction)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rigid_body.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
-    }
+        if (collision.gameObject.name.Equals("Ship"))
+        {
+            canFireProjectile = true;
 
+            Debug.Log("Can fire projectile");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Equals("Ship"))
+        {
+            canFireProjectile = false;
+            Debug.Log("Can NOT fire projectile");
+        }
+    }
 
 }
