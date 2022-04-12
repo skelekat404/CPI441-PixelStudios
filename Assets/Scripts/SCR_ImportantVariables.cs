@@ -31,6 +31,14 @@ public class SCR_ImportantVariables : MonoBehaviour
 
     public float playerHealth = 100f;
 
+    public void setPlayerHealth(float health)
+    {
+        playerHealth = playerHealth + health;
+    }
+    public float getPlayerHealth()
+    {
+        return playerHealth;
+    }
     public void setScuba(bool scuba)
     {
         hasScuba = scuba;
