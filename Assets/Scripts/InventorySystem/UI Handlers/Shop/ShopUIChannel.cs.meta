@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/SCR_HealthBar.cs.meta
-guid: de28635001326794eaf77a3c06305e1a
-========
-guid: 8bc9d2a56a32cb74f86365f56053dc44
->>>>>>>> nick-branch:Assets/ShopLootTest.cs.meta
+guid: ab3c282490e95d24aa2b8d0fddcb66ea
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
