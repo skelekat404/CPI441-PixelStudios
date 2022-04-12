@@ -7,18 +7,21 @@ public class SCR_Projectile : MonoBehaviour
 {
     // Projectile Stuff
     public float projectileSpeed = 7f;
-    Rigidbody2D rigidbody;
+    Rigidbody2D projectileRB;
     Vector2 projectileDirection;
 
     // Player Stuff
     private GameObject[] player_refs;
     private GameObject player_ref;
+    private GameObject playerChild;
+
+    //private GameObject projectileTarget;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        projectileRB = GetComponent<Rigidbody2D>();
 
         player_refs = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < player_refs.Length; i++)
@@ -29,8 +32,11 @@ public class SCR_Projectile : MonoBehaviour
             }
         }
 
-        projectileDirection = (player_ref.transform.position - transform.position).normalized * projectileSpeed;
-        rigidbody.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
+        playerChild = player_ref.transform.GetChild(0).gameObject; // gets the ship object which is a child of the player
+
+        projectileDirection = (playerChild.transform.position - transform.position).normalized * projectileSpeed;
+        projectileRB.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
+        
 
         Destroy(gameObject, 4f);
     }

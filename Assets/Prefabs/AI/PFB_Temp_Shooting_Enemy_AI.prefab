@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 614189892593642278}
   - component: {fileID: 614189892593642277}
   - component: {fileID: 3911866751071056794}
+  - component: {fileID: 4998486551609083529}
   m_Layer: 0
   m_Name: PFB_Temp_Shooting_Enemy_AI
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 614189892593642276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,5 +99,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 605471250047600013, guid: b27e5acabf01adb4d9b5fc58d03e068c, type: 3}
-  fireRate: 0
+  fireRate: 2
   fireDelay: 0
+  canFireProjectile: 0
+--- !u!58 &4998486551609083529
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614189892593642276}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 9
