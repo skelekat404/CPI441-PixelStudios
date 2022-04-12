@@ -279,11 +279,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numWood: 0
   numRock: 0
+  numWool: 0
   numCoal: 0
   numLavaCrystal: 0
   numPurpleCrystal: 0
   numPurpleEssence: 0
   numMoney: 0
+  hasWarpDrive: 0
+  hasRocketBoots: 0
+  hasScuba: 0
+  hasLavaWalk: 0
+  hasJetpack: 0
+  playerHealth: 100
+  riverTile: {fileID: 3166111123016120043, guid: bf2fa329c88643e4cb15863b80d00b2a, type: 3}
 --- !u!1 &6864243390943674955
 GameObject:
   m_ObjectHideFlags: 0
