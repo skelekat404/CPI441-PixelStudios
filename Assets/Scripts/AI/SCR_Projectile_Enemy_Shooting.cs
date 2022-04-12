@@ -26,7 +26,7 @@ public class SCR_Projectile_Enemy_Shooting : MonoBehaviour
         if (Time.time > fireDelay)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
-            fireDelay = fireRate + Time.time;
+            fireDelay = Time.time + fireRate;
         }
     }    
 }

@@ -6,13 +6,16 @@ using MLAPI;
 public class SCR_Projectile : MonoBehaviour
 {
     // Projectile Stuff
-    public float projectileSpeed = 7f;
+    public float projectileSpeed = 5f;
     Rigidbody2D rigidbody;
     Vector2 projectileDirection;
 
     // Player Stuff
     private GameObject[] player_refs;
     private GameObject player_ref;
+    private GameObject playerChild;
+
+    //private GameObject projectileTarget;
 
 
     // Start is called before the first frame update
@@ -29,8 +32,11 @@ public class SCR_Projectile : MonoBehaviour
             }
         }
 
-        projectileDirection = (player_ref.transform.position - transform.position).normalized * projectileSpeed;
+        playerChild = player_ref.transform.GetChild(0).gameObject;
+
+        projectileDirection = (playerChild.transform.position - transform.position).normalized * projectileSpeed;
         rigidbody.velocity = new Vector2(projectileDirection.x, projectileDirection.y);
+        
 
         Destroy(gameObject, 4f);
     }
