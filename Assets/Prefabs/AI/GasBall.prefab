@@ -136,4 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2ee8dd8f964d24d91af024ef5ea751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 10
+  projectileSpeed: 2
+  healthBar: {fileID: 0}
+  importantVariables: {fileID: 0}
+  money: 0
+  moneyLost: 0
+  sceneManager: {fileID: 0}
