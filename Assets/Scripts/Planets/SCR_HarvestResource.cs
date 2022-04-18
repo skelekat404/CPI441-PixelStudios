@@ -22,6 +22,11 @@ public class SCR_HarvestResource : MonoBehaviour
     public SCR_HealthBar healthBar;
     public float health = 1f;
 
+    public AudioSource hitSoundPlayer;
+    public AudioSource deathSound;
+
+    public bool audioTest = false;
+
     void Awake()
     {
         importantVariables = GameObject.FindGameObjectWithTag("Player").GetComponent<SCR_ImportantVariables>();
@@ -34,8 +39,10 @@ public class SCR_HarvestResource : MonoBehaviour
     {
         if (canHarvest && Input.GetKeyDown(KeyCode.F))
         {
+
             HarvestMaterial();
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,16 +55,20 @@ public class SCR_HarvestResource : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        
         if (collision.gameObject.name.Equals("Ship"))
         {
             canHarvest = false;
             Debug.Log("Can NOT harvest");
         }
     }
+
     private void HarvestMaterial()
     {
+        
+        hitSoundPlayer.Play();
+        
         currentHits++;
-
         health -= 0.33f;
         healthBar.SetSize(health);
 
@@ -66,14 +77,15 @@ public class SCR_HarvestResource : MonoBehaviour
             healthBar.SetColor(Color.yellow);
         }
         if (health <= 0.34f)
-        {
-            healthBar.SetColor(Color.red);
+        {        
+            healthBar.SetColor(Color.red);            
         }
 
         if (currentHits >= maxHits)
         {
+            
             //Destroy(this.gameObject);
-
+            
             // *** Materials ***
 
             // *** Earth ***
@@ -95,10 +107,44 @@ public class SCR_HarvestResource : MonoBehaviour
             // Sheep Killing
             if (gameObject.tag == "Sheep")
             {
+                deathSound.Play();
                 importantVariables.numWool++;
                 Destroy(this.gameObject);
                 Debug.Log("Wool #: " + importantVariables.numWool);
-                //m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                 
+            }
+
+            //Marus AI Killing
+            if (gameObject.tag == "MarusAI")
+            {
+                deathSound.Play();
+                //importantVariables.numCoal++;
+                importantVariables.numLavaCrystal++;
+                importantVariables.numLavaCrystal++;
+                Destroy(this.gameObject);
+                //Debug.Log("Coal #: " + importantVariables.numCoal);
+                Debug.Log("Lava Crystal #: " + importantVariables.numLavaCrystal);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+
+            }
+
+            //Vamia AI Killing
+            if (gameObject.tag == "VamiaAI")
+            {
+                deathSound.Play();
+                //importantVariables.numPurpleCrystal++;
+                importantVariables.numPurpleEssence++;
+                importantVariables.numPurpleEssence++;
+                importantVariables.numPurpleEssence++;
+                Destroy(this.gameObject);
+                //Debug.Log("Purple Crystal #: " + importantVariables.numPurpleCrystal);
+                Debug.Log("Purple Essence #: " + importantVariables.numPurpleEssence);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+                m_InventoryChannel?.RaiseLootItem(m_LootableItem);
+
             }
 
             // *** Marus ***
@@ -133,5 +179,7 @@ public class SCR_HarvestResource : MonoBehaviour
                 m_InventoryChannel?.RaiseLootItem(m_LootableItem);
             }
         }
+
+     
     }
 }
