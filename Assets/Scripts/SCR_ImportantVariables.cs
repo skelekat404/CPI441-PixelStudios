@@ -86,7 +86,9 @@ public class SCR_ImportantVariables : MonoBehaviour
 
     public void setJetpack(bool jetpack)
     {
+        //Debug.Log("jetpack status: " + jetpack);
         hasJetpack = jetpack;
+        //Debug.Log("jetpack purchased. jetpack status is now: " + jetpack);
     }
     public bool getJetpack()
     {

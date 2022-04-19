@@ -21,6 +21,9 @@ public class shop_manager : MonoBehaviour
     //TODO
     //add inventory channel for shopkeeper inventory, to hold sold items
 
+    // *** Player Object Instance ***
+    //put this in shop manager
+    //
 
     void Start()
     {
@@ -70,13 +73,48 @@ public class shop_manager : MonoBehaviour
 
     public void purchase_item(int button_num)
     {
+        //find player instance
+        GameObject playerInstance = FindPlayerInstance();
+        
+
         if (money >= shop_item_s_objects[button_num].base_price) //if you can afford the item
         {
             money = money - shop_item_s_objects[button_num].base_price; //remove that item's cost from your wallet
             money_ui.text = "Total Money: " + money.ToString();         //update wallet total
             m_InventoryChannel?.RaiseLootItem(shop_item_s_objects[button_num].m_LootableItem);          //add the purchased item to your inventory
+
+
+            switch(button_num)
+            {
+                case 0:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setPlayerHealth(1); break;
+                case 1:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setJetpack(true); break;
+                case 2:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setLavaWalk(true); break;
+                case 3:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setRocketBoots(true); break;
+                case 4:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setScuba(true); break;
+                case 5:
+                    playerInstance.GetComponent<SCR_ImportantVariables>().setWarpDrive(true); break;
+                default:
+                break;
+            }
+            /*if(button_num == 1)
+            {
+                playerInstance.GetComponent<SCR_ImportantVariables>().setJetpack(true);
+            }*/
            
             check_purchasable();                                        //then check if you can afford things
         }
+    }
+
+    public GameObject FindPlayerInstance()
+    {
+        GameObject player;
+        player = GameObject.FindGameObjectWithTag("Player");
+       // SCR_ImportantVariables playerVariables = player.GetComponent<SCR_ImportantVariables>();
+        return player;
     }
 }
