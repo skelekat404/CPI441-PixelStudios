@@ -40,12 +40,12 @@ public class Sc_Ship_Move : NetworkBehaviour
     {
         //transform.position = new Vector3(0, -1000, 0);//player start position
 
-        sprintSpeed = 2f;
+        sprintSpeed = 25 * Time.deltaTime;
         sprintLength = 0.5f;
         sprintCoolDown = 4f;
-        active_speed = 0.009f;
-        active_speed_high = 0.04f;
-        active_speed_low = 0.009f;
+        active_speed_high = 25 * Time.deltaTime;
+        active_speed_low = 15 * Time.deltaTime;
+        active_speed = 15 * Time.deltaTime;
         passive_speed = 0.001f;
         degrees = 400;
         onPlanet = false;
@@ -81,19 +81,19 @@ public class Sc_Ship_Move : NetworkBehaviour
                 
                 if(GetComponentInParent<SCR_ImportantVariables>().hasRocketBoots)
                 {
-                    //active_speed_high = 0.018f;
-                    //active_speed_low = 0.010f;
-
-                    active_speed_high = 0.04f;
-                    active_speed_low = 0.009f;
+                    active_speed = 0.1f;
+                    active_speed_high = 0.1f;
+                    active_speed_low = 0.1f;
+                    xVelocity = 5 * Time.deltaTime;
+                    yVelocity = 5 * Time.deltaTime;
                 }
                 else
                 {
-                    //active_speed_high = 0.009f;
-                    //active_speed_low = 0.005f;
-
-                    active_speed_high = 0.04f;
-                    active_speed_low = 0.009f;
+                    active_speed = 0.1f;
+                    active_speed_high = 0.1f;
+                    active_speed_low = 0.1f;
+                    xVelocity = 3 * Time.deltaTime;
+                    yVelocity = 3 * Time.deltaTime;
                 }
                 
                 passive_speed = 0f;
@@ -104,24 +104,20 @@ public class Sc_Ship_Move : NetworkBehaviour
                 //gameObject.transform.parent.localScale = Vector3.one * 2;
 
                 animator.SetBool("on_planet", false);
-                sprintSpeed = 8f;
+                sprintSpeed = 20f * Time.deltaTime;
                 sprintLength = 0.5f;
                 sprintCoolDown = 5f;
                 if (GetComponentInParent<SCR_ImportantVariables>().hasWarpDrive)
                 {
-                    //active_speed_high = 0.040f;
-                    //active_speed_low = 0.024f;
-
-                    active_speed_high = 0.24f;
-                    active_speed_low = 0.054f;
+                    active_speed_high = 35 * Time.deltaTime;
+                    active_speed_low = 25 * Time.deltaTime;
+                    active_speed = 25 * Time.deltaTime;
                 }
                 else
                 {
-                    //active_speed_high = 0.012f;
-                    //active_speed_low = 0.012f;
-
-                    active_speed_high = 0.24f;
-                    active_speed_low = 0.054f;
+                    active_speed_high = 25 * Time.deltaTime;
+                    active_speed_low = 15 * Time.deltaTime;
+                    active_speed = 15 * Time.deltaTime;
                 }
                 passive_speed = 0.001f;//0.12f
             }
@@ -256,8 +252,8 @@ public class Sc_Ship_Move : NetworkBehaviour
                     {
                         //Update this variable for faster/slower accelerate speed
                         animator.SetBool("Accelerate", true);
-                        active_speed = active_speed_high;
-                        gameObject.transform.position += gameObject.transform.right * active_speed;
+                        //active_speed = active_speed_high;
+                        gameObject.transform.position += gameObject.transform.right * active_speed_high;
                         curr_passive_speed = passive_speed;
 
                         sprintCounter = sprintLength;
@@ -275,7 +271,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                         //print("boolean reset");
                         //Reset speed back to default
                         animator.SetBool("Accelerate", false);
-                        active_speed = active_speed_low;
+                        //active_speed = active_speed_low;
                         sprintCoolCounter = sprintCoolDown;
                     }
                 }
