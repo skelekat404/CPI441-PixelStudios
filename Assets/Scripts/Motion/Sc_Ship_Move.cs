@@ -104,7 +104,7 @@ public class Sc_Ship_Move : NetworkBehaviour
                 //gameObject.transform.parent.localScale = Vector3.one * 2;
 
                 animator.SetBool("on_planet", false);
-                sprintSpeed = 2f;
+                sprintSpeed = 8f;
                 sprintLength = 0.5f;
                 sprintCoolDown = 5f;
                 if (GetComponentInParent<SCR_ImportantVariables>().hasWarpDrive)
@@ -112,16 +112,16 @@ public class Sc_Ship_Move : NetworkBehaviour
                     //active_speed_high = 0.040f;
                     //active_speed_low = 0.024f;
 
-                    active_speed_high = 0.04f;
-                    active_speed_low = 0.009f;
+                    active_speed_high = 0.24f;
+                    active_speed_low = 0.054f;
                 }
                 else
                 {
                     //active_speed_high = 0.012f;
                     //active_speed_low = 0.012f;
 
-                    active_speed_high = 0.04f;
-                    active_speed_low = 0.009f;
+                    active_speed_high = 0.24f;
+                    active_speed_low = 0.054f;
                 }
                 passive_speed = 0.001f;//0.12f
             }

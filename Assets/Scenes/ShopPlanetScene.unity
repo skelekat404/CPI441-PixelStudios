@@ -6596,7 +6596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1729369420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6658,7 +6658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac17e2544fb5959409bf57a108167640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextField: {fileID: 0}
+  TextField: {fileID: 2135453906}
   QuantityField: {fileID: 2135453906}
   ImageField: {fileID: 515886581}
   EmptySlotSprite: {fileID: 0}
@@ -7380,7 +7380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: 5.99646}
+  m_AnchoredPosition: {x: -8, y: 5.996521}
   m_SizeDelta: {x: 94, y: 120.93286}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1941363848

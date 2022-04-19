@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet_Earth.unity
     guid: f5daf701dc742c046a34695671257a46
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShopTestplanet.unity
     guid: 3a594606c6b99eb41822a299f5e3cf35
   - enabled: 1
