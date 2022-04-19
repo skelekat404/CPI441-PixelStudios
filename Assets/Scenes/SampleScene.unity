@@ -205,7 +205,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44552781
 GameObject:
@@ -289,7 +289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &127461724
 PrefabInstance:
@@ -430,7 +430,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 854081388}
-  - {fileID: 421961798}
   - {fileID: 1513884833}
   m_Father: {fileID: 1165994744}
   m_RootOrder: 2
@@ -802,7 +801,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &589107468
 PrefabInstance:
@@ -929,7 +928,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &672885399
 SpriteRenderer:
@@ -1114,7 +1113,7 @@ Transform:
   m_Children:
   - {fileID: 1352803954}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &729969307
 MonoBehaviour:
@@ -1435,7 +1434,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &909786750 stripped
 GameObject:
@@ -1666,7 +1665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1044086737
 MonoBehaviour:
@@ -2132,7 +2131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1165018305
 SpriteRenderer:
@@ -2316,7 +2315,7 @@ RectTransform:
   m_Children:
   - {fileID: 2020237812}
   m_Father: {fileID: 143359131}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2439,7 +2438,7 @@ Transform:
   m_Children:
   - {fileID: 195981747}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1532378697
 CircleCollider2D:
@@ -2635,7 +2634,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608500714
 GameObject:
@@ -2763,7 +2762,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1620292899
 GameObject:
@@ -2856,7 +2855,7 @@ Transform:
   m_Children:
   - {fileID: 1770297224}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1620292902
 MonoBehaviour:
@@ -3179,7 +3178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1823158050
 MonoBehaviour:
@@ -3222,7 +3221,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020237811
 GameObject:
@@ -3396,8 +3395,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 421961798}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -3573,7 +3572,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8327720951427644616
 PrefabInstance:
@@ -3640,7 +3639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8327720950723051211, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8327720950723051211, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3734,10 +3733,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8327720950938927521, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'This is the shop where you can sell resources and buy powerups to make
+        collection on planets easier.
+
+
+        Danger Level: NONE'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720950989092294, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720951263783533, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Vamia is a planet that contains resources such as purple crystals and
+        purple essence. You will also encounter angry goober aliens on this planet
+        that will attempt to ruin your day.
+
+
+        Danger Level: HIGH'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720951268087154, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_Name
       value: Volume_PopUp
@@ -3770,6 +3786,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720951758457322, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Marus is a planet that contains resources such as coal and lava crystals.
+        You will also encounter enemy fire crows on the planet.
+
+
+        Danger
+        Level: MEDIUM'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720951780158969, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_text
       value: Volume
@@ -3902,5 +3927,13 @@ PrefabInstance:
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720952201343502, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Earth is a planet that contains resources such as rocks, wood and wool
+        from passive sheep.
+
+
+        Danger Level: NONE'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
