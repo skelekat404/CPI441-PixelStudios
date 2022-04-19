@@ -7,6 +7,7 @@ using MLAPI.Transports.UNET;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class Connection_Manager : MonoBehaviour
 {
     //buttons
@@ -14,6 +15,7 @@ public class Connection_Manager : MonoBehaviour
     public GameObject multiplayerMenuPanel;
     public GameObject minimapPanel;
     public GameObject playerRef;
+    public GameObject errorMes;
     //public GameObject in_field;
     public string ipAddress = "127.0.0.1";
     UNetTransport transport;
@@ -78,12 +80,37 @@ public class Connection_Manager : MonoBehaviour
         //Debug.Log("ip adress: " + ipAddress);
         transport.ConnectAddress = ipAddress;//ipAddress //"127.0.0.1"
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.Text.Encoding.ASCII.GetBytes("words123");
-        NetworkManager.Singleton.StartClient();
+        //bool boi = NetworkManager.Singleton.StartClient().Success;
+        //Debug.Log("SUCCESS" + NetworkManager.Singleton.StartClient().Success);
+        if(NetworkManager.Singleton.StartClient().Success)
+        {
+            //NetworkManager.Singleton.StartClient();
+            //update hud
+            pauseMenuPanel.SetActive(false);
+            multiplayerMenuPanel.SetActive(false);
+            minimapPanel.SetActive(true);
+            if (GameObject.Find("Camera"))
+                GameObject.Find("Camera").SetActive(false);
+            //Debug.Log("Hello");
+            //Debug.Log("There");
+        }
+        else
+        {
+            
+            GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+            cam.name = "Camera";
+            Instantiate(cam);
+            GameObject.Find("Camera(Clone)").GetComponent<Camera>().enabled = true;
+            GameObject.Find("Camera(Clone)").GetComponent<AudioListener>().enabled = true;
+            //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = true;//SetActive(true);
+            NetworkManager.Singleton.StopClient();
+            //GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = true;//SetActive(true);
+            //Debug.Log(GameObject.FindGameObjectWithTag("MainCamera").name);
+            //GameObject.Find("invalid_address_message").GetComponent<TextMesh>();
+            errorMes.SetActive(true);
+        }
 
-        //update hud
-        pauseMenuPanel.SetActive(false);
-        multiplayerMenuPanel.SetActive(false);
-        minimapPanel.SetActive(true);
+
     }
 
     public void IPAddress_Changed(string newAddress)
