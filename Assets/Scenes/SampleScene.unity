@@ -3584,7 +3584,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8327720951427644616
 PrefabInstance:
@@ -3757,10 +3757,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8327720950938927521, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'This is the shop where you can sell resources and buy powerups to make
+        collection on planets easier.
+
+
+        Danger Level: NONE'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720950989092294, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720951263783533, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Vamia is a planet that contains resources such as purple crystals and
+        purple essence. You will also encounter angry goober aliens on this planet
+        that will attempt to ruin your day.
+
+
+        Danger Level: HIGH'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720951268087154, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_Name
       value: Volume_PopUp
@@ -3793,6 +3810,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720951758457322, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Marus is a planet that contains resources such as coal and lava crystals.
+        You will also encounter enemy fire crows on the planet.
+
+
+        Danger
+        Level: MEDIUM'
+      objectReference: {fileID: 0}
     - target: {fileID: 8327720951780158969, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
       propertyPath: m_text
       value: Volume
@@ -3925,5 +3951,13 @@ PrefabInstance:
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2135904937}
+    - target: {fileID: 8327720952201343502, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
+      propertyPath: m_text
+      value: 'Earth is a planet that contains resources such as rocks, wood and wool
+        from passive sheep.
+
+
+        Danger Level: NONE'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4091888ed779d1d44b45b90e09ca2a1f, type: 3}
