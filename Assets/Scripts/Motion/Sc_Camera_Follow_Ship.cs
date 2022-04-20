@@ -36,6 +36,10 @@ public class Sc_Camera_Follow_Ship : MonoBehaviour
                     GetComponent<Camera>().orthographicSize = 20;
                 }
             }
+            else
+            {
+                gameObject.transform.position = new Vector3(shipRef.transform.position.x, shipRef.transform.position.y, camera_position_z);
+            }
             //else
             //{
             //    if(shipRef.GetComponent<Sc_Ship_Move>().onPlanet)
