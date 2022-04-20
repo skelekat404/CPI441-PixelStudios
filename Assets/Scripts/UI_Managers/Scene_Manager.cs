@@ -354,8 +354,8 @@ public class Scene_Manager : NetworkBehaviour
             if(multMenu != null)
                 multMenu.SetActive(false);
             //}
-            //if(GameObject.Find("Camera"))
-            //    GameObject.Find("Camera").SetActive(false);
+            if(GameObject.Find("Camera"))
+                GameObject.Find("Camera").SetActive(false);
             
             //if (!miniMenu.activeInHierarchy)
             //{
