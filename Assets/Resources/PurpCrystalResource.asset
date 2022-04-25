@@ -10,15 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: JetbackItem
+  m_Name: PurpCrystalResource
   m_EditorClassIdentifier: 
   m_DataComponents:
-    m_DataComponentsList: []
-  m_Uid: 0
-  Name: Jetpack
-  Sprite: {fileID: 21300000, guid: 36feafa64d7e3c246ad40e79dd34f91f, type: 3}
+    m_DataComponentsList:
+    - rid: 0
+  m_Uid: 5
+  Name: P. Crystal
+  Sprite: {fileID: 21300000, guid: 3b83f515d9d2e6642adc580b019c68b4, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
-  SaleValue: 0
+  SaleValue: 3
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 0
+      type: {class: StatModifierDataComponent, ns: , asm: StatsSystem}
+      data:
+        m_Modifier:
+          m_ImpactedStat: {fileID: 11400000, guid: a7549c5f068089b4382efc6207fe8426, type: 2}
+          m_ModifierValue: 50

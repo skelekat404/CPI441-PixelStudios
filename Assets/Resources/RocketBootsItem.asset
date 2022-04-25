@@ -10,22 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: LavaCrystalResource
+  m_Name: RocketBootsItem
   m_EditorClassIdentifier: 
   m_DataComponents:
-    m_DataComponentsList:
-    - rid: 0
-  m_Uid: 0
-  Name: L.Crystal
-  Sprite: {fileID: 21300000, guid: 08d7d2cc93fdf58499eacfdf5543948f, type: 3}
+    m_DataComponentsList: []
+  m_Uid: 7
+  Name: Rocket Bts.
+  Sprite: {fileID: 21300000, guid: 16fd4864d5355f64589795d894372d24, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
-  SaleValue: 4
+  SaleValue: 0
   references:
     version: 2
-    RefIds:
-    - rid: 0
-      type: {class: StatModifierDataComponent, ns: , asm: StatsSystem}
-      data:
-        m_Modifier:
-          m_ImpactedStat: {fileID: 11400000, guid: a7549c5f068089b4382efc6207fe8426, type: 2}
-          m_ModifierValue: 50
+    RefIds: []

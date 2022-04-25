@@ -11,7 +11,7 @@ public class CursorDisplayHandler : MonoBehaviour
     {
         GameObject inventoryInstance;
         inventoryInstance = GameObject.Find("InventoryFull");
-        Debug.Log("inv instance is: " + inventoryInstance);
+        //Debug.Log("inv instance is: " + inventoryInstance);
         return inventoryInstance;
     }
 

@@ -25,9 +25,9 @@ public class InventorySaveLoad : MonoBehaviour
     {
         string jsonData = m_InventoryHolder.Inventory.SerializeInventoryAsJSON();
         savedJsonData = jsonData;
-        Debug.Log(savedJsonData);
+        //Debug.Log(savedJsonData);
         Debug.Log("data serialized");
-        string fullPath = Application.dataPath + saveName;
+        string fullPath = Application.dataPath + "/" + saveName;
         Debug.Log("file name assigned");
         File.WriteAllText(fullPath, jsonData);
         Debug.Log(m_InventoryHolder + " data serialized to file: " + fullPath);
@@ -35,8 +35,9 @@ public class InventorySaveLoad : MonoBehaviour
 
     public void OnInventoryImport()
     {
-        string fullPath = Application.dataPath + saveName;
+        string fullPath = Application.dataPath + "/" + saveName;
         Debug.Log("we're in the import method. file path is: " + fullPath);
+        Debug.Log("data path is" +Application.dataPath);
         //if file exists
         if(File.Exists(fullPath))
         {
@@ -51,10 +52,11 @@ public class InventorySaveLoad : MonoBehaviour
             {
                 if(item.itemName != null && item.itemName != "")
                 {
-                    if(File.Exists($"{Application.dataPath}/Resources/ScriptableObjects/{item.itemName}.asset"))
+                    Debug.Log("item name is: " +item.itemName);
+                    if(File.Exists($"{Application.dataPath}/Resources/{item.itemName}.asset"))
                     {
-                        
-                        InventoryItem invItem = Resources.Load<InventoryItem>("ScriptableObjects/" + item.itemName);
+                        InventoryItem invItem = Resources.Load<InventoryItem>(/*"ScriptableObjects/" + */item.itemName);
+                        Debug.Log("invitem is: " + invItem);
                         inventoryChannel.OnInventoryItemLoot(invItem, item.quantity);
                         Debug.Log(item.quantity + " of item: " + invItem + " imported.");
                     }
@@ -64,7 +66,7 @@ public class InventorySaveLoad : MonoBehaviour
                     }
                 }
             }
-            Debug.Log("successfully imported " + fullPath);
+            //Debug.Log("successfully imported " + fullPath);
         }
         else
         {

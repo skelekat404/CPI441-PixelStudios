@@ -124,7 +124,7 @@ public class shop_manager : MonoBehaviour
     {
         GameObject inventoryInstance;
         inventoryInstance = GameObject.Find("PlayerInventoryCursorSlot");
-        Debug.Log("inv instance is: " + inventoryInstance);
+       // Debug.Log("inv instance is: " + inventoryInstance);
         return inventoryInstance;
     }
 

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: LavaWalkItem
+  m_Name: WarpDriveItem
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList: []
-  m_Uid: 0
-  Name: Lava Walk
-  Sprite: {fileID: 21300000, guid: dc134fc4565fe084e81b5bfbdfb282af, type: 3}
+  m_Uid: 10
+  Name: Warp Drive
+  Sprite: {fileID: 21300000, guid: 40c498d119203b24f871fd46978c7b48, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
   SaleValue: 0
   references:

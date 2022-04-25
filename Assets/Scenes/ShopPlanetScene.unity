@@ -954,7 +954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 25.999939, y: 0}
+  m_AnchoredPosition: {x: 36, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232802901 stripped
@@ -4983,6 +4983,7 @@ MonoBehaviour:
   - {fileID: 1139088391}
   - {fileID: 925547634}
   - {fileID: 236838780}
+  playerCursorSlot: {fileID: 0}
   m_InventoryChannel: {fileID: 11400000, guid: c1d3027ae838bdb47be972d5641f59fa, type: 2}
 --- !u!114 &1135098718
 MonoBehaviour:

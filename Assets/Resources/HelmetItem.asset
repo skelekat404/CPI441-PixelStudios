@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1bdca8a401476429810a908c797638, type: 3}
-  m_Name: KnifeItem
+  m_Name: HelmetItem
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
-  Name: Knife
-  Sprite: {fileID: 21300000, guid: 8cce3e31efb4846b9984c5212b942885, type: 3}
-  ItemType: {fileID: 11400000, guid: 9558cb081063cad47b721b14f5c1786c, type: 2}
+  m_Uid: 14
+  Name: Helmet
+  Sprite: {fileID: 21300000, guid: bb184a8803dbb465295c178b713e2351, type: 3}
+  ItemType: {fileID: 11400000, guid: 7659034690e8b104ca9672dbdbdc5329, type: 2}
+  SaleValue: 2
   references:
     version: 2
     RefIds:
@@ -25,5 +27,5 @@ MonoBehaviour:
       type: {class: StatModifierDataComponent, ns: , asm: StatsSystem}
       data:
         m_Modifier:
-          m_ImpactedStat: {fileID: 11400000, guid: 3e7ce9d050cab624580a09b7ee761125, type: 2}
-          m_ModifierValue: 100
+          m_ImpactedStat: {fileID: 11400000, guid: a7549c5f068089b4382efc6207fe8426, type: 2}
+          m_ModifierValue: 50
