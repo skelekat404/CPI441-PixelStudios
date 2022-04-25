@@ -12,7 +12,7 @@ public class InventoryUIDisplayController : MonoBehaviour
     private void Awake()
     {
         m_InventoryUIController = GetComponent<InventoryUIController>();
-        Debug.Log("ui controller for buy ui is " + m_InventoryUIController);
+       // Debug.Log("ui controller for buy ui is " + m_InventoryUIController);
         InventoryUIChannel.OnInventoryToggle += OnInventoryToggle;
         gameObject.SetActive(false);
     }

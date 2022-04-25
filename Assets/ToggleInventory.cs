@@ -24,8 +24,13 @@ public class ToggleInventory : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            inventoryToggle = !inventoryToggle;
-            InventoryUIChannel.RaiseToggle(inventoryHolder);
+            //if((inventoryToggle = false) && (inventoryHolder.Inventory == null))
+               // Debug.Log("inventory is null, importing from file then toggling . . .");
+              //  InventoryChannel.RaiseInventoryImport();
+              //  inventoryToggle = !inventoryToggle;
+                InventoryUIChannel.RaiseToggle(inventoryHolder);
+
+            
         }
         if(Input.GetKeyDown(KeyCode.B)) //Press B to generate beans -- meant as a test for "button press to get items"
         {

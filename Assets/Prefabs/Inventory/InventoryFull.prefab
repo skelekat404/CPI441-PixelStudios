@@ -714,6 +714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryCursorSlot
       objectReference: {fileID: 0}
+    - target: {fileID: 8565591403812589968, guid: 9c6975a4dbc700244a2438745a05b9c6, type: 3}
+      propertyPath: m_TagString
+      value: PlayerCursorSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 8565591403812589969, guid: 9c6975a4dbc700244a2438745a05b9c6, type: 3}
       propertyPath: m_Pivot.x
       value: -0.25

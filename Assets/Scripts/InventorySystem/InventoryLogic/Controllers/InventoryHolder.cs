@@ -15,6 +15,7 @@ public class InventoryHolder : MonoBehaviour
     private void Awake()
     {
         InventoryChannel.OnInventoryItemLoot += OnInventoryItemLoot;
+        InventoryChannel.OnInventoryClear += OnInventoryClear;
     }
     private void Start()
     {
@@ -27,6 +28,7 @@ public class InventoryHolder : MonoBehaviour
     private void OnDestroy()
     {
         InventoryChannel.OnInventoryItemLoot -= OnInventoryItemLoot;
+        InventoryChannel.OnInventoryClear -= OnInventoryClear;
     }
 
     private void OnInventoryItemLoot(InventorySystem.InventoryItem item, uint quantity)
@@ -47,6 +49,7 @@ public class InventoryHolder : MonoBehaviour
 
     private void OnInventoryClear()
     {
+        Debug.Log("inventory of + " + this + "cleared");
         m_Inventory.Clear();
     }
 }

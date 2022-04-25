@@ -26,7 +26,7 @@ public class ShopUIDisplayController : MonoBehaviour
 
     private void OnToggleShopUI(InventoryHolder playerInventoryHolder)
     {
-        Debug.Log(playerInventoryHolder.Inventory);
+        //Debug.Log(playerInventoryHolder.Inventory);
         if (playerInventoryHolder.Inventory != null)
         {
             Debug.Log("the inventory is not null. setting active and populating UI for both.");

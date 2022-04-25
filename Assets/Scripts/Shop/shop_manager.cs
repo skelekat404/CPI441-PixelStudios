@@ -13,6 +13,7 @@ public class shop_manager : MonoBehaviour
     public GameObject[] shop_panels_GO;
     public shop_template[] shop_panels;
     public Button[] purchase_buttons;
+    public GameObject playerCursorSlot;
 
     // *** Identifies which inventory purchased items go to ***
     [SerializeField]
@@ -114,7 +115,39 @@ public class shop_manager : MonoBehaviour
     {
         GameObject player;
         player = GameObject.FindGameObjectWithTag("Player");
+        //player.GetComponentInChildren();
        // SCR_ImportantVariables playerVariables = player.GetComponent<SCR_ImportantVariables>();
         return player;
+    }
+    
+    public GameObject FindCursorSlotInstance()
+    {
+        GameObject inventoryInstance;
+        inventoryInstance = GameObject.Find("PlayerInventoryCursorSlot");
+        Debug.Log("inv instance is: " + inventoryInstance);
+        return inventoryInstance;
+    }
+
+    public void EnableCursorSlot()
+    {
+        //get instance of inventory
+        GameObject cursorSlotInstance  = FindCursorSlotInstance();
+        //set components of inventory instance to inactive
+        cursorSlotInstance.GetComponent<InventorySlotUIController>().enabled = true;
+        cursorSlotInstance.GetComponent<FollowMouse>().enabled = true;
+        cursorSlotInstance.GetComponent<InventoryCursorController>().enabled = true;
+    }
+
+    public void DisableCursorSlot()
+    {
+        //get instance of inventory
+        GameObject inventoryInstance  = FindCursorSlotInstance();
+        //set components of inventory instance to inactive
+        InventorySlotUIController slotUIController = inventoryInstance.GetComponent<InventorySlotUIController>();
+        slotUIController.enabled = false;
+        FollowMouse followMouse = inventoryInstance.GetComponent<FollowMouse>();
+        slotUIController.enabled = false;
+        InventoryCursorController cursorController = inventoryInstance.GetComponent<InventoryCursorController>();
+        slotUIController.enabled = false;
     }
 }
