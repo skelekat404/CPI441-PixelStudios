@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList: []
-  m_Uid: 13
+  m_Uid: 4
   Name: Jetpack
   Sprite: {fileID: 21300000, guid: 36feafa64d7e3c246ad40e79dd34f91f, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}

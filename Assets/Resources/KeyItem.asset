@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList: []
-  m_Uid: 15
+  m_Uid: 5
   Name: Key
   Sprite: {fileID: 21300000, guid: 7add24f0b1bda46c78da128f6a04c46e, type: 3}
   ItemType: {fileID: 0}

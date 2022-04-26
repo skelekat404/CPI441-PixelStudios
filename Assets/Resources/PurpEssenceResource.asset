@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
-  m_Uid: 6
+  m_Uid: 10
   Name: P. Essence
   Sprite: {fileID: 21300000, guid: 8a14f58b4b600a24ab3fcf9cb3bc82fb, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}

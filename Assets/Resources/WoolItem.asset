@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList: []
-  m_Uid: 11
+  m_Uid: 17
   Name: Wool
   Sprite: {fileID: 21300000, guid: a88d5300df9790349866dcad93d3a1ea, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}

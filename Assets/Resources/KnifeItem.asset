@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DataComponents:
     m_DataComponentsList:
     - rid: 0
-  m_Uid: 16
+  m_Uid: 6
   Name: Knife
   Sprite: {fileID: 21300000, guid: 8cce3e31efb4846b9984c5212b942885, type: 3}
   ItemType: {fileID: 11400000, guid: 9558cb081063cad47b721b14f5c1786c, type: 2}

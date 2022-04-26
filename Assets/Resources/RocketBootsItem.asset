@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DataComponents:
     m_DataComponentsList: []
-  m_Uid: 7
+  m_Uid: 11
   Name: Rocket Bts.
   Sprite: {fileID: 21300000, guid: 16fd4864d5355f64589795d894372d24, type: 3}
   ItemType: {fileID: 11400000, guid: 58bd0c9d163ec6747be0e3d4655d2c30, type: 2}
