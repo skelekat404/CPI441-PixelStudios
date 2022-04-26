@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace InventorySystem
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Inventory/InventoryItem")]
+    [CreateAssetMenu(fileName = "[ITEM]",menuName = "ScriptableObjects/Inventory/InventoryItem")]
     public class InventoryItem : CompositeScriptableObject
     {
         public uint m_Uid;
