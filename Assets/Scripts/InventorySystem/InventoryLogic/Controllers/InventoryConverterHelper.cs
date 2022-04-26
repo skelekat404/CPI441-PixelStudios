@@ -51,7 +51,7 @@ public static class InventoryConverterHelper
                 Debug.Log("in export switch case, holder is: " + inventoryHolder);
                 return ExportInventoryToJSON(inventoryHolder);
         }
-        return "";
+        return "broke";
     }
 
     private static string ExportInventoryToJSON(InventoryHolder inventoryHolder)

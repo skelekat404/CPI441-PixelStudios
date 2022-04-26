@@ -18,6 +18,7 @@ public class InventorySaveLoad: MonoBehaviour
         inventoryChannel.OnInventoryImport += OnInventoryImport;
     }
 
+
     public void OnInventoryExport()
     {
         string fullPath = Application.dataPath + "/" + saveName;
@@ -32,6 +33,18 @@ public class InventorySaveLoad: MonoBehaviour
         {
             string jsonData = File.ReadAllText(fullPath);
             InventoryConverterHelper.ImportInventory(jsonData, inventoryChannel);
+        }
+    }
+
+    public void OnSpecificInventoryImport(string jsonData)
+    {
+        if (jsonData != "")
+        {
+            InventoryConverterHelper.ImportInventory(jsonData, inventoryChannel);
+        }
+        else
+        {
+            Debug.Log("new user, empty inventory");
         }
     }
 
