@@ -81,6 +81,7 @@ public class shop_manager : MonoBehaviour
         if (money >= shop_item_s_objects[button_num].base_price) //if you can afford the item
         {
             money = money - shop_item_s_objects[button_num].base_price; //remove that item's cost from your wallet
+            UpdateFirebaseMoneyTotal(money);
             money_ui.text = "Total Money: " + money.ToString();         //update wallet total
             m_InventoryChannel?.RaiseLootItem(shop_item_s_objects[button_num].m_LootableItem);          //add the purchased item to your inventory
 
@@ -149,5 +150,12 @@ public class shop_manager : MonoBehaviour
         slotUIController.enabled = false;
         InventoryCursorController cursorController = inventoryInstance.GetComponent<InventoryCursorController>();
         slotUIController.enabled = false;
+    }
+
+    public void UpdateFirebaseMoneyTotal(int newMoney)
+    {
+        Debug.Log("cloud money = " + FirebaseManager.Singleton.userMoney);
+        FirebaseManager.Singleton.userMoney = newMoney;
+        FirebaseManager.Singleton.SaveMoney();
     }
 }

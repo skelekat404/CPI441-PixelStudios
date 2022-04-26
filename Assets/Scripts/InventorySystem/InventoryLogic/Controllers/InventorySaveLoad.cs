@@ -13,6 +13,7 @@ public class InventorySaveLoad: MonoBehaviour
     private void Awake()
     {
         m_InventoryHolder = GetComponent<InventoryHolder>();
+        Debug.Log("holder is: " + m_InventoryHolder);
         inventoryChannel.OnInventoryExport += OnInventoryExport;
         inventoryChannel.OnInventoryImport += OnInventoryImport;
     }
@@ -33,4 +34,12 @@ public class InventorySaveLoad: MonoBehaviour
             InventoryConverterHelper.ImportInventory(jsonData, inventoryChannel);
         }
     }
+
+   /* public GameObject FindFirebaseManager()
+    {
+        GameObject firebaseManager;
+        firebaseManager = GameObject.Find("FirebaseManager");
+       // Debug.Log("inv instance is: " + inventoryInstance);
+        return firebaseManager;
+    }*/
 }

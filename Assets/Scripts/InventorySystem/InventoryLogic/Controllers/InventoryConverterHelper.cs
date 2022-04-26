@@ -43,12 +43,13 @@ public static class InventoryConverterHelper
         }
     }
 
-    public static string ExportInventory(InventoryHolder inventoryChannel, ConversionType conversionType = ConversionType.JSON)
+    public static string ExportInventory(InventoryHolder inventoryHolder, ConversionType conversionType = ConversionType.JSON)
     {
         switch (conversionType)
         {
             case ConversionType.JSON:
-                return ExportInventoryToJSON(inventoryChannel);
+                Debug.Log("in export switch case, holder is: " + inventoryHolder);
+                return ExportInventoryToJSON(inventoryHolder);
         }
         return "";
     }
